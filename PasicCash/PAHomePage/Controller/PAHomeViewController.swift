@@ -9,11 +9,26 @@ import UIKit
 
 class PAHomeViewController: PABaseViewController {
 
+    
+    lazy var btn: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
+        btn.setTitle("点我", for: .normal)
+        btn.backgroundColor = .red
+        btn.layer.cornerRadius = 15.pix()
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         view.backgroundColor = .random()
+        view.addSubview(btn)
+        btn.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(CGSize(width: 100, height: 100))
+        }
     }
     
 
@@ -27,4 +42,13 @@ class PAHomeViewController: PABaseViewController {
     }
     */
 
+}
+
+extension PAHomeViewController {
+    
+    @objc func btnClick() {
+        let abc = PAUserViewController()
+        self.navigationController?.pushViewController(abc, animated: true)
+    }
+    
 }

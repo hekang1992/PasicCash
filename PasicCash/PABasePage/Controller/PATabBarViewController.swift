@@ -85,4 +85,20 @@ extension PATabBarViewController {
         customTabBar.addTabBarButtonNorImageUrl(imageName, selImageUrl: selectedImageName, title: title)
     }
     
+    func showTabBar() {
+        UIView.animate(withDuration: 0.25) {
+            var frame = self.customTabBar.frame
+            frame.origin.y = self.view.bounds.size.height - 115.pix() - 26.pix()
+            self.customTabBar.frame = frame
+        }
+    }
+    
+    func hideTabBar() {
+        UIView.animate(withDuration: 0.25) {
+            var frame = self.customTabBar.frame
+            frame.origin.y = self.view.bounds.size.height
+            self.customTabBar.frame = frame
+        }
+    }
+    
 }
