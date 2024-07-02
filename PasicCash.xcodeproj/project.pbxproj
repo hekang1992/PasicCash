@@ -14,6 +14,13 @@
 		182C7FF32C33F24100CE3716 /* PABaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C7FF22C33F24100CE3716 /* PABaseViewController.swift */; };
 		182C7FF52C33F25500CE3716 /* PALaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C7FF42C33F25500CE3716 /* PALaunchViewController.swift */; };
 		182C7FF72C33F27600CE3716 /* PANavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C7FF62C33F27600CE3716 /* PANavigationViewController.swift */; };
+		182C800A2C33FD9900CE3716 /* PATabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80092C33FD9900CE3716 /* PATabBarButton.swift */; };
+		182C800E2C33FEA800CE3716 /* PAConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C800D2C33FEA800CE3716 /* PAConfig.swift */; };
+		182C80102C34027F00CE3716 /* LilitaRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 182C800F2C34027F00CE3716 /* LilitaRegular.ttf */; };
+		182C80122C34045600CE3716 /* PATabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80112C34045600CE3716 /* PATabBar.swift */; };
+		182C80142C34066300CE3716 /* PAUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80132C34066300CE3716 /* PAUserViewController.swift */; };
+		182C80162C34067300CE3716 /* PAOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80152C34067300CE3716 /* PAOrderViewController.swift */; };
+		182C80182C34068400CE3716 /* PAHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80172C34068400CE3716 /* PAHomeViewController.swift */; };
 		FE032C0307388BCDF7A98BEC /* Pods_PasicCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +34,13 @@
 		182C7FF22C33F24100CE3716 /* PABaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PABaseViewController.swift; sourceTree = "<group>"; };
 		182C7FF42C33F25500CE3716 /* PALaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PALaunchViewController.swift; sourceTree = "<group>"; };
 		182C7FF62C33F27600CE3716 /* PANavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PANavigationViewController.swift; sourceTree = "<group>"; };
+		182C80092C33FD9900CE3716 /* PATabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PATabBarButton.swift; sourceTree = "<group>"; };
+		182C800D2C33FEA800CE3716 /* PAConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAConfig.swift; sourceTree = "<group>"; };
+		182C800F2C34027F00CE3716 /* LilitaRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LilitaRegular.ttf; sourceTree = "<group>"; };
+		182C80112C34045600CE3716 /* PATabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PATabBar.swift; sourceTree = "<group>"; };
+		182C80132C34066300CE3716 /* PAUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAUserViewController.swift; sourceTree = "<group>"; };
+		182C80152C34067300CE3716 /* PAOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOrderViewController.swift; sourceTree = "<group>"; };
+		182C80172C34068400CE3716 /* PAHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAHomeViewController.swift; sourceTree = "<group>"; };
 		3599269F8DA2C63D45CD9672 /* Pods-PasicCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.release.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.release.xcconfig"; sourceTree = "<group>"; };
 		DAC85EBC70A8689A703671B1 /* Pods-PasicCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.debug.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.debug.xcconfig"; sourceTree = "<group>"; };
 		DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasicCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				182C80052C33F36300CE3716 /* Model */,
+				182C80082C33FD2A00CE3716 /* TabBar */,
+				182C80062C33FAC600CE3716 /* Factory */,
+				182C80072C33FB6900CE3716 /* NetWork */,
 				182C80022C33F32900CE3716 /* Controller */,
 			);
 			path = PABasePage;
@@ -100,8 +117,8 @@
 		182C7FF92C33F28700CE3716 /* PAOrderPage */ = {
 			isa = PBXGroup;
 			children = (
-				182C80002C33F31F00CE3716 /* Controller */,
 				182C7FFF2C33F31F00CE3716 /* View */,
+				182C80002C33F31F00CE3716 /* Controller */,
 			);
 			path = PAOrderPage;
 			sourceTree = "<group>";
@@ -109,8 +126,8 @@
 		182C7FFA2C33F28A00CE3716 /* PAUserPage */ = {
 			isa = PBXGroup;
 			children = (
-				182C7FFE2C33F31700CE3716 /* Controller */,
 				182C7FFD2C33F31700CE3716 /* View */,
+				182C7FFE2C33F31700CE3716 /* Controller */,
 			);
 			path = PAUserPage;
 			sourceTree = "<group>";
@@ -118,6 +135,7 @@
 		182C7FFB2C33F2E800CE3716 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				182C80172C34068400CE3716 /* PAHomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -139,6 +157,7 @@
 		182C7FFE2C33F31700CE3716 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				182C80132C34066300CE3716 /* PAUserViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -153,6 +172,7 @@
 		182C80002C33F31F00CE3716 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				182C80152C34067300CE3716 /* PAOrderViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,13 +209,37 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		182C80062C33FAC600CE3716 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				182C800F2C34027F00CE3716 /* LilitaRegular.ttf */,
+				182C800D2C33FEA800CE3716 /* PAConfig.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		182C80072C33FB6900CE3716 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		182C80082C33FD2A00CE3716 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				182C80112C34045600CE3716 /* PATabBar.swift */,
+				182C80092C33FD9900CE3716 /* PATabBarButton.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		97F60EFAC3087F98DD4B79BC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				DAC85EBC70A8689A703671B1 /* Pods-PasicCash.debug.xcconfig */,
 				3599269F8DA2C63D45CD9672 /* Pods-PasicCash.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -267,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182C80102C34027F00CE3716 /* LilitaRegular.ttf in Resources */,
 				182C7FEE2C33F17300CE3716 /* Launch Screen.storyboard in Resources */,
 				182C7FE32C33EF8B00CE3716 /* Assets.xcassets in Resources */,
 			);
@@ -321,11 +366,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182C80162C34067300CE3716 /* PAOrderViewController.swift in Sources */,
+				182C800A2C33FD9900CE3716 /* PATabBarButton.swift in Sources */,
+				182C80142C34066300CE3716 /* PAUserViewController.swift in Sources */,
 				182C7FF72C33F27600CE3716 /* PANavigationViewController.swift in Sources */,
 				182C7FDA2C33EF8A00CE3716 /* AppDelegate.swift in Sources */,
+				182C800E2C33FEA800CE3716 /* PAConfig.swift in Sources */,
 				182C7FF32C33F24100CE3716 /* PABaseViewController.swift in Sources */,
 				182C7FF52C33F25500CE3716 /* PALaunchViewController.swift in Sources */,
+				182C80122C34045600CE3716 /* PATabBar.swift in Sources */,
 				182C7FF12C33F22E00CE3716 /* PATabBarViewController.swift in Sources */,
+				182C80182C34068400CE3716 /* PAHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +513,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2F6XZMZ52M;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PasicCash/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -498,6 +550,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2F6XZMZ52M;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PasicCash/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

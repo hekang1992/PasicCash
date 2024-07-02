@@ -8,22 +8,74 @@
 import UIKit
 
 class PATabBarViewController: UITabBarController {
+    
+    var customTabBar: PATabBar?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        addTabBar()
+        addControllers()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        for child in self.tabBar.subviews {
+            if let control = child as? UIControl {
+                control.removeFromSuperview()
+            }
+        }
     }
-    */
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.tabBar.isHidden = true
+        for child in self.tabBar.subviews {
+            let className = NSStringFromClass(type(of: child))
+            if className == "_UIBarBackground" || className == "UIBarBackground" {
+                child.isHidden = true
+            }
+            if let control = child as? UIControl {
+                control.removeFromSuperview()
+            }
+        }
+    }
+    
+}
 
+extension PATabBarViewController {
+    
+    func addTabBar(){
+        let customTabBar = PATabBar()
+        self.customTabBar = customTabBar
+        view.addSubview(customTabBar)
+        customTabBar.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(20.pix())
+            make.bottom.equalToSuperview()
+            make.height.equalTo(115.pix())
+        }
+    }
+    
+    func addControllers(){
+        let homeVc = PAHomeViewController()
+        let orderVc = PAOrderViewController()
+        let userVc = PAUserViewController()
+        self.setupChildViewController(childVc: homeVc, title: "Home", imageName: "home_nor", selectedImageName: "home_sel")
+        self.setupChildViewController(childVc: orderVc, title: "Orders", imageName: "order_nor", selectedImageName: "order_sel")
+        self.setupChildViewController(childVc: userVc, title: "Profile", imageName: "user_nor", selectedImageName: "user_sel")
+    }
+    
+    func setupChildViewController(childVc: UIViewController, title: String, imageName: String, selectedImageName: String) {
+        childVc.title = title
+        childVc.tabBarItem.image = UIImage(named: imageName)
+        if let selectedImage = UIImage(named: selectedImageName)?.withRenderingMode(.alwaysOriginal) {
+            childVc.tabBarItem.selectedImage = selectedImage
+        }
+        let nav = PANavigationViewController(rootViewController: childVc)
+        addChild(nav)
+        customTabBar?.addTabBarButtonNorImageUrl(imageName, selImageUrl: selectedImageName, title: title)
+    }
+    
 }
