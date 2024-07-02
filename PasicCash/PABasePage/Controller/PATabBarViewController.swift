@@ -9,7 +9,10 @@ import UIKit
 
 class PATabBarViewController: UITabBarController {
     
-    var customTabBar: PATabBar?
+    lazy var customTabBar: PATabBar = {
+        let customTabBar = PATabBar()
+        return customTabBar
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +50,13 @@ class PATabBarViewController: UITabBarController {
 extension PATabBarViewController {
     
     func addTabBar(){
-        let customTabBar = PATabBar()
-        self.customTabBar = customTabBar
         view.addSubview(customTabBar)
+        customTabBar.block = { [weak self] tabBar, from, to in
+            if from == to {
+                return
+            }
+            self?.selectedIndex = to
+        }
         customTabBar.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(20.pix())
@@ -75,7 +82,7 @@ extension PATabBarViewController {
         }
         let nav = PANavigationViewController(rootViewController: childVc)
         addChild(nav)
-        customTabBar?.addTabBarButtonNorImageUrl(imageName, selImageUrl: selectedImageName, title: title)
+        customTabBar.addTabBarButtonNorImageUrl(imageName, selImageUrl: selectedImageName, title: title)
     }
     
 }
