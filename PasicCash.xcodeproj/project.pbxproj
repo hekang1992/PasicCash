@@ -8,22 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		182C7FDA2C33EF8A00CE3716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C7FD92C33EF8A00CE3716 /* AppDelegate.swift */; };
-		182C7FDC2C33EF8A00CE3716 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C7FDB2C33EF8A00CE3716 /* SceneDelegate.swift */; };
-		182C7FDE2C33EF8A00CE3716 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C7FDD2C33EF8A00CE3716 /* ViewController.swift */; };
-		182C7FE12C33EF8A00CE3716 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 182C7FE02C33EF8A00CE3716 /* Base */; };
 		182C7FE32C33EF8B00CE3716 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182C7FE22C33EF8B00CE3716 /* Assets.xcassets */; };
-		182C7FE62C33EF8B00CE3716 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 182C7FE52C33EF8B00CE3716 /* Base */; };
+		182C7FEE2C33F17300CE3716 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C7FED2C33F17300CE3716 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		182C7FD62C33EF8A00CE3716 /* PasicCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasicCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182C7FD92C33EF8A00CE3716 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		182C7FDB2C33EF8A00CE3716 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		182C7FDD2C33EF8A00CE3716 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		182C7FE02C33EF8A00CE3716 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		182C7FE22C33EF8B00CE3716 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		182C7FE52C33EF8B00CE3716 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		182C7FE72C33EF8B00CE3716 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		182C7FED2C33F17300CE3716 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +50,10 @@
 		182C7FD82C33EF8A00CE3716 /* PasicCash */ = {
 			isa = PBXGroup;
 			children = (
-				182C7FD92C33EF8A00CE3716 /* AppDelegate.swift */,
-				182C7FDB2C33EF8A00CE3716 /* SceneDelegate.swift */,
-				182C7FDD2C33EF8A00CE3716 /* ViewController.swift */,
-				182C7FDF2C33EF8A00CE3716 /* Main.storyboard */,
-				182C7FE22C33EF8B00CE3716 /* Assets.xcassets */,
-				182C7FE42C33EF8B00CE3716 /* LaunchScreen.storyboard */,
 				182C7FE72C33EF8B00CE3716 /* Info.plist */,
+				182C7FE22C33EF8B00CE3716 /* Assets.xcassets */,
+				182C7FD92C33EF8A00CE3716 /* AppDelegate.swift */,
+				182C7FED2C33F17300CE3716 /* Launch Screen.storyboard */,
 			);
 			path = PasicCash;
 			sourceTree = "<group>";
@@ -125,9 +116,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182C7FEE2C33F17300CE3716 /* Launch Screen.storyboard in Resources */,
 				182C7FE32C33EF8B00CE3716 /* Assets.xcassets in Resources */,
-				182C7FE62C33EF8B00CE3716 /* Base in Resources */,
-				182C7FE12C33EF8A00CE3716 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,32 +128,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				182C7FDE2C33EF8A00CE3716 /* ViewController.swift in Sources */,
 				182C7FDA2C33EF8A00CE3716 /* AppDelegate.swift in Sources */,
-				182C7FDC2C33EF8A00CE3716 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		182C7FDF2C33EF8A00CE3716 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				182C7FE02C33EF8A00CE3716 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		182C7FE42C33EF8B00CE3716 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				182C7FE52C33EF8B00CE3716 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		182C7FE82C33EF8B00CE3716 /* Debug */ = {
@@ -298,7 +267,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PasicCash/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -335,7 +304,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PasicCash/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
