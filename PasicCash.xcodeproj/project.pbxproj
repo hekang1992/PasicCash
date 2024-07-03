@@ -21,6 +21,8 @@
 		182C80142C34066300CE3716 /* PAUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80132C34066300CE3716 /* PAUserViewController.swift */; };
 		182C80162C34067300CE3716 /* PAOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80152C34067300CE3716 /* PAOrderViewController.swift */; };
 		182C80182C34068400CE3716 /* PAHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80172C34068400CE3716 /* PAHomeViewController.swift */; };
+		182C801B2C34FF7500CE3716 /* PALocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C801A2C34FF7500CE3716 /* PALocation.swift */; };
+		182C801D2C34FFAD00CE3716 /* PATotalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C801C2C34FFAD00CE3716 /* PATotalModel.swift */; };
 		FE032C0307388BCDF7A98BEC /* Pods_PasicCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,9 @@
 		182C80132C34066300CE3716 /* PAUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAUserViewController.swift; sourceTree = "<group>"; };
 		182C80152C34067300CE3716 /* PAOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOrderViewController.swift; sourceTree = "<group>"; };
 		182C80172C34068400CE3716 /* PAHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAHomeViewController.swift; sourceTree = "<group>"; };
+		182C80192C34FC6500CE3716 /* PasicCash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PasicCash.entitlements; sourceTree = "<group>"; };
+		182C801A2C34FF7500CE3716 /* PALocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PALocation.swift; sourceTree = "<group>"; };
+		182C801C2C34FFAD00CE3716 /* PATotalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PATotalModel.swift; sourceTree = "<group>"; };
 		3599269F8DA2C63D45CD9672 /* Pods-PasicCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.release.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.release.xcconfig"; sourceTree = "<group>"; };
 		DAC85EBC70A8689A703671B1 /* Pods-PasicCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.debug.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.debug.xcconfig"; sourceTree = "<group>"; };
 		DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasicCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +84,7 @@
 		182C7FD82C33EF8A00CE3716 /* PasicCash */ = {
 			isa = PBXGroup;
 			children = (
+				182C80192C34FC6500CE3716 /* PasicCash.entitlements */,
 				182C80042C33F33E00CE3716 /* PAWebPage */,
 				182C80032C33F33400CE3716 /* PALoginPage */,
 				182C7FFA2C33F28A00CE3716 /* PAUserPage */,
@@ -205,6 +211,7 @@
 		182C80052C33F36300CE3716 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				182C801C2C34FFAD00CE3716 /* PATotalModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,6 +221,7 @@
 			children = (
 				182C800F2C34027F00CE3716 /* LilitaRegular.ttf */,
 				182C800D2C33FEA800CE3716 /* PAConfig.swift */,
+				182C801A2C34FF7500CE3716 /* PALocation.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -375,6 +383,8 @@
 				182C7FF32C33F24100CE3716 /* PABaseViewController.swift in Sources */,
 				182C7FF52C33F25500CE3716 /* PALaunchViewController.swift in Sources */,
 				182C80122C34045600CE3716 /* PATabBar.swift in Sources */,
+				182C801B2C34FF7500CE3716 /* PALocation.swift in Sources */,
+				182C801D2C34FFAD00CE3716 /* PATotalModel.swift in Sources */,
 				182C7FF12C33F22E00CE3716 /* PATabBarViewController.swift in Sources */,
 				182C80182C34068400CE3716 /* PAHomeViewController.swift in Sources */,
 			);
@@ -508,6 +518,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PasicCash/PasicCash.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -545,6 +556,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PasicCash/PasicCash.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
