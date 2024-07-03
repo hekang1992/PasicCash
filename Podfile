@@ -20,6 +20,12 @@ target 'PasicCash' do
   pod 'MJRefresh', '~> 3.7.6'
   
   pod 'BRPickerView', '~> 2.8.1'
+  
+  pod 'SAMKeychain', '~> 1.5.3'
+  
+  pod 'ReachabilitySwift', '~> 5.0.0'
+  
+  pod 'DeviceKit', '~> 5.2.2'
 
   # Pods for PasicCash
 

@@ -15,20 +15,26 @@ PODS:
     - BRPickerView/Base
   - BRPickerView/StringPickerView (2.8.1):
     - BRPickerView/Base
+  - DeviceKit (5.2.2)
   - HandyJSON (5.0.2)
   - IQKeyboardManagerSwift (6.5.16)
   - Kingfisher (7.11.0)
   - MJRefresh (3.7.6)
+  - ReachabilitySwift (5.0.0)
+  - SAMKeychain (1.5.3)
   - SnapKit (5.7.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.8.1)
   - AppsFlyerFramework (~> 6.12.3)
   - BRPickerView (~> 2.8.1)
+  - DeviceKit (~> 5.2.2)
   - HandyJSON (~> 5.0.2)
   - IQKeyboardManagerSwift (~> 6.5.16)
   - Kingfisher (~> 7.11.0)
   - MJRefresh (~> 3.7.6)
+  - ReachabilitySwift (~> 5.0.0)
+  - SAMKeychain (~> 1.5.3)
   - SnapKit (~> 5.7.1)
 
 SPEC REPOS:
@@ -36,22 +42,28 @@ SPEC REPOS:
     - Alamofire
     - AppsFlyerFramework
     - BRPickerView
+    - DeviceKit
     - HandyJSON
     - IQKeyboardManagerSwift
     - Kingfisher
     - MJRefresh
+    - ReachabilitySwift
+    - SAMKeychain
     - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   AppsFlyerFramework: fdc5c2fa3a3cfcd62eae58dfba4b8f59c6c77219
   BRPickerView: 2531a2d4d0fea0b57a1c738de215af0f88863a2f
+  DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   MJRefresh: 2fe7fb43a5167ceda20bb7e63f130c04fd1814a5
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
 
-PODFILE CHECKSUM: 14fc16300fa0d21c33d47a5f3095f9b2909ca0b7
+PODFILE CHECKSUM: a8de5361405566607eed1c23a43f6dd825744e29
 
 COCOAPODS: 1.14.3

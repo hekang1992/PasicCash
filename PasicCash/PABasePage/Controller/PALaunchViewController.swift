@@ -13,7 +13,7 @@ class PALaunchViewController: PABaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    
+        requestHuanJing()
     }
     
 
@@ -27,4 +27,43 @@ class PALaunchViewController: PABaseViewController {
     }
     */
 
+}
+
+extension PALaunchViewController {
+    
+    func requestHuanJing() {
+        PANetworkManager.shared.observeNetworkStatus { [weak self] status in
+            switch status {
+            case .none:
+                print("无网络连接")
+                break
+            case .wifi:
+                print("网络>>>>>>>WIFI")
+                self?.requsetFirstApi()
+                break
+            case .cellular:
+                print("网络>>>>>>>4G/5G")
+                self?.requsetFirstApi()
+                break
+            }
+        }
+    }
+    
+    
+    func requsetFirstApi() {
+        let dict = ["tfollow":"1", "hershe": "1"]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: main_api, method: .get) { [weak self] baseModel in
+            let handsto = baseModel.handsto
+            if handsto == 0 || handsto == 00 {
+                if let throat = baseModel.shepointed?["throat"] as? String {
+                    
+                }
+            }else {
+                
+            }
+        } errorBlock: { [weak self] error in
+            
+        }
+    }
+    
 }
