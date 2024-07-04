@@ -78,7 +78,7 @@ extension PARequestManager {
                         multipartFormData.append(value.data(using: .utf8)!, withName: key)
                     }
                 }
-            }, to: apiUrl, headers: headers)
+            }, to: apiUrlString, headers: headers)
             .validate()
             .responseData { response in
                 switch response.result {

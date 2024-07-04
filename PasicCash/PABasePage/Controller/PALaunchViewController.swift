@@ -8,6 +8,50 @@
 import UIKit
 
 class PALaunchViewController: PABaseViewController {
+    
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.isPagingEnabled = true
+        scrollView.backgroundColor = .gray
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.contentSize = CGSize(width: SCREEN_WIDTH * 3, height: 0)
+        return scrollView
+    }()
+    
+    lazy var icon1: UIImageView = {
+        let icon1 = UIImageView()
+        icon1.isUserInteractionEnabled = true
+        icon1.image = UIImage(named: "yindao1")
+        icon1.contentMode = .scaleAspectFill
+        icon1.backgroundColor = .random()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped1))
+        icon1.addGestureRecognizer(tapGesture)
+        return icon1
+    }()
+    
+    lazy var icon2: UIImageView = {
+        let icon2 = UIImageView()
+        icon2.isUserInteractionEnabled = true
+        icon2.image = UIImage(named: "yindao2")
+        icon2.contentMode = .scaleAspectFill
+        icon2.backgroundColor = .random()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped2))
+        icon2.addGestureRecognizer(tapGesture)
+        return icon2
+    }()
+    
+    lazy var icon3: UIImageView = {
+        let icon3 = UIImageView()
+        icon3.isUserInteractionEnabled = true
+        icon3.image = UIImage(named: "yindao3")
+        icon3.contentMode = .scaleAspectFill
+        icon3.backgroundColor = .random()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped3))
+        icon3.addGestureRecognizer(tapGesture)
+        return icon3
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,17 +59,6 @@ class PALaunchViewController: PABaseViewController {
         // Do any additional setup after loading the view.
         requestHuanJing()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -56,14 +89,58 @@ extension PALaunchViewController {
             let handsto = baseModel.handsto
             if handsto == 0 || handsto == 00 {
                 if let throat = baseModel.shepointed?["throat"] as? String {
-                    
+                    if throat == "cry" {
+                        self?.setupScrollView()
+                    }else {
+                        
+                    }
                 }
             }else {
                 
             }
         } errorBlock: { [weak self] error in
-            
+            self?.requestHuanJing()
         }
     }
     
+    func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(icon1)
+        scrollView.addSubview(icon2)
+        scrollView.addSubview(icon3)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        icon1.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.top.equalToSuperview()
+            make.width.equalTo(SCREEN_WIDTH)
+            make.height.equalTo(SCREEN_HEIGHT)
+        }
+        icon2.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalTo(icon1.snp.right)
+            make.width.equalTo(SCREEN_WIDTH)
+            make.height.equalTo(SCREEN_HEIGHT)
+        }
+        icon3.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalTo(icon2.snp.right)
+            make.width.equalTo(SCREEN_WIDTH)
+            make.height.equalTo(SCREEN_HEIGHT)
+        }
+    }
+    
+    @objc func imageTapped1() {
+        scrollView.setContentOffset(CGPoint(x: SCREEN_WIDTH, y: 0), animated: true)
+    }
+    
+    @objc func imageTapped2() {
+        scrollView.setContentOffset(CGPoint(x: SCREEN_WIDTH * 2, y: 0), animated: true)
+    }
+    
+    @objc func imageTapped3() {
+        let borrowVc = PABorrowViewController()
+        self.navigationController?.pushViewController(borrowVc, animated: true)
+    }
 }

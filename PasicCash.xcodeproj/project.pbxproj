@@ -28,6 +28,8 @@
 		182C80252C3534DF00CE3716 /* PALoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80242C3534DF00CE3716 /* PALoginFactory.swift */; };
 		182C80272C35350D00CE3716 /* PADeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80262C35350D00CE3716 /* PADeviceInfo.swift */; };
 		182C80292C353AE900CE3716 /* PANetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80282C353AE900CE3716 /* PANetworkManager.swift */; };
+		182C802D2C3554C800CE3716 /* PABorrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C802C2C3554C800CE3716 /* PABorrowViewController.swift */; };
+		182C80312C35599800CE3716 /* PABorrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80302C35599800CE3716 /* PABorrowView.swift */; };
 		FE032C0307388BCDF7A98BEC /* Pods_PasicCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		182C80242C3534DF00CE3716 /* PALoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PALoginFactory.swift; sourceTree = "<group>"; };
 		182C80262C35350D00CE3716 /* PADeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PADeviceInfo.swift; sourceTree = "<group>"; };
 		182C80282C353AE900CE3716 /* PANetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PANetworkManager.swift; sourceTree = "<group>"; };
+		182C802C2C3554C800CE3716 /* PABorrowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PABorrowViewController.swift; sourceTree = "<group>"; };
+		182C80302C35599800CE3716 /* PABorrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PABorrowView.swift; sourceTree = "<group>"; };
 		3599269F8DA2C63D45CD9672 /* Pods-PasicCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.release.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.release.xcconfig"; sourceTree = "<group>"; };
 		DAC85EBC70A8689A703671B1 /* Pods-PasicCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.debug.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.debug.xcconfig"; sourceTree = "<group>"; };
 		DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasicCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +211,8 @@
 		182C80032C33F33400CE3716 /* PALoginPage */ = {
 			isa = PBXGroup;
 			children = (
+				182C802B2C35549400CE3716 /* View */,
+				182C802A2C35549100CE3716 /* Controller */,
 			);
 			path = PALoginPage;
 			sourceTree = "<group>";
@@ -271,6 +277,22 @@
 				182C80242C3534DF00CE3716 /* PALoginFactory.swift */,
 			);
 			path = PALoginFac;
+			sourceTree = "<group>";
+		};
+		182C802A2C35549100CE3716 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				182C802C2C3554C800CE3716 /* PABorrowViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		182C802B2C35549400CE3716 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				182C80302C35599800CE3716 /* PABorrowView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		97F60EFAC3087F98DD4B79BC /* Pods */ = {
@@ -420,8 +442,10 @@
 				182C80122C34045600CE3716 /* PATabBar.swift in Sources */,
 				182C80292C353AE900CE3716 /* PANetworkManager.swift in Sources */,
 				182C801B2C34FF7500CE3716 /* PALocation.swift in Sources */,
+				182C80312C35599800CE3716 /* PABorrowView.swift in Sources */,
 				182C801D2C34FFAD00CE3716 /* PATotalModel.swift in Sources */,
 				182C7FF12C33F22E00CE3716 /* PATabBarViewController.swift in Sources */,
+				182C802D2C3554C800CE3716 /* PABorrowViewController.swift in Sources */,
 				182C80182C34068400CE3716 /* PAHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,6 +587,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PasicCash/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PasicCash;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -601,6 +626,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PasicCash/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PasicCash;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
