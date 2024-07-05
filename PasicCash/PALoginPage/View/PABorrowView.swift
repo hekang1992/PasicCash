@@ -9,6 +9,8 @@ import UIKit
 
 class PABorrowView: UIView {
     
+    var block: (() -> Void)?
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
@@ -96,6 +98,7 @@ class PABorrowView: UIView {
     lazy var nextBtn: UIButton = {
         let nextBtn = UIButton(type: .custom)
         nextBtn.setImage(UIImage(named: "Group_988"), for: .normal)
+        nextBtn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
         return nextBtn
     }()
     
@@ -187,5 +190,8 @@ class PABorrowView: UIView {
 }
 
 extension PABorrowView {
-   
+    
+    @objc func btnClick() {
+        self.block?()
+    }
 }

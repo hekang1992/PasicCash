@@ -23,6 +23,10 @@ class PABorrowViewController: PABaseViewController {
             make.edges.equalToSuperview()
         }
         borrowView.slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
+        borrowView.block = { [weak self] in
+            let loginVc = PALoginViewController()
+            self?.navigationController?.pushViewController(loginVc, animated: true)
+        }
     }
     
     /*
@@ -53,7 +57,6 @@ extension PABorrowViewController {
             borrowView.nameLabel3.text = formattedAmount
         }
         sender.value = roundedValue
-        
     }
     
 }

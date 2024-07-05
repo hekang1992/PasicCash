@@ -30,6 +30,12 @@
 		182C80292C353AE900CE3716 /* PANetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80282C353AE900CE3716 /* PANetworkManager.swift */; };
 		182C802D2C3554C800CE3716 /* PABorrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C802C2C3554C800CE3716 /* PABorrowViewController.swift */; };
 		182C80312C35599800CE3716 /* PABorrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80302C35599800CE3716 /* PABorrowView.swift */; };
+		182C80332C367C7F00CE3716 /* PALoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80322C367C7F00CE3716 /* PALoginViewController.swift */; };
+		182C80352C367CBD00CE3716 /* PALoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80342C367CBD00CE3716 /* PALoginView.swift */; };
+		182C80372C36A05400CE3716 /* PACodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80362C36A05400CE3716 /* PACodeViewController.swift */; };
+		182C80392C36A06B00CE3716 /* PACodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80382C36A06B00CE3716 /* PACodeView.swift */; };
+		182C803B2C36AE9000CE3716 /* PANickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C803A2C36AE9000CE3716 /* PANickViewController.swift */; };
+		182C803D2C36AEFB00CE3716 /* PANickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C803C2C36AEFB00CE3716 /* PANickView.swift */; };
 		FE032C0307388BCDF7A98BEC /* Pods_PasicCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +66,12 @@
 		182C80282C353AE900CE3716 /* PANetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PANetworkManager.swift; sourceTree = "<group>"; };
 		182C802C2C3554C800CE3716 /* PABorrowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PABorrowViewController.swift; sourceTree = "<group>"; };
 		182C80302C35599800CE3716 /* PABorrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PABorrowView.swift; sourceTree = "<group>"; };
+		182C80322C367C7F00CE3716 /* PALoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PALoginViewController.swift; sourceTree = "<group>"; };
+		182C80342C367CBD00CE3716 /* PALoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PALoginView.swift; sourceTree = "<group>"; };
+		182C80362C36A05400CE3716 /* PACodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PACodeViewController.swift; sourceTree = "<group>"; };
+		182C80382C36A06B00CE3716 /* PACodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PACodeView.swift; sourceTree = "<group>"; };
+		182C803A2C36AE9000CE3716 /* PANickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PANickViewController.swift; sourceTree = "<group>"; };
+		182C803C2C36AEFB00CE3716 /* PANickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PANickView.swift; sourceTree = "<group>"; };
 		3599269F8DA2C63D45CD9672 /* Pods-PasicCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.release.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.release.xcconfig"; sourceTree = "<group>"; };
 		DAC85EBC70A8689A703671B1 /* Pods-PasicCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.debug.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.debug.xcconfig"; sourceTree = "<group>"; };
 		DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasicCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,6 +295,9 @@
 			isa = PBXGroup;
 			children = (
 				182C802C2C3554C800CE3716 /* PABorrowViewController.swift */,
+				182C80322C367C7F00CE3716 /* PALoginViewController.swift */,
+				182C80362C36A05400CE3716 /* PACodeViewController.swift */,
+				182C803A2C36AE9000CE3716 /* PANickViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,6 +306,9 @@
 			isa = PBXGroup;
 			children = (
 				182C80302C35599800CE3716 /* PABorrowView.swift */,
+				182C80342C367CBD00CE3716 /* PALoginView.swift */,
+				182C80382C36A06B00CE3716 /* PACodeView.swift */,
+				182C803C2C36AEFB00CE3716 /* PANickView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -429,11 +447,15 @@
 			files = (
 				182C801F2C35301800CE3716 /* PARequestManager.swift in Sources */,
 				182C80252C3534DF00CE3716 /* PALoginFactory.swift in Sources */,
+				182C803D2C36AEFB00CE3716 /* PANickView.swift in Sources */,
+				182C80392C36A06B00CE3716 /* PACodeView.swift in Sources */,
 				182C80212C3530D600CE3716 /* PARequestApi.swift in Sources */,
 				182C80162C34067300CE3716 /* PAOrderViewController.swift in Sources */,
 				182C800A2C33FD9900CE3716 /* PATabBarButton.swift in Sources */,
 				182C80142C34066300CE3716 /* PAUserViewController.swift in Sources */,
 				182C7FF72C33F27600CE3716 /* PANavigationViewController.swift in Sources */,
+				182C80352C367CBD00CE3716 /* PALoginView.swift in Sources */,
+				182C80372C36A05400CE3716 /* PACodeViewController.swift in Sources */,
 				182C80272C35350D00CE3716 /* PADeviceInfo.swift in Sources */,
 				182C7FDA2C33EF8A00CE3716 /* AppDelegate.swift in Sources */,
 				182C800E2C33FEA800CE3716 /* PAConfig.swift in Sources */,
@@ -444,7 +466,9 @@
 				182C801B2C34FF7500CE3716 /* PALocation.swift in Sources */,
 				182C80312C35599800CE3716 /* PABorrowView.swift in Sources */,
 				182C801D2C34FFAD00CE3716 /* PATotalModel.swift in Sources */,
+				182C80332C367C7F00CE3716 /* PALoginViewController.swift in Sources */,
 				182C7FF12C33F22E00CE3716 /* PATabBarViewController.swift in Sources */,
+				182C803B2C36AE9000CE3716 /* PANickViewController.swift in Sources */,
 				182C802D2C3554C800CE3716 /* PABorrowViewController.swift in Sources */,
 				182C80182C34068400CE3716 /* PAHomeViewController.swift in Sources */,
 			);

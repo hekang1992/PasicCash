@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,21 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = PANavigationViewController(rootViewController: PALaunchViewController())
+        jianPanManager()
         window?.makeKeyAndVisible()
         return true
     }
-    
-    
-    
     
 }
 
 
 extension AppDelegate {
     
-    
-    
-    
-    
+    func jianPanManager(){
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+    }
     
 }
