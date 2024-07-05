@@ -84,19 +84,20 @@ extension PALaunchViewController {
     
     
     func requsetFirstApi() {
+        let isShow = UserDefaults.standard.object(forKey: IS_SHOWLAND) as? String
         let dict = ["tfollow":"1", "hershe": "1"]
         PARequestManager.shared.requestAPI(params: dict, pageUrl: main_api, method: .get) { [weak self] baseModel in
             let handsto = baseModel.handsto
             if handsto == 0 || handsto == 00 {
-                if let throat = baseModel.shepointed?["throat"] as? String {
-                    if throat == "cry" {
-                        self?.setupScrollView()
-                    }else {
-                        
-                    }
+                if isShow != "1" && !IS_LOGIN {
+                    self?.setupScrollView()
+                } else {
+                    let loginStatus = IS_LOGIN ? "1" : "0"
+                    let dict = ["login": loginStatus]
+                    NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC), object: nil, userInfo: dict)
                 }
             }else {
-                
+                self?.requestHuanJing()
             }
         } errorBlock: { [weak self] error in
             self?.requestHuanJing()
@@ -140,6 +141,8 @@ extension PALaunchViewController {
     }
     
     @objc func imageTapped3() {
+        UserDefaults.standard.setValue("1", forKey: IS_SHOWLAND)
+        UserDefaults.standard.synchronize()
         let borrowVc = PABorrowViewController()
         self.navigationController?.pushViewController(borrowVc, animated: true)
     }

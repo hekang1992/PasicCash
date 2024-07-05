@@ -11,6 +11,8 @@ class PALoginView: UIView {
     
     var block: (() -> Void)?
     
+    var block1: (() -> Void)?
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
@@ -123,6 +125,7 @@ class PALoginView: UIView {
         visBtn.setTitle("Visitor status access.", for: .normal)
         visBtn.setTitleColor(UIColor.init(hex: "#CED4BD"), for: .normal)
         visBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 16.pix())
+        visBtn.addTarget(self, action: #selector(visBtnClick), for: .touchUpInside)
         return visBtn
     }()
     
@@ -248,6 +251,10 @@ extension PALoginView: UITextFieldDelegate {
     
     @objc func btnClick() {
         self.block?()
+    }
+    
+    @objc func visBtnClick() {
+        self.block1?()
     }
     
     @objc func delTapped() {

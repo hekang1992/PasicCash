@@ -26,6 +26,9 @@ class PALoginViewController: PABaseViewController {
             let codeVc = PACodeViewController()
             self?.navigationController?.pushViewController(codeVc, animated: true)
         }
+        loginView.block1 = {
+            NotificationCenter.default.post(name: Notification.Name(ROOT_VC), object: nil, userInfo: ["login": "1"])
+        }
     }
     
     deinit {

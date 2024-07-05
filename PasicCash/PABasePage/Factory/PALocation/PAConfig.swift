@@ -14,13 +14,29 @@ let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 
 let LilitaOneFont = "LilitaOne"
 
+let IS_SHOWLAND = "IS_SHOWLAND"
+
+let PHONE_LOGIN = "PHONE_LOGIN"
+
+let PHONE_SESSIONID = "PHONE_SESSIONID"
+
+let ROOT_VC = "ROOT_VC"
+
+var IS_LOGIN: Bool {
+    if let sessionID = UserDefaults.standard.object(forKey: PHONE_SESSIONID) as? String {
+        return !sessionID.isEmpty
+    } else {
+        return false
+    }
+}
+
 extension UIColor {
     convenience init(hex: String) {
         var hexString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         if hexString.hasPrefix("#") {
             hexString.remove(at: hexString.startIndex)
         }
-        
+    
         if hexString.count != 6 {
             self.init(white: 0.0, alpha: 0.0)
             return

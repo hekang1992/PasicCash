@@ -8,9 +8,6 @@
 import UIKit
 import DeviceKit
 
-let PHONE_LOGIN = "PHONE_LOGIN"
-let PHONE_SESSIONID = "PHONE_SESSIONID"
-
 class PALoginFactory {
     
     static func getAppVersion() -> String {
