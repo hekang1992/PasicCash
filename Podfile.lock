@@ -19,10 +19,13 @@ PODS:
   - HandyJSON (5.0.2)
   - IQKeyboardManagerSwift (6.5.16)
   - Kingfisher (7.11.0)
+  - lottie-ios (4.3.4)
+  - "MBProgressHUD+WJExtension (1.3.1)"
   - MJRefresh (3.7.6)
   - ReachabilitySwift (5.0.0)
   - SAMKeychain (1.5.3)
   - SnapKit (5.7.1)
+  - TYAlertController (1.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.8.1)
@@ -32,10 +35,13 @@ DEPENDENCIES:
   - HandyJSON (~> 5.0.2)
   - IQKeyboardManagerSwift (~> 6.5.16)
   - Kingfisher (~> 7.11.0)
+  - lottie-ios (~> 4.3.4)
+  - "MBProgressHUD+WJExtension (~> 1.3.1)"
   - MJRefresh (~> 3.7.6)
   - ReachabilitySwift (~> 5.0.0)
   - SAMKeychain (~> 1.5.3)
   - SnapKit (~> 5.7.1)
+  - TYAlertController (~> 1.2.0)
 
 SPEC REPOS:
   trunk:
@@ -46,10 +52,13 @@ SPEC REPOS:
     - HandyJSON
     - IQKeyboardManagerSwift
     - Kingfisher
+    - lottie-ios
+    - "MBProgressHUD+WJExtension"
     - MJRefresh
     - ReachabilitySwift
     - SAMKeychain
     - SnapKit
+    - TYAlertController
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
@@ -59,11 +68,14 @@ SPEC CHECKSUMS:
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
+  lottie-ios: 3d98679b41fa6fd6aff2352b3953dbd3df8a397e
+  "MBProgressHUD+WJExtension": 1d9c93951b49e8c711fef6e6089aa6d7d3321192
   MJRefresh: 2fe7fb43a5167ceda20bb7e63f130c04fd1814a5
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: a8de5361405566607eed1c23a43f6dd825744e29
+PODFILE CHECKSUM: e960632cee725eab5dd19fd15e1871e50304431c
 
 COCOAPODS: 1.14.3

@@ -23,9 +23,8 @@ class PALaunchViewController: PABaseViewController {
     lazy var icon1: UIImageView = {
         let icon1 = UIImageView()
         icon1.isUserInteractionEnabled = true
-        icon1.image = UIImage(named: "yindao1")
+        icon1.image = UIImage(named: "pic1")
         icon1.contentMode = .scaleAspectFill
-        icon1.backgroundColor = .random()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped1))
         icon1.addGestureRecognizer(tapGesture)
         return icon1
@@ -34,9 +33,8 @@ class PALaunchViewController: PABaseViewController {
     lazy var icon2: UIImageView = {
         let icon2 = UIImageView()
         icon2.isUserInteractionEnabled = true
-        icon2.image = UIImage(named: "yindao2")
+        icon2.image = UIImage(named: "pic2")
         icon2.contentMode = .scaleAspectFill
-        icon2.backgroundColor = .random()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped2))
         icon2.addGestureRecognizer(tapGesture)
         return icon2
@@ -45,9 +43,8 @@ class PALaunchViewController: PABaseViewController {
     lazy var icon3: UIImageView = {
         let icon3 = UIImageView()
         icon3.isUserInteractionEnabled = true
-        icon3.image = UIImage(named: "yindao3")
+        icon3.image = UIImage(named: "pic3")
         icon3.contentMode = .scaleAspectFill
-        icon3.backgroundColor = .random()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped3))
         icon3.addGestureRecognizer(tapGesture)
         return icon3

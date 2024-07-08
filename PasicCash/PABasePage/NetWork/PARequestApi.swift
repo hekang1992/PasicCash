@@ -15,6 +15,8 @@ let GIT_URL = "https://raw.githubusercontent.com/dtsdark/sicass/main/wokrje"
 //HUANJING
 let main_api = "/sicch/maudiebeenShouldnt"
 
+let hellow_word = "/sicch/helloWord"
+
 //Login
 let sendCode_api = "/sicch/exactlyScalp"
 let login_api = "/sicch/twelveWould"
@@ -55,3 +57,5 @@ let google_api = "/sicch/jemAbout"
 let maidian_api = "/sicch/midmorningAtlantic"
 let shebei_api = "/sicch/daytimeAnimal"
 let token_api = "/sicch/heldupFreezing"
+let head_img = "/sicch/headImg"
+let save_nick = "/sicch/afterHedidnt"

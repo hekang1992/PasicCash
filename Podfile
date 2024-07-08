@@ -26,6 +26,12 @@ target 'PasicCash' do
   pod 'ReachabilitySwift', '~> 5.0.0'
   
   pod 'DeviceKit', '~> 5.2.2'
+  
+  pod 'TYAlertController', '~> 1.2.0'
+  
+  pod 'lottie-ios', '~> 4.3.4'
+  
+  pod 'MBProgressHUD+WJExtension', '~> 1.3.1'
 
   # Pods for PasicCash
 

@@ -30,8 +30,19 @@ class PALoginFactory {
         }
         let period: String = PADeviceInfo().getIDFV() ?? ""
         let change: String = "pc"
-        
-        let dict = ["accomplished": accomplished,"seehow": seehow, "egyptians": egyptians, "declared": declared, "footbehind": footbehind, "walkflat": walkflat, "baffled": baffled, "period": period, "change": change]
+        let peach = PADeviceInfo.vpnConnected()
+        let basket = PADeviceInfo.usingProxy()
+        let dict = ["accomplished": accomplished,
+                    "seehow": seehow,
+                    "egyptians": egyptians,
+                    "declared": declared,
+                    "footbehind": footbehind,
+                    "walkflat": walkflat,
+                    "baffled": baffled,
+                    "period": period,
+                    "change": change,
+                    "peach": peach,
+                    "basket": basket]
         
         return dict
     }

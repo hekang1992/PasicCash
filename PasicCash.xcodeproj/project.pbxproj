@@ -36,6 +36,13 @@
 		182C80392C36A06B00CE3716 /* PACodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80382C36A06B00CE3716 /* PACodeView.swift */; };
 		182C803B2C36AE9000CE3716 /* PANickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C803A2C36AE9000CE3716 /* PANickViewController.swift */; };
 		182C803D2C36AEFB00CE3716 /* PANickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C803C2C36AEFB00CE3716 /* PANickView.swift */; };
+		182C803F2C37C5C800CE3716 /* PAAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C803E2C37C5C800CE3716 /* PAAlbumView.swift */; };
+		182C80412C37D42100CE3716 /* PAMediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80402C37D42100CE3716 /* PAMediaManager.swift */; };
+		182C80432C37DB5800CE3716 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 182C80422C37DB5800CE3716 /* loading.json */; };
+		182C80462C37DCC500CE3716 /* FCLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80452C37DCC500CE3716 /* FCLoadingView.swift */; };
+		182C80482C37EE3B00CE3716 /* PAPopNickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80472C37EE3B00CE3716 /* PAPopNickView.swift */; };
+		182C804A2C3809B000CE3716 /* PABigCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80492C3809B000CE3716 /* PABigCardView.swift */; };
+		182C804C2C3809C900CE3716 /* PAProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C804B2C3809C900CE3716 /* PAProductView.swift */; };
 		FE032C0307388BCDF7A98BEC /* Pods_PasicCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +79,13 @@
 		182C80382C36A06B00CE3716 /* PACodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PACodeView.swift; sourceTree = "<group>"; };
 		182C803A2C36AE9000CE3716 /* PANickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PANickViewController.swift; sourceTree = "<group>"; };
 		182C803C2C36AEFB00CE3716 /* PANickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PANickView.swift; sourceTree = "<group>"; };
+		182C803E2C37C5C800CE3716 /* PAAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAAlbumView.swift; sourceTree = "<group>"; };
+		182C80402C37D42100CE3716 /* PAMediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAMediaManager.swift; sourceTree = "<group>"; };
+		182C80422C37DB5800CE3716 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		182C80452C37DCC500CE3716 /* FCLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCLoadingView.swift; sourceTree = "<group>"; };
+		182C80472C37EE3B00CE3716 /* PAPopNickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPopNickView.swift; sourceTree = "<group>"; };
+		182C80492C3809B000CE3716 /* PABigCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PABigCardView.swift; sourceTree = "<group>"; };
+		182C804B2C3809C900CE3716 /* PAProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAProductView.swift; sourceTree = "<group>"; };
 		3599269F8DA2C63D45CD9672 /* Pods-PasicCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.release.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.release.xcconfig"; sourceTree = "<group>"; };
 		DAC85EBC70A8689A703671B1 /* Pods-PasicCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.debug.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.debug.xcconfig"; sourceTree = "<group>"; };
 		DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasicCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +142,7 @@
 		182C7FEF2C33F21600CE3716 /* PABasePage */ = {
 			isa = PBXGroup;
 			children = (
+				182C80442C37DCA400CE3716 /* Confing */,
 				182C80052C33F36300CE3716 /* Model */,
 				182C80082C33FD2A00CE3716 /* TabBar */,
 				182C80062C33FAC600CE3716 /* Factory */,
@@ -175,6 +190,8 @@
 		182C7FFC2C33F2EB00CE3716 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				182C80492C3809B000CE3716 /* PABigCardView.swift */,
+				182C804B2C3809C900CE3716 /* PAProductView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,7 +256,6 @@
 		182C80052C33F36300CE3716 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				182C800F2C34027F00CE3716 /* LilitaRegular.ttf */,
 				182C801C2C34FFAD00CE3716 /* PATotalModel.swift */,
 			);
 			path = Model;
@@ -276,7 +292,6 @@
 		182C80222C35348A00CE3716 /* PALocation */ = {
 			isa = PBXGroup;
 			children = (
-				182C800D2C33FEA800CE3716 /* PAConfig.swift */,
 				182C801A2C34FF7500CE3716 /* PALocation.swift */,
 			);
 			path = PALocation;
@@ -287,6 +302,7 @@
 			children = (
 				182C80262C35350D00CE3716 /* PADeviceInfo.swift */,
 				182C80242C3534DF00CE3716 /* PALoginFactory.swift */,
+				182C80402C37D42100CE3716 /* PAMediaManager.swift */,
 			);
 			path = PALoginFac;
 			sourceTree = "<group>";
@@ -309,8 +325,21 @@
 				182C80342C367CBD00CE3716 /* PALoginView.swift */,
 				182C80382C36A06B00CE3716 /* PACodeView.swift */,
 				182C803C2C36AEFB00CE3716 /* PANickView.swift */,
+				182C803E2C37C5C800CE3716 /* PAAlbumView.swift */,
+				182C80472C37EE3B00CE3716 /* PAPopNickView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		182C80442C37DCA400CE3716 /* Confing */ = {
+			isa = PBXGroup;
+			children = (
+				182C80422C37DB5800CE3716 /* loading.json */,
+				182C800D2C33FEA800CE3716 /* PAConfig.swift */,
+				182C800F2C34027F00CE3716 /* LilitaRegular.ttf */,
+				182C80452C37DCC500CE3716 /* FCLoadingView.swift */,
+			);
+			path = Confing;
 			sourceTree = "<group>";
 		};
 		97F60EFAC3087F98DD4B79BC /* Pods */ = {
@@ -392,6 +421,7 @@
 			files = (
 				182C80102C34027F00CE3716 /* LilitaRegular.ttf in Resources */,
 				182C7FEE2C33F17300CE3716 /* Launch Screen.storyboard in Resources */,
+				182C80432C37DB5800CE3716 /* loading.json in Resources */,
 				182C7FE32C33EF8B00CE3716 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,14 +481,18 @@
 				182C80392C36A06B00CE3716 /* PACodeView.swift in Sources */,
 				182C80212C3530D600CE3716 /* PARequestApi.swift in Sources */,
 				182C80162C34067300CE3716 /* PAOrderViewController.swift in Sources */,
+				182C80462C37DCC500CE3716 /* FCLoadingView.swift in Sources */,
 				182C800A2C33FD9900CE3716 /* PATabBarButton.swift in Sources */,
+				182C803F2C37C5C800CE3716 /* PAAlbumView.swift in Sources */,
 				182C80142C34066300CE3716 /* PAUserViewController.swift in Sources */,
 				182C7FF72C33F27600CE3716 /* PANavigationViewController.swift in Sources */,
 				182C80352C367CBD00CE3716 /* PALoginView.swift in Sources */,
 				182C80372C36A05400CE3716 /* PACodeViewController.swift in Sources */,
+				182C804A2C3809B000CE3716 /* PABigCardView.swift in Sources */,
 				182C80272C35350D00CE3716 /* PADeviceInfo.swift in Sources */,
 				182C7FDA2C33EF8A00CE3716 /* AppDelegate.swift in Sources */,
 				182C800E2C33FEA800CE3716 /* PAConfig.swift in Sources */,
+				182C80412C37D42100CE3716 /* PAMediaManager.swift in Sources */,
 				182C7FF32C33F24100CE3716 /* PABaseViewController.swift in Sources */,
 				182C7FF52C33F25500CE3716 /* PALaunchViewController.swift in Sources */,
 				182C80122C34045600CE3716 /* PATabBar.swift in Sources */,
@@ -468,8 +502,10 @@
 				182C801D2C34FFAD00CE3716 /* PATotalModel.swift in Sources */,
 				182C80332C367C7F00CE3716 /* PALoginViewController.swift in Sources */,
 				182C7FF12C33F22E00CE3716 /* PATabBarViewController.swift in Sources */,
+				182C804C2C3809C900CE3716 /* PAProductView.swift in Sources */,
 				182C803B2C36AE9000CE3716 /* PANickViewController.swift in Sources */,
 				182C802D2C3554C800CE3716 /* PABorrowViewController.swift in Sources */,
+				182C80482C37EE3B00CE3716 /* PAPopNickView.swift in Sources */,
 				182C80182C34068400CE3716 /* PAHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

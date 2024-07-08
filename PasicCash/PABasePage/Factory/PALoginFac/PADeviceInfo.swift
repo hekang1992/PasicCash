@@ -64,7 +64,7 @@ class PADeviceInfo {
         return "0"
     }
     
-    static func vpnConnected() -> Bool {
+    static func vpnConnected() -> String {
         var zeroAddress = sockaddr()
         zeroAddress.sa_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sa_family = sa_family_t(AF_INET)
@@ -74,15 +74,15 @@ class PADeviceInfo {
                 SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
             }
         }) else {
-            return false
+            return "0"
         }
         var flags: SCNetworkReachabilityFlags = []
         if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
-            return false
+            return "0"
         }
         let isReachable = flags.contains(.reachable)
         let needsConnection = flags.contains(.connectionRequired)
-        return isReachable && !needsConnection
+        return isReachable && !needsConnection ? "1" : "0"
     }
     
 }

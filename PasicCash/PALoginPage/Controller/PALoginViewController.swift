@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD_WJExtension
 
 class PALoginViewController: PABaseViewController {
     
@@ -23,8 +24,7 @@ class PALoginViewController: PABaseViewController {
             make.edges.equalToSuperview()
         }
         loginView.block = { [weak self] in
-            let codeVc = PACodeViewController()
-            self?.navigationController?.pushViewController(codeVc, animated: true)
+            self?.codeVc()
         }
         loginView.block1 = {
             NotificationCenter.default.post(name: Notification.Name(ROOT_VC), object: nil, userInfo: ["login": "1"])
@@ -39,5 +39,23 @@ class PALoginViewController: PABaseViewController {
 
 extension PALoginViewController {
     
-    
+    @objc func codeVc() {
+        let dict = ["hello": "2"]
+        guard let phoneStr = loginView.phoneText.text?.replacingOccurrences(of: " ", with: ""), phoneStr.count >= 10 else {
+            MBProgressHUD.wj_showPlainText("Please enter a 10-digit mobile phone number", view: nil)
+            return
+        }
+        ViewHud.addLoadView()
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: hellow_word, method: .post) { [weak self] baseModel in
+            ViewHud.hideLoadView()
+            let handsto = baseModel.handsto
+            if handsto == 0 || handsto == 00 {
+                let codeVc = PACodeViewController()
+                codeVc.phoneStr = phoneStr
+                self?.navigationController?.pushViewController(codeVc, animated: true)
+            }
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+    }
 }

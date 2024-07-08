@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD_WJExtension
 
 class PABorrowViewController: PABaseViewController {
     
@@ -24,21 +25,9 @@ class PABorrowViewController: PABaseViewController {
         }
         borrowView.slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
         borrowView.block = { [weak self] in
-            let loginVc = PALoginViewController()
-            self?.navigationController?.pushViewController(loginVc, animated: true)
+            self?.nextVc()
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 
@@ -54,9 +43,36 @@ extension PABorrowViewController {
         formatter.currencySymbol = "₱"
         formatter.maximumFractionDigits = 0
         if let formattedAmount = formatter.string(from: NSNumber(value: amount)) {
+            borrowView.nameLabel3.textColor = UIColor.init(hex: "#1C200D")
             borrowView.nameLabel3.text = formattedAmount
         }
         sender.value = roundedValue
+    }
+    
+    func nextVc() {
+        let str = self.borrowView.nameLabel3.text
+        if str == "50,000 Max" {
+            MBProgressHUD.wj_showPlainText("Please enter the amount you wish to borrow.", view: nil)
+        }else {
+            helloWord()
+        }
+    }
+    
+    func helloWord() {
+        ViewHud.addLoadView()
+        let dict = ["hello": "1"]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: hellow_word, method: .post) { [weak self] baseModel in
+            ViewHud.hideLoadView()
+            let handsto = baseModel.handsto
+            let jiffy = baseModel.jiffy
+            if handsto == 0 || handsto == 00 {
+                let loginVc = PALoginViewController()
+                self?.navigationController?.pushViewController(loginVc, animated:true)
+            }
+            MBProgressHUD.wj_showPlainText(jiffy ?? "", view: nil)
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
     }
     
 }

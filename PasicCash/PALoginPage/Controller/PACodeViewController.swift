@@ -6,16 +6,26 @@
 //
 
 import UIKit
+import MBProgressHUD_WJExtension
+import TYAlertController
+import HandyJSON
 
 class PACodeViewController: PABaseViewController {
     
     var totalTime = 60
+    
+    var phoneStr: String = ""
     
     var countdownTimer: Timer!
     
     lazy var codeView: PACodeView = {
         let codeView = PACodeView()
         return codeView
+    }()
+    
+    lazy var popNickView: PAPopNickView = {
+        let popNickView = PAPopNickView(frame: self.view.bounds)
+        return popNickView
     }()
 
     override func viewDidLoad() {
@@ -27,15 +37,15 @@ class PACodeViewController: PABaseViewController {
             make.edges.equalToSuperview()
         }
         codeView.block = { [weak self] in
-            let nickVc = PANickViewController()
-            self?.navigationController?.pushViewController(nickVc, animated: true)
+            self?.loginApi()
         }
         codeView.block1 = { [weak self] in
-            self?.startTimer()
+            self?.getCodeApi()
         }
         codeView.block2 = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
+        getCodeApi()
     }
 
 }
@@ -81,4 +91,56 @@ extension PACodeViewController {
         }
         totalTime = 60
     }
+    
+    func getCodeApi() {
+        ViewHud.addLoadView()
+        let dict = ["chuckling": phoneStr, "whooped": "1"]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: sendCode_api, method: .post) { [weak self] baseModel in
+            ViewHud.hideLoadView()
+            let handsto = baseModel.handsto
+            let jiffy = baseModel.jiffy
+            if handsto == 0 || handsto == 00 {
+                self?.startTimer()
+            }
+            MBProgressHUD.wj_showPlainText(jiffy ?? "", view: nil)
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+    }
+    
+    func loginApi() {
+        let codeStr = codeView.phoneText.text?.replacingOccurrences(of: " ", with: "")
+        ViewHud.addLoadView()
+        let dict = ["ruined": phoneStr, "driedblood": codeStr ?? ""]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: login_api, method: .post) { [weak self] baseModel in
+            let handsto = baseModel.handsto
+            if handsto == 0 || handsto == 00 {
+                if let model = JSONDeserializer<LoginModel>.deserializeFrom(dict: baseModel.shepointed) {
+                    PALoginFactory.removeLoginInfo()
+                    PALoginFactory.saveLoginInfo(model.ruined ?? "", model.baffled ?? "")
+                }
+                self?.popView()
+            }
+            ViewHud.hideLoadView()
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+    }
+    
+    func popView() {
+        let alertVc = TYAlertController(alert: popNickView, preferredStyle: .alert)
+        self.present(alertVc!, animated: true)
+        popNickView.block = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                let nickVc = PANickViewController()
+                self?.navigationController?.pushViewController(nickVc, animated: true)
+            })
+        }
+        popNickView.block1 = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                NotificationCenter.default.post(name: Notification.Name(ROOT_VC), object: nil, userInfo: ["login": "1"])
+            })
+        }
+    }
+    
 }

@@ -25,6 +25,18 @@ class BaseModel: HandyJSON {
     var shepointed: [String: Any]?
 }
 
+class LoginModel: HandyJSON {
+    required init() {}
+    var crisscrossed: String?
+    var ruined: String?//phone
+    var baffled: String?//sessionID
+}
+
+class BearuftModel: HandyJSON {
+    required init() {}
+    var bearuft: String?
+}
+
 class ShepointedModel: HandyJSON {
     required init() {}
 }

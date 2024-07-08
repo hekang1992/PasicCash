@@ -8,10 +8,16 @@
 import UIKit
 
 class PANickView: UIView {
-
+    
     var block: (() -> Void)?
     
     var block1: (() -> Void)?
+    
+    var block2: (() -> Void)?
+    
+    var block3: (() -> Void)?
+    
+    var block4: ((String) -> Void)?
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -41,6 +47,7 @@ class PANickView: UIView {
         let backBtn = UIButton(type: .custom)
         backBtn.addTarget(self, action: #selector(backClick), for: .touchUpInside)
         backBtn.setImage(UIImage(named: "Slice_2"), for: .normal)
+        backBtn.isHidden = true
         return backBtn
     }()
     
@@ -50,12 +57,16 @@ class PANickView: UIView {
         skipBtn.setTitle("Skip", for: .normal)
         skipBtn.setTitleColor(UIColor.white, for: .normal)
         skipBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 20.pix())
+        skipBtn.addTarget(self, action: #selector(skipBtnClick), for: .touchUpInside)
         return skipBtn
     }()
     
     lazy var imageBtn: UIButton = {
         let imageBtn = UIButton(type: .custom)
         imageBtn.setImage(UIImage(named: "Group_987"), for: .normal)
+        imageBtn.addTarget(self, action: #selector(imageBtnClick), for: .touchUpInside)
+        imageBtn.layer.cornerRadius = 39.pix()
+        imageBtn.layer.masksToBounds = true
         return imageBtn
     }()
     
@@ -97,6 +108,7 @@ class PANickView: UIView {
         maleBtn.setTitle("Male", for: .normal)
         maleBtn.setTitleColor(UIColor.init(hex: "#1C200D"), for: .normal)
         maleBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        maleBtn.addTarget(self, action: #selector(maleBtnClick(_ :)), for: .touchUpInside)
         return maleBtn
     }()
     
@@ -105,6 +117,7 @@ class PANickView: UIView {
         femaleBtn.setTitle("Female", for: .normal)
         femaleBtn.setTitleColor(UIColor.init(hex: "#CED4BD"), for: .normal)
         femaleBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        femaleBtn.addTarget(self, action: #selector(maleBtnClick(_ :)), for: .touchUpInside)
         return femaleBtn
     }()
     
@@ -122,7 +135,7 @@ class PANickView: UIView {
         bgImageView.addSubview(skipBtn)
         scrollView.addSubview(nextBtn)
         scrollView.addSubview(imageBtn)
-        imageBtn.addSubview(iconImageView1)
+        scrollView.addSubview(iconImageView1)
         scrollView.addSubview(iconImageView2)
         iconImageView2.addSubview(phoneText)
         scrollView.addSubview(descLabel)
@@ -206,6 +219,28 @@ extension PANickView: UITextFieldDelegate {
     
     @objc func backClick() {
         self.block1?()
+    }
+    
+    @objc func skipBtnClick() {
+        self.block2?()
+    }
+    
+    @objc func imageBtnClick() {
+        self.block3?()
+    }
+    
+    @objc func maleBtnClick(_ sender: UIButton) {
+        let identifier = sender == maleBtn ? "1" : "2"
+        self.block4?(identifier)
+        let (selectedButton, unselectedButton) = sender == maleBtn ? (maleBtn, femaleBtn) : (femaleBtn, maleBtn)
+        updateButtonSelection(selectedButton: selectedButton, unselectedButton: unselectedButton)
+    }
+    
+    private func updateButtonSelection(selectedButton: UIButton, unselectedButton: UIButton) {
+        selectedButton.setTitleColor(UIColor(hex: "#1C200D"), for: .normal)
+        selectedButton.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27)
+        unselectedButton.setTitleColor(UIColor(hex: "#CED4BD"), for: .normal)
+        unselectedButton.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

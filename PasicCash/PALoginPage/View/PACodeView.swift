@@ -101,7 +101,7 @@ class PACodeView: UIView {
         let nextBtn = UIButton(type: .custom)
         nextBtn.setTitle("Login", for: .normal)
         nextBtn.setTitleColor(.white, for: .normal)
-        nextBtn.isEnabled = false
+//        nextBtn.isEnabled = false
         nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.pix())
         nextBtn.setBackgroundImage(UIImage(named: "Group_1033"), for: .normal)
         nextBtn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)

@@ -48,7 +48,6 @@ extension PARequestManager {
                                 complete(model)
                             }
                         }
-                        
                     }
                     break
                 case .failure(let failureData):
@@ -112,14 +111,11 @@ extension PARequestManager {
             print("NO URL")
             return nil
         }
-        
         var queryItems = [URLQueryItem]()
-        
         for (key, value) in params {
             let queryItem = URLQueryItem(name: key, value: value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))
             queryItems.append(queryItem)
         }
-        
         urlComponents.queryItems = queryItems
         return urlComponents.url?.absoluteString
     }
