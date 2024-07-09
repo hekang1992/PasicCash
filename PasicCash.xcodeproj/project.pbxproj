@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182B6D802C3BE29C004F317C /* PAPullHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B6D7F2C3BE29C004F317C /* PAPullHeader.swift */; };
 		182C7FDA2C33EF8A00CE3716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C7FD92C33EF8A00CE3716 /* AppDelegate.swift */; };
 		182C7FE32C33EF8B00CE3716 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182C7FE22C33EF8B00CE3716 /* Assets.xcassets */; };
 		182C7FEE2C33F17300CE3716 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C7FED2C33F17300CE3716 /* Launch Screen.storyboard */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		182B6D7F2C3BE29C004F317C /* PAPullHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPullHeader.swift; sourceTree = "<group>"; };
 		182C7FD62C33EF8A00CE3716 /* PasicCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasicCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182C7FD92C33EF8A00CE3716 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		182C7FE22C33EF8B00CE3716 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				182C800D2C33FEA800CE3716 /* PAConfig.swift */,
 				182C800F2C34027F00CE3716 /* LilitaRegular.ttf */,
 				182C80452C37DCC500CE3716 /* FCLoadingView.swift */,
+				182B6D7F2C3BE29C004F317C /* PAPullHeader.swift */,
 			);
 			path = Confing;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				182C800A2C33FD9900CE3716 /* PATabBarButton.swift in Sources */,
 				182C803F2C37C5C800CE3716 /* PAAlbumView.swift in Sources */,
 				182C80142C34066300CE3716 /* PAUserViewController.swift in Sources */,
+				182B6D802C3BE29C004F317C /* PAPullHeader.swift in Sources */,
 				182C7FF72C33F27600CE3716 /* PANavigationViewController.swift in Sources */,
 				182C80352C367CBD00CE3716 /* PALoginView.swift in Sources */,
 				182C80372C36A05400CE3716 /* PACodeViewController.swift in Sources */,

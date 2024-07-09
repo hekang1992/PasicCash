@@ -32,6 +32,10 @@ target 'PasicCash' do
   pod 'lottie-ios', '~> 4.3.4'
   
   pod 'MBProgressHUD+WJExtension', '~> 1.3.1'
+  
+  pod 'GradientView', '~> 2.3.4'
+  
+  pod 'GKCycleScrollView', '~> 1.2.2'
 
   # Pods for PasicCash
 

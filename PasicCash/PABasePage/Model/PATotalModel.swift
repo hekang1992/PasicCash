@@ -25,6 +25,16 @@ class BaseModel: HandyJSON {
     var shepointed: [String: Any]?
 }
 
+class shepointedModel: HandyJSON {
+    required init() {}
+    var likethat: LikethatModel?
+    var saidjem: saidjemModel?
+    var andcrept: andcreptModel?
+    var credential: credentialModel?
+    var req: reqModel?
+    var reqImg: reqModel?
+}
+
 class LoginModel: HandyJSON {
     required init() {}
     var crisscrossed: String?
@@ -37,6 +47,62 @@ class BearuftModel: HandyJSON {
     var bearuft: String?
 }
 
-class ShepointedModel: HandyJSON {
+class reqModel: HandyJSON {
     required init() {}
+    var danger: [dangerModel]?
+}
+
+class saidjemModel: HandyJSON {
+    required init() {}
+    var goneup: String?
+    var danger: dangerModel?
+}
+
+class LikethatModel: HandyJSON {
+    required init() {}
+    var goneup: String?
+    var danger: [dangerModel]?
+}
+
+class credentialModel: HandyJSON {
+    required init() {}
+    var goneup: String?
+    var danger: [dangerModel]?
+}
+
+class andcreptModel: HandyJSON {
+    required init() {}
+    var cordial: String?
+    var thathe: Int?
+    var betterkeep: Int?
+    var plants: [plantsModel]?
+}
+
+class plantsModel: HandyJSON {
+    required init() {}
+    var forcovering: String?
+    var lively: String?
+    var smoke: String?
+}
+
+class dangerModel: HandyJSON {
+    required init() {}
+    var nightwas: String?//url
+    var perplexity: String?
+    var affairs: String?
+    var cordial: String?
+    var lively: String?//picurl
+    var ashambles: String?
+    var formy: String?
+    var bringing: String?
+    var settin: String?
+    var gazingat: String?
+    var freshadventure: String?
+    var amber: String?
+    var theblanket: String?
+    var contests: String?
+    var feedback: String?
+    var scoreImg: String?
+    var experienced: String?
+    var cocoa: String?
 }
