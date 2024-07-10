@@ -43,7 +43,6 @@ class PALoginFactory {
                     "change": change,
                     "peach": peach,
                     "basket": basket]
-        
         return dict
     }
     

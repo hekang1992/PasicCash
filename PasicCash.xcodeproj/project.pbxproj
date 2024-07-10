@@ -10,6 +10,7 @@
 		182B6D802C3BE29C004F317C /* PAPullHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B6D7F2C3BE29C004F317C /* PAPullHeader.swift */; };
 		182B6D822C3E580F004F317C /* PAUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B6D812C3E580F004F317C /* PAUserView.swift */; };
 		182B6D842C3E6BAB004F317C /* PAExpanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B6D832C3E6BAB004F317C /* PAExpanView.swift */; };
+		182B6D862C3E8334004F317C /* PAPopOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B6D852C3E8334004F317C /* PAPopOutView.swift */; };
 		182C7FDA2C33EF8A00CE3716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C7FD92C33EF8A00CE3716 /* AppDelegate.swift */; };
 		182C7FE32C33EF8B00CE3716 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182C7FE22C33EF8B00CE3716 /* Assets.xcassets */; };
 		182C7FEE2C33F17300CE3716 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C7FED2C33F17300CE3716 /* Launch Screen.storyboard */; };
@@ -53,6 +54,7 @@
 		182B6D7F2C3BE29C004F317C /* PAPullHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPullHeader.swift; sourceTree = "<group>"; };
 		182B6D812C3E580F004F317C /* PAUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAUserView.swift; sourceTree = "<group>"; };
 		182B6D832C3E6BAB004F317C /* PAExpanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAExpanView.swift; sourceTree = "<group>"; };
+		182B6D852C3E8334004F317C /* PAPopOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPopOutView.swift; sourceTree = "<group>"; };
 		182C7FD62C33EF8A00CE3716 /* PasicCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasicCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182C7FD92C33EF8A00CE3716 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		182C7FE22C33EF8B00CE3716 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				182B6D812C3E580F004F317C /* PAUserView.swift */,
 				182B6D832C3E6BAB004F317C /* PAExpanView.swift */,
+				182B6D852C3E8334004F317C /* PAPopOutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				182C80372C36A05400CE3716 /* PACodeViewController.swift in Sources */,
 				182C804A2C3809B000CE3716 /* PABigCardView.swift in Sources */,
 				182C80272C35350D00CE3716 /* PADeviceInfo.swift in Sources */,
+				182B6D862C3E8334004F317C /* PAPopOutView.swift in Sources */,
 				182C7FDA2C33EF8A00CE3716 /* AppDelegate.swift in Sources */,
 				182C800E2C33FEA800CE3716 /* PAConfig.swift in Sources */,
 				182C80412C37D42100CE3716 /* PAMediaManager.swift in Sources */,

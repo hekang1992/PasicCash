@@ -8,12 +8,25 @@
 import UIKit
 import HandyJSON
 import MBProgressHUD_WJExtension
+import TYAlertController
 
 class PAUserViewController: PABaseViewController {
     
     lazy var userView: PAUserView = {
         let userView = PAUserView()
         return userView
+    }()
+    
+    lazy var logOutView: PAPopOutView = {
+        let logOutView = PAPopOutView(frame: self.view.bounds)
+        logOutView.bgImageView.image = UIImage(named: "Group_1032")
+        return logOutView
+    }()
+    
+    lazy var delView: PAPopOutView = {
+        let delView = PAPopOutView(frame: self.view.bounds)
+        delView.bgImageView.image = UIImage(named: "Group_del")
+        return delView
     }()
 
     override func viewDidLoad() {
@@ -31,10 +44,10 @@ class PAUserViewController: PABaseViewController {
             MBProgressHUD.wj_showPlainText("2", view: nil)
         }
         userView.block3 = { [weak self] in
-            MBProgressHUD.wj_showPlainText("3", view: nil)
+            self?.poplogout()
         }
         userView.block4 = { [weak self] in
-            MBProgressHUD.wj_showPlainText("4", view: nil)
+            self?.popdelCount()
         }
         getPersonInfo()
     }
@@ -64,6 +77,67 @@ extension PAUserViewController {
         userView.nickLabel.text = nick
         userView.descLabel.text = desc
         userView.titleLabel.text = title
+    }
+    
+    func poplogout() {
+        let alertVc = TYAlertController(alert: logOutView, preferredStyle: .alert)
+        self.present(alertVc!, animated: true)
+        logOutView.block1 = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                self?.logOut()
+            })
+        }
+        logOutView.block2 = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+    }
+    
+    func popdelCount() {
+        let alertVc = TYAlertController(alert: delView, preferredStyle: .alert)
+        self.present(alertVc!, animated: true)
+        delView.block1 = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                self?.delOut()
+            })
+        }
+        delView.block2 = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+    }
+    
+    func logOut() {
+        ViewHud.addLoadView()
+        PARequestManager.shared.requestAPI(params: [:], pageUrl: logout_api, method: .get) { [weak self] baseModel in
+            let handsto = baseModel.handsto
+            let jiffy = baseModel.jiffy ?? ""
+            if handsto == 0 || handsto == 00 {
+                self?.deleAccountInfo()
+            }
+            ViewHud.hideLoadView()
+            MBProgressHUD.wj_showPlainText(jiffy, view: nil)
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+    }
+    
+    func delOut() {
+        ViewHud.addLoadView()
+        PARequestManager.shared.requestAPI(params: [:], pageUrl: delAccount_api, method: .get) { [weak self] baseModel in
+            let handsto = baseModel.handsto
+            let jiffy = baseModel.jiffy ?? ""
+            if handsto == 0 || handsto == 00 {
+                self?.deleAccountInfo()
+            }
+            ViewHud.hideLoadView()
+            MBProgressHUD.wj_showPlainText(jiffy, view: nil)
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+    }
+    
+    func deleAccountInfo() {
+        PALoginFactory.removeLoginInfo()
+        NotificationCenter.default.post(name: Notification.Name(ROOT_VC), object: nil, userInfo: ["login": "0"])
     }
     
 }
