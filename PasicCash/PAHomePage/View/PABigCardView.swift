@@ -58,14 +58,14 @@ class PABigCardView: UIView {
         bgView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         setGradientBackground()
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 60.pix(), right: 0))
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -110,11 +110,14 @@ extension PABigCardView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as? PARankDescCell
         if indexPath.section > 4 {
             if expandedIndexPaths.contains(indexPath) {
                 expandedIndexPaths.remove(indexPath)
+                cell?.eyeImageView.image = UIImage(named: "Group_938")
             } else {
                 expandedIndexPaths.insert(indexPath)
+                cell?.eyeImageView.image = UIImage(named: "Group_935")
             }
             tableView.beginUpdates()
             tableView.endUpdates()
@@ -626,6 +629,8 @@ class PARankCell: UITableViewCell {
 
 class PARankDescCell: UITableViewCell {
     
+    var block: (() -> Void)?
+    
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = UIColor.init(hex: "#FDFFF6")
@@ -652,11 +657,11 @@ class PARankDescCell: UITableViewCell {
         return contentLabel
     }()
     
-    lazy var eyeBtn: UIButton = {
-        let eyeBtn = UIButton(type: .custom)
-        eyeBtn.setImage(UIImage(named: "Group_938"), for: .normal)
-        eyeBtn.addTarget(self, action: #selector(eyeBtnClick(_ :)), for: .touchUpInside)
-        return eyeBtn
+    lazy var eyeImageView: UIImageView = {
+        let eyeImageView = UIImageView()
+        eyeImageView.contentMode = .scaleAspectFit
+        eyeImageView.image = UIImage(named: "Group_938")
+        return eyeImageView
     }()
     
     lazy var nameLabel: UILabel = {
@@ -675,7 +680,7 @@ class PARankDescCell: UITableViewCell {
         bgView.addSubview(rankImageView)
         bgView.addSubview(fenshuLabel)
         bgView.addSubview(contentLabel)
-        bgView.addSubview(eyeBtn)
+        bgView.addSubview(eyeImageView)
         bgView.addSubview(nameLabel)
         bgView.addSubview(timeLabel)
         bgView.snp.makeConstraints { make in
@@ -700,10 +705,10 @@ class PARankDescCell: UITableViewCell {
             make.top.equalTo(fenshuLabel.snp.bottom).offset(14.pix())
             make.bottom.equalToSuperview().offset(-45.pix())
         }
-        eyeBtn.snp.makeConstraints { make in
+        eyeImageView.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-14.pix())
             make.top.equalToSuperview().offset(20.pix())
-            make.size.equalTo(CGSize(width: 42.pix(), height: 24.pix()))
+            make.size.equalTo(CGSize(width: 21.pix(), height: 21.pix()))
         }
         nameLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-15.pix())
@@ -730,15 +735,6 @@ class PARankDescCell: UITableViewCell {
                 nameLabel.text = model.experienced
                 timeLabel.text = model.cocoa
             }
-        }
-    }
-    
-    @objc func eyeBtnClick(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        if sender.isSelected {
-            sender.setImage(UIImage(named: "Group_935"), for: .normal)
-        }else {
-            sender.setImage(UIImage(named: "Group_938"), for: .normal)
         }
     }
     

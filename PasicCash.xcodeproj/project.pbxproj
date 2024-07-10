@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		182B6D802C3BE29C004F317C /* PAPullHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B6D7F2C3BE29C004F317C /* PAPullHeader.swift */; };
+		182B6D822C3E580F004F317C /* PAUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B6D812C3E580F004F317C /* PAUserView.swift */; };
+		182B6D842C3E6BAB004F317C /* PAExpanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B6D832C3E6BAB004F317C /* PAExpanView.swift */; };
 		182C7FDA2C33EF8A00CE3716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C7FD92C33EF8A00CE3716 /* AppDelegate.swift */; };
 		182C7FE32C33EF8B00CE3716 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182C7FE22C33EF8B00CE3716 /* Assets.xcassets */; };
 		182C7FEE2C33F17300CE3716 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C7FED2C33F17300CE3716 /* Launch Screen.storyboard */; };
@@ -49,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		182B6D7F2C3BE29C004F317C /* PAPullHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPullHeader.swift; sourceTree = "<group>"; };
+		182B6D812C3E580F004F317C /* PAUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAUserView.swift; sourceTree = "<group>"; };
+		182B6D832C3E6BAB004F317C /* PAExpanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAExpanView.swift; sourceTree = "<group>"; };
 		182C7FD62C33EF8A00CE3716 /* PasicCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasicCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182C7FD92C33EF8A00CE3716 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		182C7FE22C33EF8B00CE3716 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 		182C7FFD2C33F31700CE3716 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				182B6D812C3E580F004F317C /* PAUserView.swift */,
+				182B6D832C3E6BAB004F317C /* PAExpanView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -500,6 +506,8 @@
 				182C7FF32C33F24100CE3716 /* PABaseViewController.swift in Sources */,
 				182C7FF52C33F25500CE3716 /* PALaunchViewController.swift in Sources */,
 				182C80122C34045600CE3716 /* PATabBar.swift in Sources */,
+				182B6D842C3E6BAB004F317C /* PAExpanView.swift in Sources */,
+				182B6D822C3E580F004F317C /* PAUserView.swift in Sources */,
 				182C80292C353AE900CE3716 /* PANetworkManager.swift in Sources */,
 				182C801B2C34FF7500CE3716 /* PALocation.swift in Sources */,
 				182C80312C35599800CE3716 /* PABorrowView.swift in Sources */,

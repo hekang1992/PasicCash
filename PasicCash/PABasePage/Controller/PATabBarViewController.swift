@@ -88,7 +88,7 @@ extension PATabBarViewController {
     func showTabBar() {
         UIView.animate(withDuration: 0.25) {
             var frame = self.customTabBar.frame
-            frame.origin.y = self.view.bounds.size.height - 115.pix() - 26.pix()
+            frame.origin.y = self.view.bounds.size.height - 115.pix()
             self.customTabBar.frame = frame
         }
     }

@@ -31,6 +31,7 @@ class shepointedModel: HandyJSON {
     var saidjem: saidjemModel?
     var andcrept: andcreptModel?
     var credential: credentialModel?
+    var overcoat: overcoatModel?
     var req: reqModel?
     var reqImg: reqModel?
 }
@@ -105,4 +106,13 @@ class dangerModel: HandyJSON {
     var scoreImg: String?
     var experienced: String?
     var cocoa: String?
+}
+
+class overcoatModel: HandyJSON {
+    required init() {}
+    var chuckling: String?
+    var bearuft: String?
+    var clank: String?
+    var shutUp: String?
+    var shutDown: String?
 }
