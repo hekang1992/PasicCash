@@ -49,7 +49,20 @@ class PAUserViewController: PABaseViewController {
         userView.block4 = { [weak self] in
             self?.popdelCount()
         }
+        userView.block5 = { [weak self] in
+            let youVc = PAYouHuiQuanViewController()
+            PATabBarManager.hideTabBar()
+            self?.navigationController?.pushViewController(youVc, animated: true)
+        }
+        userView.block6 = { [weak self] in
+            MBProgressHUD.wj_showPlainText("about us", view: nil)
+        }
         getPersonInfo()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        PATabBarManager.showTabBar()
     }
 }
 

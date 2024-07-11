@@ -9,53 +9,28 @@ import UIKit
 
 class PATabBarViewController: UITabBarController {
     
-    lazy var customTabBar: PATabBar = {
-        let customTabBar = PATabBar()
-        return customTabBar
+    private lazy var customTabBar: PATabBar = {
+        let tabBar = PATabBar()
+        return tabBar
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        addTabBar()
-        addControllers()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        for child in self.tabBar.subviews {
-            if let control = child as? UIControl {
-                control.removeFromSuperview()
-            }
-        }
+        setupTabBar()
+        configureViewControllers()
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        self.tabBar.isHidden = true
-        for child in self.tabBar.subviews {
-            let className = NSStringFromClass(type(of: child))
-            if className == "_UIBarBackground" || className == "UIBarBackground" {
-                child.isHidden = true
-            }
-            if let control = child as? UIControl {
-                control.removeFromSuperview()
-            }
-        }
+        configureTabBarVisibility()
     }
     
-}
-
-extension PATabBarViewController {
-    
-    func addTabBar(){
+    private func setupTabBar() {
         view.addSubview(customTabBar)
-        customTabBar.block = { [weak self] tabBar, from, to in
-            if from == to {
-                return
+        customTabBar.block = { [weak self] _, from, to in
+            if from != to {
+                self?.selectedIndex = to
             }
-            self?.selectedIndex = to
         }
         customTabBar.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -65,40 +40,50 @@ extension PATabBarViewController {
         }
     }
     
-    func addControllers(){
-        let homeVc = PAHomeViewController()
-        let orderVc = PAOrderViewController()
-        let userVc = PAUserViewController()
-        self.setupChildViewController(childVc: homeVc, title: "Home", imageName: "home_nor", selectedImageName: "home_sel")
-        self.setupChildViewController(childVc: orderVc, title: "Orders", imageName: "order_nor", selectedImageName: "order_sel")
-        self.setupChildViewController(childVc: userVc, title: "Profile", imageName: "user_nor", selectedImageName: "user_sel")
+    private func configureViewControllers() {
+        let homeVC = PAHomeViewController()
+        let orderVC = PAOrderViewController()
+        let userVC = PAUserViewController()
+        
+        setupChildViewController(homeVC, title: "Home", imageName: "home_nor", selectedImageName: "home_sel")
+        setupChildViewController(orderVC, title: "Orders", imageName: "order_nor", selectedImageName: "order_sel")
+        setupChildViewController(userVC, title: "Profile", imageName: "user_nor", selectedImageName: "user_sel")
     }
     
-    func setupChildViewController(childVc: UIViewController, title: String, imageName: String, selectedImageName: String) {
-        childVc.title = title
-        childVc.tabBarItem.image = UIImage(named: imageName)
+    private func setupChildViewController(_ viewController: UIViewController, title: String, imageName: String, selectedImageName: String) {
+        viewController.title = title
+        viewController.tabBarItem.image = UIImage(named: imageName)
         if let selectedImage = UIImage(named: selectedImageName)?.withRenderingMode(.alwaysOriginal) {
-            childVc.tabBarItem.selectedImage = selectedImage
+            viewController.tabBarItem.selectedImage = selectedImage
         }
-        let nav = PANavigationViewController(rootViewController: childVc)
-        addChild(nav)
+        
+        let navController = PANavigationViewController(rootViewController: viewController)
+        addChild(navController)
         customTabBar.addTabBarButtonNorImageUrl(imageName, selImageUrl: selectedImageName, title: title)
+    }
+    
+    private func configureTabBarVisibility() {
+        tabBar.isHidden = true
+        for subview in tabBar.subviews {
+            let className = NSStringFromClass(type(of: subview))
+            if className.contains("BarBackground") {
+                subview.isHidden = true
+            }
+            if let control = subview as? UIControl {
+                control.removeFromSuperview()
+            }
+        }
     }
     
     func showTabBar() {
         UIView.animate(withDuration: 0.25) {
-            var frame = self.customTabBar.frame
-            frame.origin.y = self.view.bounds.size.height - 115.pix()
-            self.customTabBar.frame = frame
+            self.customTabBar.frame.origin.y = self.view.bounds.size.height - 115.pix()
         }
     }
     
     func hideTabBar() {
         UIView.animate(withDuration: 0.25) {
-            var frame = self.customTabBar.frame
-            frame.origin.y = self.view.bounds.size.height
-            self.customTabBar.frame = frame
+            self.customTabBar.frame.origin.y = self.view.bounds.size.height
         }
     }
-    
 }

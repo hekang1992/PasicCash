@@ -28,7 +28,7 @@ class PAPullHeader: MJRefreshHeader {
         super.prepare()
         addSubview(headTapView)
         addSubview(nameLabel)
-        self.mj_h = 80.pix()
+        self.mj_h = 90.pix()
     }
 
     override func placeSubviews() {

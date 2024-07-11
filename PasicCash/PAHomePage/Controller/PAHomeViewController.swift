@@ -31,6 +31,11 @@ class PAHomeViewController: PABaseViewController {
         }
         self.oneView.tableView.mj_header = PAPullHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        PATabBarManager.showTabBar()
+    }
 }
 
 extension PAHomeViewController {

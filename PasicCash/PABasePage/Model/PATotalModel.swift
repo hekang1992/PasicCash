@@ -34,6 +34,7 @@ class shepointedModel: HandyJSON {
     var overcoat: overcoatModel?
     var req: reqModel?
     var reqImg: reqModel?
+    var cashClas: [cashClasModel]?
 }
 
 class LoginModel: HandyJSON {
@@ -115,4 +116,12 @@ class overcoatModel: HandyJSON {
     var clank: String?
     var shutUp: String?
     var shutDown: String?
+}
+
+class cashClasModel: HandyJSON {
+    required init() {}
+    var couldYouHa: String?
+    var geminiFlas: String?
+    var turbo: String?
+    var flowFind: String?
 }

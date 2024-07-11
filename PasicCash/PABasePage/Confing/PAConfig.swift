@@ -49,6 +49,81 @@ class DelayUtils {
     }
 }
 
+class PATabBarManager {
+    static func showTabBar() {
+        if let navigationController = UIApplication.shared.delegate?.window??.rootViewController as? PANavigationViewController {
+            if let tabBarController = navigationController.viewControllers.first as? PATabBarViewController {
+                tabBarController.showTabBar()
+            }
+        }
+    }
+    static func hideTabBar() {
+        if let navigationController = UIApplication.shared.delegate?.window??.rootViewController as? PANavigationViewController {
+            if let tabBarController = navigationController.viewControllers.first as? PATabBarViewController {
+                tabBarController.hideTabBar()
+            }
+        }
+    }
+}
+
+class CountdownManager {
+    private static var countdownTimer: Timer?
+    private static var backgroundTask: UIBackgroundTaskIdentifier = .invalid
+    private static let duration: TimeInterval = 48 * 60 * 60
+    
+    class func startCountdown(startDate: Date, updateHandler: @escaping (Int, Int, Int) -> Void) {
+        countdownTimer?.invalidate()
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            let timeRemaining = timeRemaining(from: startDate, duration: duration)
+            updateHandler(timeRemaining.hours, timeRemaining.minutes, timeRemaining.seconds)
+        }
+        let timeRemainin = timeRemaining(from: startDate, duration: duration)
+        updateHandler(timeRemainin.hours, timeRemainin.minutes, timeRemainin.seconds)
+    }
+    
+    class func stopCountdown() {
+        countdownTimer?.invalidate()
+        countdownTimer = nil
+        if backgroundTask != .invalid {
+            UIApplication.shared.endBackgroundTask(backgroundTask)
+            backgroundTask = .invalid
+        }
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private class func timeRemaining(from startDate: Date, duration: TimeInterval) -> (hours: Int, minutes: Int, seconds: Int) {
+        let endDate = startDate.addingTimeInterval(duration)
+        let now = Date()
+        let remainingTime = endDate.timeIntervalSince(now)
+        if remainingTime < 0 {
+            return (0, 0, 0)
+        }
+        let hours = Int(remainingTime) / 3600
+        let minutes = (Int(remainingTime) % 3600) / 60
+        let seconds = Int(remainingTime) % 60
+        
+        return (hours, minutes, seconds)
+    }
+}
+
+class DateConverter {
+    static func date(from timestampString: String, inMilliseconds: Bool = false) -> Date? {
+        guard let timestamp = Double(timestampString) else {
+            return nil
+        }
+        let timestampInSeconds = inMilliseconds ? timestamp / 1000.0 : timestamp
+        return Date(timeIntervalSince1970: timestampInSeconds)
+    }
+    static func formattedDateString(from date: Date, dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium, locale: Locale = .current) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = dateStyle
+        dateFormatter.timeStyle = timeStyle
+        dateFormatter.locale = locale
+        return dateFormatter.string(from: date)
+    }
+}
+
+
 extension UIColor {
     convenience init(hex: String) {
         var hexString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

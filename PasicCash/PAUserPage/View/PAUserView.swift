@@ -17,6 +17,10 @@ class PAUserView: UIView {
     
     var block4: (() -> Void)?
     
+    var block5: (() -> Void)?
+    
+    var block6: (() -> Void)?
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .clear
@@ -28,6 +32,7 @@ class PAUserView: UIView {
     
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
+        iconImageView.contentMode = .scaleAspectFill
         iconImageView.layer.cornerRadius = 35.pix()
         iconImageView.layer.masksToBounds = true
         iconImageView.image = UIImage(named: "Group_987")
@@ -52,9 +57,11 @@ class PAUserView: UIView {
         return nickLabel
     }()
 
-    lazy var iconImageView2: UIImageView = {
-        let iconImageView2 = UIImageView()
-        iconImageView2.image = UIImage(named: "Group_1020")
+    lazy var iconImageView2: UIButton = {
+        let iconImageView2 = UIButton(type: .custom)
+        iconImageView2.setImage(UIImage(named: "Group_1020"), for: .normal)
+        iconImageView2.adjustsImageWhenHighlighted = false
+        iconImageView2.addTarget(self, action: #selector(youhuiquanClick), for: .touchUpInside)
         return iconImageView2
     }()
     
@@ -133,8 +140,8 @@ class PAUserView: UIView {
         }
         iconImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 70.pix(), height: 70.pix()))
             make.top.equalToSuperview().offset(59.pix())
+            make.size.equalTo(CGSize(width: 70.pix(), height: 70.pix()))
         }
         iconImageView1.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 44.pix(), height: 44.pix()))
@@ -212,8 +219,12 @@ extension PAUserView {
         scrollView.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    @objc func youhuiquanClick() {
+        self.block5?()
+    }
+    
     @objc func aboutClick() {
-        
+        self.block6?()
     }
     
 }
