@@ -85,4 +85,10 @@ class PADeviceInfo {
         return isReachable && !needsConnection ? "1" : "0"
     }
     
+    static func getCurrentTime() -> String {
+        let currentTime = Date().timeIntervalSince1970
+        let currentTimeMillis = String(Int64(currentTime * 1000))
+        return currentTimeMillis
+    }
+    
 }

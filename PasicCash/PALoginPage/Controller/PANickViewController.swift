@@ -69,7 +69,7 @@ extension PANickViewController: UIImagePickerControllerDelegate, UINavigationCon
         }
         albumView.block1 = { [weak self] in
             self?.dismiss(animated: true, completion: {
-                PAMediaManager.shared.presentCamera(from: self!)
+                PAMediaManager.shared.presentCamera(from: self!, isfront: "0")
             })
         }
     }

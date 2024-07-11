@@ -13,8 +13,6 @@ target 'PasicCash' do
   
   pod 'HandyJSON', '~> 5.0.2'
   
-  pod 'AppsFlyerFramework', '~> 6.12.3'
-  
   pod 'IQKeyboardManagerSwift', '~> 6.5.16'
   
   pod 'MJRefresh', '~> 3.7.6'

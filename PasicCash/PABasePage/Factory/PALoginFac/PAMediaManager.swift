@@ -53,13 +53,13 @@ class PAMediaManager: NSObject {
         }
     }
     
-    func presentCamera(from viewController: UIViewController) {
+    func presentCamera(from viewController: UIViewController, isfront: String) {
         checkCameraPermissions { [weak self] granted in
             guard granted else {
                 self?.showSettingsAlert(from: viewController, for: "相机")
                 return
             }
-            self?.showImagePicker(from: viewController, sourceType: .camera)
+            self?.showImagePicker(from: viewController, sourceType: .camera, isfront: isfront)
         }
     }
     
@@ -69,16 +69,23 @@ class PAMediaManager: NSObject {
                 self?.showSettingsAlert(from: viewController, for: "相册")
                 return
             }
-            self?.showImagePicker(from: viewController, sourceType: .photoLibrary)
+            self?.showImagePicker(from: viewController, sourceType: .photoLibrary, isfront: "")
         }
     }
     
-    private func showImagePicker(from viewController: UIViewController, sourceType: UIImagePickerController.SourceType) {
+    private func showImagePicker(from viewController: UIViewController, sourceType: UIImagePickerController.SourceType, isfront: String) {
         guard UIImagePickerController.isSourceTypeAvailable(sourceType) else {
             return
         }
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = sourceType
+        if sourceType == .camera {
+            if isfront == "1" {
+                imagePicker.cameraDevice = .front
+            }else {
+                imagePicker.cameraDevice = .rear
+            }
+        }
         imagePicker.delegate = viewController as? (UIImagePickerControllerDelegate & UINavigationControllerDelegate)
         viewController.present(imagePicker, animated: true, completion: nil)
     }

@@ -124,7 +124,7 @@ extension PARequestManager {
 
 class RequestManager {
     
-    typealias CompletionHandler = (myshouldersModel, framesModel) -> Void
+    typealias CompletionHandler = (myshouldersModel, framesModel, String) -> Void
     
     static func applyClick(productID: String, completion: ((String) -> Void)?) {
         ViewHud.addLoadView()
@@ -147,11 +147,11 @@ class RequestManager {
         if url.hasPrefix(SCHEME_URL) {
             if url.contains("burdenedRiver") {//产品详情
                 let array = url.components(separatedBy: "affairs=")
-                detailPageInfo(productID: array.last ?? "", startTime: "", type: "") { model1, model2 in
+                detailPageInfo(productID: array.last ?? "", startTime: "", type: "") { model1, model2, productID in
                     let orderID = model1.nightshirts ?? ""
                     let step = model2.smoke ?? ""
                     if !step.isEmpty {
-                        RequestManager.nextStep(type: step)
+                        RequestManager.nextStep(type: step, productID: productID)
                     }else {
                         
                     }
@@ -170,7 +170,7 @@ class RequestManager {
             if handsto == 0 || handsto == 00 {
                 let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed)
                 if let model = model, let myshoulders = model.myshoulders, let frames = model.frames {
-                    completion(myshoulders, frames)
+                    completion(myshoulders, frames, productID)
                 }
             }
             ViewHud.hideLoadView()
@@ -180,10 +180,11 @@ class RequestManager {
         
     }
     
-    static func nextStep(type: String) {
+    static func nextStep(type: String, productID: String) {
         if type == "her1" {
             let idVc = PAAuthIDViewController()
             if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+                idVc.productID = productID
                 rootNavController.pushViewController(idVc, animated: true)
             }
         }else if type == "her2" {
@@ -193,9 +194,18 @@ class RequestManager {
         }else if type == "her4" {
             
         }else if type == "her5" {
+            let bankVc = PABankViewController()
+            if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+                bankVc.productID = productID
+                rootNavController.pushViewController(bankVc, animated: true)
+            }
             
         }else if type == "her6" {
-            
+            let faceVc = PAFaceViewController()
+            if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+                faceVc.productID = productID
+                rootNavController.pushViewController(faceVc, animated: true)
+            }
         }
         
     }

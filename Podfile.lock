@@ -1,8 +1,5 @@
 PODS:
   - Alamofire (5.8.1)
-  - AppsFlyerFramework (6.12.3):
-    - AppsFlyerFramework/Main (= 6.12.3)
-  - AppsFlyerFramework/Main (6.12.3)
   - BRPickerView (2.8.1):
     - BRPickerView/AddressPickerView (= 2.8.1)
     - BRPickerView/Base (= 2.8.1)
@@ -31,7 +28,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.8.1)
-  - AppsFlyerFramework (~> 6.12.3)
   - BRPickerView (~> 2.8.1)
   - DeviceKit (~> 5.2.2)
   - GKCycleScrollView (~> 1.2.2)
@@ -50,7 +46,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - AppsFlyerFramework
     - BRPickerView
     - DeviceKit
     - GKCycleScrollView
@@ -68,7 +63,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
-  AppsFlyerFramework: fdc5c2fa3a3cfcd62eae58dfba4b8f59c6c77219
   BRPickerView: 2531a2d4d0fea0b57a1c738de215af0f88863a2f
   DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
   GKCycleScrollView: ecc033c0d1376f28f7441f0275e9a9d515da9a6f
@@ -84,6 +78,6 @@ SPEC CHECKSUMS:
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: 821656bfe59468b0fd13cfc8fbef7e60a6a43b9e
+PODFILE CHECKSUM: b519e6102175b46443e47808f70ff9aae4b32b9c
 
 COCOAPODS: 1.14.3

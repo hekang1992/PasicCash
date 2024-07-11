@@ -37,7 +37,21 @@ class shepointedModel: HandyJSON {
     var cashClas: [cashClasModel]?
     var frames: framesModel?
     var myshoulders: myshouldersModel?
+    var sounds: [soundsModel]?
     var nightwas: String?
+    var lively: String?
+}
+
+class soundsModel: HandyJSON {
+    required init() {}
+    var birds: [birdsModel]?
+}
+
+class birdsModel: HandyJSON {
+    required init() {}
+    var goneup: String?
+    var hoses: String?
+    var sreally: String?
 }
 
 class myshouldersModel: HandyJSON {

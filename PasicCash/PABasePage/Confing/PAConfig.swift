@@ -30,6 +30,93 @@ var IS_LOGIN: Bool {
     }
 }
 
+extension UIColor {
+    convenience init(hex: String) {
+        var hexString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        if hexString.hasPrefix("#") {
+            hexString.remove(at: hexString.startIndex)
+        }
+        if hexString.count != 6 {
+            self.init(white: 0.0, alpha: 0.0)
+            return
+        }
+        var rgbValue: UInt64 = 0
+        Scanner(string: hexString).scanHexInt64(&rgbValue)
+        
+        let red = CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0
+        let green = CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0
+        let blue = CGFloat(rgbValue & 0x0000FF) / 255.0
+        self.init(red: red, green: green, blue: blue, alpha: 1.0)
+    }
+    
+    static func random() -> UIColor {
+        let red = CGFloat.random(in: 0...1)
+        let green = CGFloat.random(in: 0...1)
+        let blue = CGFloat.random(in: 0...1)
+        let alpha = CGFloat.random(in: 0...1)
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+}
+
+extension UILabel {
+    static func createLabel(font: UIFont, textColor: UIColor, textAlignment: NSTextAlignment) -> UILabel {
+        let label = UILabel()
+        label.font = font
+        label.textColor = textColor
+        label.textAlignment = textAlignment
+        label.backgroundColor = UIColor.clear
+        return label
+    }
+}
+
+extension Double {
+    func pix() -> CGFloat {
+        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
+    }
+}
+
+extension CGFloat {
+    func pix() -> CGFloat {
+        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
+    }
+}
+
+extension Int {
+    func pix() -> CGFloat {
+        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
+    }
+}
+
+extension CGFloat {
+    func minus() -> CGFloat{
+        return 0 - self
+    }
+}
+
+extension Data {
+    static func yasuoQuality(image: UIImage, maxLength: Int) -> Data? {
+        var compression: CGFloat = 0.8
+        var minCompression: CGFloat = 0.0
+        var maxCompression: CGFloat = 1.0
+        var data = image.jpegData(compressionQuality: compression)
+        if let imageData = data, imageData.count <= maxLength {
+            return imageData
+        }
+        repeat {
+            compression = (maxCompression + minCompression) / 2.0
+            data = image.jpegData(compressionQuality: compression)
+            guard let imageData = data else { break }
+            if imageData.count <= maxLength {
+                minCompression = compression
+            } else {
+                maxCompression = compression
+            }
+        } while abs(maxCompression - minCompression) > 0.01
+        return data
+    }
+}
+
+
 class NoCopyPasteTextField: UITextField {
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if action == #selector(copy(_:)) ||
@@ -149,89 +236,76 @@ class DateConverter {
     }
 }
 
+//class ProvinceModelConverter {
+//    static func getProvinceModelArr(dataSourceArr: [Any]) -> [BRProvinceModel] {
+//        var tempArr1 = [BRProvinceModel]()
+//        for proviceDic in dataSourceArr {
+//            guard let proviceDic = proviceDic as? PlaceModel else {
+//                continue
+//            }
+//            let proviceModel = BRProvinceModel()
+//            proviceModel.code = proviceDic.particularly
+//            proviceModel.name = proviceDic.employment
+//            proviceModel.index = dataSourceArr.firstIndex(where: { $0 as AnyObject === proviceDic as AnyObject }) ?? 0
+//            let cityList = proviceDic.palace ?? proviceDic.palace ?? []
+//            var tempArr2 = [BRCityModel]()
+//            for cityDic in cityList {
+//                let cityModel = BRCityModel()
+//                cityModel.code = cityDic.particularly
+//                cityModel.name = cityDic.employment
+//                cityModel.index = cityList.firstIndex(where: { $0 as AnyObject === cityDic as AnyObject }) ?? 0
+//                let areaList = cityDic.palace ?? cityDic.palace ?? []
+//                var tempArr3 = [BRAreaModel]()
+//                for areaDic in areaList {
+//                    let areaModel = BRAreaModel()
+//                    areaModel.code = areaDic.particularly
+//                    areaModel.name = areaDic.employment
+//                    areaModel.index = areaList.firstIndex(where: { $0 as AnyObject === areaDic as AnyObject }) ?? 0
+//                    tempArr3.append(areaModel)
+//                }
+//                cityModel.arealist = tempArr3
+//                tempArr2.append(cityModel)
+//            }
+//            proviceModel.citylist = tempArr2
+//            tempArr1.append(proviceModel)
+//        }
+//        return tempArr1
+//    }
+//}
 
-extension UIColor {
-    convenience init(hex: String) {
-        var hexString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        if hexString.hasPrefix("#") {
-            hexString.remove(at: hexString.startIndex)
-        }
-        if hexString.count != 6 {
-            self.init(white: 0.0, alpha: 0.0)
-            return
-        }
-        var rgbValue: UInt64 = 0
-        Scanner(string: hexString).scanHexInt64(&rgbValue)
-        
-        let red = CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0
-        let green = CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0
-        let blue = CGFloat(rgbValue & 0x0000FF) / 255.0
-        self.init(red: red, green: green, blue: blue, alpha: 1.0)
-    }
-    
-    static func random() -> UIColor {
-        let red = CGFloat.random(in: 0...1)
-        let green = CGFloat.random(in: 0...1)
-        let blue = CGFloat.random(in: 0...1)
-        let alpha = CGFloat.random(in: 0...1)
-        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
-    }
-}
-
-extension UILabel {
-    static func createLabel(font: UIFont, textColor: UIColor, textAlignment: NSTextAlignment) -> UILabel {
-        let label = UILabel()
-        label.font = font
-        label.textColor = textColor
-        label.textAlignment = textAlignment
-        label.backgroundColor = UIColor.clear
-        return label
-    }
-}
-
-extension Double {
-    func pix() -> CGFloat {
-        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
-    }
-}
-
-extension CGFloat {
-    func pix() -> CGFloat {
-        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
-    }
-}
-
-extension Int {
-    func pix() -> CGFloat {
-        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
-    }
-}
-
-extension CGFloat {
-    func minus() -> CGFloat{
-        return 0 - self
-    }
-}
-
-extension Data {
-    static func yasuoQuality(image: UIImage, maxLength: Int) -> Data? {
-        var compression: CGFloat = 0.8
-        var minCompression: CGFloat = 0.0
-        var maxCompression: CGFloat = 1.0
-        var data = image.jpegData(compressionQuality: compression)
-        if let imageData = data, imageData.count <= maxLength {
-            return imageData
-        }
-        repeat {
-            compression = (maxCompression + minCompression) / 2.0
-            data = image.jpegData(compressionQuality: compression)
-            guard let imageData = data else { break }
-            if imageData.count <= maxLength {
-                minCompression = compression
-            } else {
-                maxCompression = compression
-            }
-        } while abs(maxCompression - minCompression) > 0.01
-        return data
-    }
-}
+//class GetPayday {
+//    static func getPaydayModelArr(dataSourceArr: [Any]) -> [BRProvinceModel] {
+//        var tempArr1 = [BRProvinceModel]()
+//        for proviceDic in dataSourceArr {
+//            guard let proviceDic = proviceDic as? ChildrenModel else {
+//                continue
+//            }
+//            let proviceModel = BRProvinceModel()
+//            proviceModel.code = proviceDic.excuse
+//            proviceModel.name = proviceDic.employment
+//            proviceModel.index = dataSourceArr.firstIndex(where: { $0 as AnyObject === proviceDic as AnyObject }) ?? 0
+//            let cityList = proviceDic.children ?? proviceDic.children ?? []
+//            var tempArr2 = [BRCityModel]()
+//            for cityDic in cityList {
+//                let cityModel = BRCityModel()
+//                cityModel.code = cityDic.excuse
+//                cityModel.name = cityDic.employment
+//                cityModel.index = cityList.firstIndex(where: { $0 as AnyObject === cityDic as AnyObject }) ?? 0
+//                let areaList = cityDic.children ?? cityDic.children ?? []
+//                var tempArr3 = [BRAreaModel]()
+//                for areaDic in areaList {
+//                    let areaModel = BRAreaModel()
+//                    areaModel.code = areaDic.excuse
+//                    areaModel.name = areaDic.employment
+//                    areaModel.index = areaList.firstIndex(where: { $0 as AnyObject === areaDic as AnyObject }) ?? 0
+//                    tempArr3.append(areaModel)
+//                }
+//                cityModel.arealist = tempArr3
+//                tempArr2.append(cityModel)
+//            }
+//            proviceModel.citylist = tempArr2
+//            tempArr1.append(proviceModel)
+//        }
+//        return tempArr1
+//    }
+//}

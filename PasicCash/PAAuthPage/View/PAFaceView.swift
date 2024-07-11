@@ -1,5 +1,5 @@
 //
-//  PAAuthIDView.swift
+//  PAFaceView.swift
 //  PasicCash
 //
 //  Created by apple on 2024/7/11.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PAAuthIDView: PACommonView {
+class PAFaceView: PACommonView {
     
     var block1: (() -> Void)?
     
@@ -15,7 +15,7 @@ class PAAuthIDView: PACommonView {
     
     lazy var icon1: UIButton = {
         let icon1 = UIButton(type: .custom)
-        icon1.setImage(UIImage(named: "Group_1086"), for: .normal)
+        icon1.setImage(UIImage(named: "Group_1091"), for: .normal)
         icon1.adjustsImageWhenHighlighted = false
         icon1.addTarget(self, action: #selector(btniconClick), for: .touchUpInside)
         return icon1
@@ -24,7 +24,7 @@ class PAAuthIDView: PACommonView {
     lazy var icon2: UIButton = {
         let icon2 = UIButton(type: .custom)
         icon2.adjustsImageWhenHighlighted = false
-        icon2.setImage(UIImage(named: "Group_960"), for: .normal)
+        icon2.setImage(UIImage(named: "Group_969"), for: .normal)
         icon2.addTarget(self, action: #selector(btniconClick), for: .touchUpInside)
         return icon2
     }()
@@ -43,31 +43,31 @@ class PAAuthIDView: PACommonView {
         icon3.layer.cornerRadius = 32.pix()
         icon3.layer.masksToBounds = true
         icon3.contentMode = .scaleAspectFill
-        icon3.image = UIImage(named: "Group_1031")
+        icon3.image = UIImage(named: "Group_1021")
         return icon3
     }()
     
     lazy var icon4: UIImageView = {
         let icon4 = UIImageView()
-        icon4.image = UIImage(named: "Group_1027")
+        icon4.image = UIImage(named: "Group_10270")
         return icon4
     }()
     
     lazy var icon5: UIImageView = {
         let icon5 = UIImageView()
-        icon5.image = UIImage(named: "Group_1025")
+        icon5.image = UIImage(named: "Group_10250")
         return icon5
     }()
     
     lazy var icon6: UIImageView = {
         let icon6 = UIImageView()
-        icon6.image = UIImage(named: "Group_1026")
+        icon6.image = UIImage(named: "Group_10260")
         return icon6
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#0CE094"), textAlignment: .center)
-        descLabel.text = "Please check that the type of the uploaded ID card matches the selected ID card type!"
+        let descLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 15.pix())!, textColor: UIColor.init(hex: "#0CE094"), textAlignment: .center)
+        descLabel.text = "Make sure you have good lighting, no obstructions, a natural expression, and remain relatively still."
         descLabel.numberOfLines = 0
         return descLabel
     }()
@@ -90,10 +90,10 @@ class PAAuthIDView: PACommonView {
         nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.pix())
         nextBtn.adjustsImageWhenHighlighted = false
         nextBtn.setBackgroundImage(UIImage(named: "Group_1095"), for: .normal)
-        let fullString = "Start 1/3"
+        let fullString = "Continue 2/3"
         let attributedString = NSMutableAttributedString(string: fullString)
         let color = UIColor.init(hex: "#FEE610")
-        if let range = fullString.range(of: "Start") {
+        if let range = fullString.range(of: "Continue") {
             let nsRange = NSRange(range, in: fullString)
             let startIndex = nsRange.upperBound
             let remainingRange = NSRange(location: startIndex, length: fullString.count - startIndex)
@@ -115,52 +115,52 @@ class PAAuthIDView: PACommonView {
         whiteView.addSubview(icon4)
         whiteView.addSubview(icon5)
         whiteView.addSubview(icon6)
-        scrollView.addSubview(descLabel)
+        whiteView.addSubview(descLabel)
         scrollView.addSubview(icon7)
         scrollView.addSubview(descLabel1)
         scrollView.addSubview(nextBtn)
         icon1.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(33.pix())
-            make.left.equalToSuperview().offset(25.pix())
-            make.size.equalTo(CGSize(width: 205.pix(), height: 75.pix()))
+            make.left.equalToSuperview()
+            make.size.equalTo(CGSize(width: 130.pix(), height: 75.pix()))
         }
         icon2.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(33.pix())
             make.left.equalTo(icon1.snp.right).offset(15.pix())
-            make.size.equalTo(CGSize(width: 105.pix(), height: 75.pix()))
+            make.size.equalTo(CGSize(width: 205.pix(), height: 75.pix()))
         }
         whiteView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(icon2.snp.bottom).offset(37.5.pix())
-            make.size.equalTo(CGSize(width: 325.pix(), height: 263.pix()))
+            make.size.equalTo(CGSize(width: 325.pix(), height: 430.pix()))
         }
         icon3.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(icon2.snp.bottom).offset(16.pix())
-            make.size.equalTo(CGSize(width: 258.pix(), height: 158.pix()))
+            make.size.equalTo(CGSize(width: 242.pix(), height: 242.pix()))
         }
         icon4.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(10.pix())
-            make.bottom.equalToSuperview().offset(-10.pix())
-            make.size.equalTo(CGSize(width: 90.pix(), height: 95.pix()))
+            make.top.equalTo(icon3.snp.bottom).offset(23.pix())
+            make.size.equalTo(CGSize(width: 75.pix(), height: 95.pix()))
         }
         icon5.snp.makeConstraints { make in
             make.left.equalTo(icon4.snp.right).offset(10.pix())
-            make.bottom.equalToSuperview().offset(-10.pix())
-            make.size.equalTo(CGSize(width: 90.pix(), height: 95.pix()))
+            make.top.equalTo(icon3.snp.bottom).offset(23.pix())
+            make.size.equalTo(CGSize(width: 105.pix(), height: 95.pix()))
         }
         icon6.snp.makeConstraints { make in
             make.left.equalTo(icon5.snp.right).offset(10.pix())
-            make.bottom.equalToSuperview().offset(-10.pix())
+            make.top.equalTo(icon3.snp.bottom).offset(23.pix())
             make.size.equalTo(CGSize(width: 105.pix(), height: 95.pix()))
         }
         descLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(35.pix())
-            make.top.equalTo(whiteView.snp.bottom).offset(25.pix())
+            make.top.equalTo(icon6.snp.bottom).offset(20.pix())
         }
         icon7.snp.makeConstraints { make in
-            make.top.equalTo(descLabel.snp.bottom).offset(121.pix())
+            make.top.equalTo(whiteView.snp.bottom).offset(33.pix())
             make.left.equalToSuperview().offset(35.pix())
             make.size.equalTo(CGSize(width: 16.pix(), height: 16.pix()))
         }
@@ -183,7 +183,7 @@ class PAAuthIDView: PACommonView {
     
 }
 
-extension PAAuthIDView {
+extension PAFaceView {
     
     @objc func photoClick() {
         self.block1?()
