@@ -24,16 +24,21 @@ class PAHomeViewController: PABaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        homeDataApi()
         view.addSubview(oneView)
         oneView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         self.oneView.tableView.mj_header = PAPullHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
+        oneView.block = { productID in
+            RequestManager.applyClick(productID: productID) { nightwas in
+                RequestManager.judguUrlSche(nightwas)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        homeDataApi()
         PATabBarManager.showTabBar()
     }
 }

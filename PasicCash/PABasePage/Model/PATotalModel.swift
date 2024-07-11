@@ -35,6 +35,19 @@ class shepointedModel: HandyJSON {
     var req: reqModel?
     var reqImg: reqModel?
     var cashClas: [cashClasModel]?
+    var frames: framesModel?
+    var myshoulders: myshouldersModel?
+    var nightwas: String?
+}
+
+class myshouldersModel: HandyJSON {
+    required init() {}
+    var nightshirts: String?
+}
+
+class framesModel: HandyJSON {
+    required init() {}
+    var smoke: String?
 }
 
 class LoginModel: HandyJSON {

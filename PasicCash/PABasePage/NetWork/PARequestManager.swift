@@ -59,12 +59,12 @@ extension PARequestManager {
     }
     
     func uploadAPI(params: [String: Any]?,
-                        pageUrl: String,
-                        method: HTTPMethod,
-                        data: Data,
-                        complete: @escaping CompleteBlock,
-                        errorBlock: @escaping NSErrorBlock,
-                        type: String){
+                   pageUrl: String,
+                   method: HTTPMethod,
+                   data: Data,
+                   complete: @escaping CompleteBlock,
+                   errorBlock: @escaping NSErrorBlock,
+                   type: String){
         if let apiUrl = createURL(baseURL: BASE_URL + "/hapyy" + pageUrl, params: PALoginFactory.getLoginParas()) {
             let apiUrlString = apiUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             AF.upload(multipartFormData: { multipartFormData in
@@ -118,6 +118,86 @@ extension PARequestManager {
         }
         urlComponents.queryItems = queryItems
         return urlComponents.url?.absoluteString
+    }
+    
+}
+
+class RequestManager {
+    
+    typealias CompletionHandler = (myshouldersModel, framesModel) -> Void
+    
+    static func applyClick(productID: String, completion: ((String) -> Void)?) {
+        ViewHud.addLoadView()
+        let dict = ["affairs": productID, "withmiss": "1", "inher": "1"]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: apply_api, method: .post) { baseModel in
+            let handsto = baseModel.handsto
+            if handsto == 0 || handsto == 00 {
+                if let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed) {
+                    completion?(model.nightwas ?? "")
+                }
+            }
+            ViewHud.hideLoadView()
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+        
+    }
+    
+    static func judguUrlSche(_ url: String) {
+        if url.hasPrefix(SCHEME_URL) {
+            if url.contains("burdenedRiver") {//产品详情
+                let array = url.components(separatedBy: "affairs=")
+                detailPageInfo(productID: array.last ?? "", startTime: "", type: "") { model1, model2 in
+                    let orderID = model1.nightshirts ?? ""
+                    let step = model2.smoke ?? ""
+                    if !step.isEmpty {
+                        RequestManager.nextStep(type: step)
+                    }else {
+                        
+                    }
+                }
+            }
+        }else {
+            
+        }
+    }
+    
+    static func detailPageInfo(productID: String, startTime: String, type: String, completion: @escaping CompletionHandler) {
+        ViewHud.addLoadView()
+        let dict = ["affairs": productID, "handextinguishers": "1", "therewas": "1"]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: productDesc_api, method: .post) { baseModel in
+            let handsto = baseModel.handsto
+            if handsto == 0 || handsto == 00 {
+                let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed)
+                if let model = model, let myshoulders = model.myshoulders, let frames = model.frames {
+                    completion(myshoulders, frames)
+                }
+            }
+            ViewHud.hideLoadView()
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+        
+    }
+    
+    static func nextStep(type: String) {
+        if type == "her1" {
+            let idVc = PAAuthIDViewController()
+            if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+                rootNavController.pushViewController(idVc, animated: true)
+            }
+        }else if type == "her2" {
+            
+        }else if type == "her3" {
+            
+        }else if type == "her4" {
+            
+        }else if type == "her5" {
+            
+        }else if type == "her6" {
+            
+        }
+        
     }
     
 }

@@ -26,6 +26,8 @@ class PABigCardView: UIView {
     
     var expandedIndexPaths = Set<IndexPath>()
     
+    var block: ((String) -> Void)?
+    
     lazy var bgView: UIView = {
         let bgView = UIView()
         return bgView
@@ -62,7 +64,7 @@ class PABigCardView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setGradientBackground()
+        setGradient()
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 60.pix(), right: 0))
         }
@@ -76,7 +78,7 @@ class PABigCardView: UIView {
 
 extension PABigCardView: UITableViewDelegate, UITableViewDataSource {
     
-    func setGradientBackground() {
+    func setGradient() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bgView.bounds
         gradientLayer.colors = [
@@ -148,6 +150,9 @@ extension PABigCardView: UITableViewDelegate, UITableViewDataSource {
                 cell.selectionStyle = .none
                 cell.backgroundColor = .clear
                 cell.model = bigModel?.danger
+                cell.applyBlock = { [weak self] in
+                    self?.block?(self?.bigModel?.danger?.formy ?? "")
+                }
                 return cell
             }
         case (2, 0):
@@ -237,6 +242,8 @@ class PABannerCell: UITableViewCell, GKCycleScrollViewDataSource, GKCycleScrollV
 
 class PABigCardCell: UITableViewCell {
     
+    var applyBlock: (() -> Void)?
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.isUserInteractionEnabled = true
@@ -292,6 +299,7 @@ class PABigCardCell: UITableViewCell {
         applyBtn.setTitleColor(.white, for: .normal)
         applyBtn.isEnabled = false
         applyBtn.setBackgroundImage(UIImage(named: "Group_1001"), for: .normal)
+        applyBtn.addTarget(self, action: #selector(applyClick), for: .touchUpInside)
         return applyBtn
     }()
     
@@ -398,6 +406,10 @@ class PABigCardCell: UITableViewCell {
     
     @objc func userAgreementTapped() {
         
+    }
+    
+    @objc func applyClick() {
+        self.applyBlock?()
     }
     
 }

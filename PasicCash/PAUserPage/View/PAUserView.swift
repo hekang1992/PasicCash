@@ -199,14 +199,14 @@ class PAUserView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setGradientBackground()
+        setGradient()
     }
     
 }
 
 extension PAUserView {
     
-    func setGradientBackground() {
+    func setGradient() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = scrollView.bounds
         gradientLayer.colors = [

@@ -7,31 +7,12 @@
 
 import UIKit
 
-class PAYouHuiQuanView: UIView {
-    
-    var block: (() -> Void)?
-    
-    lazy var bgView: UIView = {
-        let bgView = UIView()
-        return bgView
-    }()
+class PAYouHuiQuanView: PACommonView {
     
     lazy var bgIcon: UIImageView = {
         let bgIcon = UIImageView()
         bgIcon.image = UIImage(named: "Group_1020")
         return bgIcon
-    }()
-    
-    lazy var backBtn: UIButton = {
-        let backBtn = UIButton(type: .custom)
-        backBtn.setImage(UIImage(named: "Slice_2"), for: .normal)
-        backBtn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
-        return backBtn
-    }()
-    
-    lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 20.pix())!, textColor: UIColor.init(hex: "#1E230F"), textAlignment: .center)
-        return titleLabel
     }()
     
     lazy var nameLabel: UILabel = {
@@ -127,11 +108,6 @@ class PAYouHuiQuanView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setGradientBackground()
-    }
-    
     var array: [cashClasModel]? {
         didSet {
             if let array = array, !array.isEmpty {
@@ -165,24 +141,6 @@ extension PAYouHuiQuanView: UITableViewDelegate, UITableViewDataSource {
         cell.model = array?[indexPath.row]
         return cell
     }
-    
-    func setGradientBackground() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bgView.bounds
-        gradientLayer.colors = [
-            UIColor.init(hex: "#B7EC2B").cgColor,
-            UIColor.init(hex: "#FCFFF2").cgColor
-        ]
-        gradientLayer.locations = [0, 1]
-        gradientLayer.startPoint = CGPoint(x: 0.92, y: 0.08)
-        gradientLayer.endPoint = CGPoint(x: 0.92, y: 0.92)
-        bgView.layer.insertSublayer(gradientLayer, at: 0)
-    }
-    
-    @objc func btnClick() {
-        self.block?()
-    }
-    
 }
 
 class youhuiCell: UITableViewCell {

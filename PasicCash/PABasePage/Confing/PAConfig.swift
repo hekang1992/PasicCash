@@ -66,6 +66,32 @@ class PATabBarManager {
     }
 }
 
+class NavigationControllerHelper {
+    class func getNavigationController(from viewController: UIViewController) -> PANavigationViewController? {
+        if let navigationController = viewController.navigationController {
+            return navigationController as? PANavigationViewController
+        } else if let tabBarController = viewController.tabBarController {
+            if let selectedController = tabBarController.selectedViewController as? UINavigationController {
+                return selectedController as? PANavigationViewController
+            }
+        }
+        return nil
+    }
+    
+    class func getRootNavigationController() -> PANavigationViewController? {
+        if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+            if let navigationController = rootViewController as? UINavigationController {
+                return navigationController as? PANavigationViewController
+            } else if let tabBarController = rootViewController as? UITabBarController {
+                if let selectedController = tabBarController.selectedViewController as? UINavigationController {
+                    return selectedController as? PANavigationViewController
+                }
+            }
+        }
+        return nil
+    }
+}
+
 class CountdownManager {
     private static var countdownTimer: Timer?
     private static var backgroundTask: UIBackgroundTaskIdentifier = .invalid

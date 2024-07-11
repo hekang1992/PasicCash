@@ -117,7 +117,6 @@ class PABorrowView: UIView {
         scrollView.addSubview(slider)
         scrollView.addSubview(nameLabel6)
         scrollView.addSubview(nextBtn)
-        
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
