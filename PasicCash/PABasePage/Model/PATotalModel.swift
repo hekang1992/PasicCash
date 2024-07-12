@@ -38,8 +38,17 @@ class shepointedModel: HandyJSON {
     var frames: framesModel?
     var myshoulders: myshouldersModel?
     var sounds: [soundsModel]?
+    var twitch: [[twitchModel]]?
     var nightwas: String?
     var lively: String?
+}
+
+class twitchModel: HandyJSON {
+    required init() {}
+    var forcovering: String?
+    var pester: String?
+    var goneup: String?
+    var birds: [birdsModel]?
 }
 
 class soundsModel: HandyJSON {

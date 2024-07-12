@@ -28,3 +28,9 @@ class PABaseViewController: UIViewController {
     */
 
 }
+
+extension PABaseViewController {
+    
+    
+    
+}
