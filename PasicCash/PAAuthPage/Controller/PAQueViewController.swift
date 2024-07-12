@@ -34,6 +34,10 @@ class PAQueViewController: PABaseViewController {
         queView.loanPurBlock = { [weak self] btn, array in
             self?.setupPickerView(array: array, btn: btn, title: "Purpose of loan")
         }
+        queView.saveBlock = { [weak self] in
+            let pendVc = PAPendingViewController()
+            self?.navigationController?.pushViewController(pendVc, animated: true)
+        }
         getLoanDetail()
     }
     
