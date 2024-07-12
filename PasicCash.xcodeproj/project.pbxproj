@@ -56,6 +56,9 @@
 		182C80482C37EE3B00CE3716 /* PAPopNickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80472C37EE3B00CE3716 /* PAPopNickView.swift */; };
 		182C804A2C3809B000CE3716 /* PABigCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C80492C3809B000CE3716 /* PABigCardView.swift */; };
 		182C804C2C3809C900CE3716 /* PAProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C804B2C3809C900CE3716 /* PAProductView.swift */; };
+		18513FBE2C40E0A1004870E1 /* PAQueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18513FBD2C40E0A1004870E1 /* PAQueViewController.swift */; };
+		18513FC02C40E0C5004870E1 /* PAPopQueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18513FBF2C40E0C5004870E1 /* PAPopQueView.swift */; };
+		18513FC22C40E2BC004870E1 /* PAQueRenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18513FC12C40E2BC004870E1 /* PAQueRenView.swift */; };
 		FE032C0307388BCDF7A98BEC /* Pods_PasicCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +115,9 @@
 		182C80472C37EE3B00CE3716 /* PAPopNickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPopNickView.swift; sourceTree = "<group>"; };
 		182C80492C3809B000CE3716 /* PABigCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PABigCardView.swift; sourceTree = "<group>"; };
 		182C804B2C3809C900CE3716 /* PAProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAProductView.swift; sourceTree = "<group>"; };
+		18513FBD2C40E0A1004870E1 /* PAQueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAQueViewController.swift; sourceTree = "<group>"; };
+		18513FBF2C40E0C5004870E1 /* PAPopQueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPopQueView.swift; sourceTree = "<group>"; };
+		18513FC12C40E2BC004870E1 /* PAQueRenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAQueRenView.swift; sourceTree = "<group>"; };
 		3599269F8DA2C63D45CD9672 /* Pods-PasicCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.release.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.release.xcconfig"; sourceTree = "<group>"; };
 		DAC85EBC70A8689A703671B1 /* Pods-PasicCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.debug.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.debug.xcconfig"; sourceTree = "<group>"; };
 		DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasicCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +150,7 @@
 				182B6D902C3FAE8D004F317C /* PAAuthIDViewController.swift */,
 				182B6D942C3FD829004F317C /* PAFaceViewController.swift */,
 				182B6D982C3FE0B4004F317C /* PABankViewController.swift */,
+				18513FBD2C40E0A1004870E1 /* PAQueViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -154,6 +161,8 @@
 				182B6D922C3FB06B004F317C /* PAAuthIDView.swift */,
 				182B6D962C3FD837004F317C /* PAFaceView.swift */,
 				182B6D9A2C3FE252004F317C /* PABankView.swift */,
+				18513FBF2C40E0C5004870E1 /* PAPopQueView.swift */,
+				18513FC12C40E2BC004870E1 /* PAQueRenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -563,6 +572,8 @@
 				182B6D972C3FD837004F317C /* PAFaceView.swift in Sources */,
 				182B6D862C3E8334004F317C /* PAPopOutView.swift in Sources */,
 				182C7FDA2C33EF8A00CE3716 /* AppDelegate.swift in Sources */,
+				18513FC22C40E2BC004870E1 /* PAQueRenView.swift in Sources */,
+				18513FBE2C40E0A1004870E1 /* PAQueViewController.swift in Sources */,
 				182B6D952C3FD829004F317C /* PAFaceViewController.swift in Sources */,
 				182C800E2C33FEA800CE3716 /* PAConfig.swift in Sources */,
 				182C80412C37D42100CE3716 /* PAMediaManager.swift in Sources */,
@@ -572,6 +583,7 @@
 				182B6D842C3E6BAB004F317C /* PAExpanView.swift in Sources */,
 				182B6D822C3E580F004F317C /* PAUserView.swift in Sources */,
 				182C80292C353AE900CE3716 /* PANetworkManager.swift in Sources */,
+				18513FC02C40E0C5004870E1 /* PAPopQueView.swift in Sources */,
 				182C801B2C34FF7500CE3716 /* PALocation.swift in Sources */,
 				182C80312C35599800CE3716 /* PABorrowView.swift in Sources */,
 				182C801D2C34FFAD00CE3716 /* PATotalModel.swift in Sources */,

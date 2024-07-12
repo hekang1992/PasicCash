@@ -153,7 +153,11 @@ class RequestManager {
                     if !step.isEmpty {
                         RequestManager.nextStep(type: step, productID: productID)
                     }else {
-                        
+                        if productID == "2" {
+                            queVc(productID: productID)
+                        }else {
+                            
+                        }
                     }
                 }
             }
@@ -169,8 +173,12 @@ class RequestManager {
             let handsto = baseModel.handsto
             if handsto == 0 || handsto == 00 {
                 let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed)
-                if let model = model, let myshoulders = model.myshoulders, let frames = model.frames {
-                    completion(myshoulders, frames, productID)
+                if let model = model, let myshoulders = model.myshoulders{
+                    if let frames = model.frames {
+                        completion(myshoulders, frames, productID)
+                    }else {
+                        completion(myshoulders, framesModel(), productID)
+                    }
                 }
             }
             ViewHud.hideLoadView()
@@ -199,7 +207,6 @@ class RequestManager {
                 bankVc.productID = productID
                 rootNavController.pushViewController(bankVc, animated: true)
             }
-            
         }else if type == "her6" {
             let faceVc = PAFaceViewController()
             if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
@@ -208,6 +215,14 @@ class RequestManager {
             }
         }
         
+    }
+    
+    static func queVc(productID: String) {
+        let queVc = PAQueViewController()
+        if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+            queVc.productID = productID
+            rootNavController.pushViewController(queVc, animated: true)
+        }
     }
     
 }

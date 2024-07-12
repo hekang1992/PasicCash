@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import BRPickerView
 
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 
@@ -309,3 +310,20 @@ class DateConverter {
 //        return tempArr1
 //    }
 //}
+
+class yijiModel {
+    static func getSimpleModelArr(dataSourceArr: [Any]) -> [BRProvinceModel] {
+        var result = [BRProvinceModel]()
+        for proviceDic in dataSourceArr {
+            guard let proviceDic = proviceDic as? birdsModel else {
+                continue
+            }
+            let proviceModel = BRProvinceModel()
+            proviceModel.code = proviceDic.goneup
+            proviceModel.name = proviceDic.hoses
+            proviceModel.index = dataSourceArr.firstIndex(where: { $0 as AnyObject === proviceDic as AnyObject }) ?? 0
+            result.append(proviceModel)
+        }
+        return result
+    }
+}

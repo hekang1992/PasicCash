@@ -14,7 +14,6 @@ PODS:
     - BRPickerView/Base
   - DeviceKit (5.2.2)
   - GKCycleScrollView (1.2.2)
-  - GradientView (2.3.4)
   - HandyJSON (5.0.2)
   - IQKeyboardManagerSwift (6.5.16)
   - Kingfisher (7.11.0)
@@ -31,7 +30,6 @@ DEPENDENCIES:
   - BRPickerView (~> 2.8.1)
   - DeviceKit (~> 5.2.2)
   - GKCycleScrollView (~> 1.2.2)
-  - GradientView (~> 2.3.4)
   - HandyJSON (~> 5.0.2)
   - IQKeyboardManagerSwift (~> 6.5.16)
   - Kingfisher (~> 7.11.0)
@@ -49,7 +47,6 @@ SPEC REPOS:
     - BRPickerView
     - DeviceKit
     - GKCycleScrollView
-    - GradientView
     - HandyJSON
     - IQKeyboardManagerSwift
     - Kingfisher
@@ -66,7 +63,6 @@ SPEC CHECKSUMS:
   BRPickerView: 2531a2d4d0fea0b57a1c738de215af0f88863a2f
   DeviceKit: e36aaf2a0d142ef0b4fac2007649a4414af234be
   GKCycleScrollView: ecc033c0d1376f28f7441f0275e9a9d515da9a6f
-  GradientView: 61d79cc948bf66f9d453865794ace916c2ba0918
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
@@ -78,6 +74,6 @@ SPEC CHECKSUMS:
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: b519e6102175b46443e47808f70ff9aae4b32b9c
+PODFILE CHECKSUM: 63714a09fb3f40d099790dfe80ce3660d88f2830
 
 COCOAPODS: 1.14.3

@@ -234,7 +234,7 @@
 
 - (UIFont *)pickerTextFont {
     if (!_pickerTextFont) {
-        _pickerTextFont = [UIFont systemFontOfSize:18.0f];
+        _pickerTextFont = [UIFont fontWithName:@"LilitaOne" size:18];
     }
     return _pickerTextFont;
 }

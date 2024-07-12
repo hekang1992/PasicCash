@@ -49,11 +49,23 @@ class PALaunchViewController: PABaseViewController {
         icon3.addGestureRecognizer(tapGesture)
         return icon3
     }()
+    
+    lazy var bgImageView: UIImageView = {
+        let bgImageView = UIImageView()
+        bgImageView.isUserInteractionEnabled = true
+        bgImageView.image = UIImage(named: "launchimage")
+        bgImageView.contentMode = .scaleAspectFill
+        return bgImageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        view.addSubview(bgImageView)
+        bgImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         requestHuanJing()
     }
 

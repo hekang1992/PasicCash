@@ -7,7 +7,6 @@
 
 import UIKit
 import Kingfisher
-import GradientView
 import GKCycleScrollView
 
 class PABigCardView: UIView {

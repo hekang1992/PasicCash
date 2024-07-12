@@ -83,10 +83,11 @@ class PABankView: PACommonView {
     
     lazy var bankBtn: UIButton = {
         let bankBtn = UIButton(type: .custom)
-        bankBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        bankBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.pix())
         bankBtn.setTitleColor(UIColor.init(hex: "#0CE094"), for: .normal)
         bankBtn.adjustsImageWhenHighlighted = false
         bankBtn.setBackgroundImage(UIImage(named: "Slice_10"), for: .normal)
+        bankBtn.setTitle("Please select your bank", for: .normal)
         bankBtn.addTarget(self, action: #selector(bankClick), for: .touchUpInside)
         return bankBtn
     }()
