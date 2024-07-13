@@ -39,19 +39,19 @@ class PACodeView: UIView {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 13.pix())!, textColor: UIColor.init(hex: "#293014"), textAlignment: .center)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 13.ppaix())!, textColor: UIColor.init(hex: "#293014"), textAlignment: .center)
         nameLabel.text = "PasicCash"
         return nameLabel
     }()
     
     lazy var nameLabel1: UILabel = {
-        let nameLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 35.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 35.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         nameLabel1.text = "PASICCASH"
         return nameLabel1
     }()
     
     lazy var nameLabel2: UILabel = {
-        let nameLabel2 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 12.pix())!, textColor: UIColor.init(hex: "#ACAFA1"), textAlignment: .left)
+        let nameLabel2 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#ACAFA1"), textAlignment: .left)
         nameLabel2.text = "Simple Loans, Smart Solutions”"
         return nameLabel2
     }()
@@ -76,11 +76,11 @@ class PACodeView: UIView {
         phoneText.keyboardType = .numberPad
         let attrString = NSMutableAttributedString(string: "123 456", attributes: [
             .foregroundColor: UIColor.init(hex: "#D8DDCA") as Any,
-            .font: UIFont(name: LilitaOneFont, size: 27.pix())!
+            .font: UIFont(name: LilitaOneFont, size: 27.ppaix())!
         ])
         phoneText.textAlignment = .center
         phoneText.attributedPlaceholder = attrString
-        phoneText.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        phoneText.font = UIFont(name: LilitaOneFont, size: 27.ppaix())
         phoneText.textColor = UIColor.init(hex: "#1C200D")
         return phoneText
     }()
@@ -89,11 +89,11 @@ class PACodeView: UIView {
         let codeBtn = UIButton(type: .custom)
         codeBtn.setTitle("Resend code", for: .normal)
         codeBtn.setTitleColor(.white, for: .normal)
-        codeBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.pix())
-        codeBtn.layer.cornerRadius = 15.pix()
+        codeBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.ppaix())
+        codeBtn.layer.cornerRadius = 15.ppaix()
         codeBtn.backgroundColor = UIColor.init(hex:"#1C200D")
         codeBtn.addTarget(self, action: #selector(codeBtnClick), for: .touchUpInside)
-        codeBtn.frame = CGRectMake(0, 0, 110.pix(), 40.pix())
+        codeBtn.frame = CGRectMake(0, 0, 110.ppaix(), 40.ppaix())
         return codeBtn
     }()
     
@@ -102,7 +102,7 @@ class PACodeView: UIView {
         nextBtn.setTitle("Login", for: .normal)
         nextBtn.setTitleColor(.white, for: .normal)
 //        nextBtn.isEnabled = false
-        nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.pix())
+        nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.ppaix())
         nextBtn.setBackgroundImage(UIImage(named: "Group_1033"), for: .normal)
         nextBtn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
         return nextBtn
@@ -134,52 +134,52 @@ class PACodeView: UIView {
         }
         bgImageView.snp.makeConstraints { make in
             make.left.top.right.equalToSuperview()
-            make.height.equalTo(375.pix())
+            make.height.equalTo(375.ppaix())
         }
         backBtn.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 30.pix(), height: 30.pix()))
-            make.left.equalToSuperview().offset(25.pix())
-            make.top.equalToSuperview().offset(50.pix())
+            make.size.equalTo(CGSize(width: 30.ppaix(), height: 30.ppaix()))
+            make.left.equalToSuperview().offset(25.ppaix())
+            make.top.equalToSuperview().offset(50.ppaix())
         }
         nameLabel1.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(37.5.pix())
+            make.left.equalToSuperview().offset(37.5.ppaix())
             make.top.equalTo(bgImageView.snp.bottom)
-            make.height.equalTo(40.pix())
+            make.height.equalTo(40.ppaix())
         }
         nameLabel2.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(37.5.pix())
+            make.left.equalToSuperview().offset(37.5.ppaix())
             make.top.equalTo(nameLabel1.snp.bottom)
-            make.height.equalTo(13.5.pix())
+            make.height.equalTo(13.5.ppaix())
         }
         iconImageView.snp.makeConstraints { make in
-            make.left.equalTo(nameLabel1.snp.right).offset(10.pix())
+            make.left.equalTo(nameLabel1.snp.right).offset(10.ppaix())
             make.centerY.equalTo(nameLabel1.snp.centerY)
-            make.size.equalTo(CGSize(width: 79.pix(), height: 29.pix()))
+            make.size.equalTo(CGSize(width: 79.ppaix(), height: 29.ppaix()))
         }
         nameLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         iconImageView2.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(35.pix())
-            make.top.equalTo(nameLabel2.snp.bottom).offset(50.pix())
-            make.height.equalTo(68.pix())
+            make.left.equalToSuperview().offset(35.ppaix())
+            make.top.equalTo(nameLabel2.snp.bottom).offset(50.ppaix())
+            make.height.equalTo(68.ppaix())
         }
         codeBtn.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-10.pix())
+            make.right.equalToSuperview().offset(-10.ppaix())
             make.centerY.equalToSuperview()
-            make.height.equalTo(40.pix())
-            make.width.equalTo(110.pix())
+            make.height.equalTo(40.ppaix())
+            make.width.equalTo(110.ppaix())
         }
         phoneText.snp.makeConstraints { make in
             make.left.top.bottom.equalToSuperview()
-            make.width.equalTo(200.pix())
+            make.width.equalTo(200.ppaix())
         }
         nextBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(iconImageView2.snp.bottom).offset(21.pix())
-            make.size.equalTo(CGSize(width: 305.pix(), height: 60.pix()))
-            make.bottom.equalToSuperview().offset(-191.pix())
+            make.top.equalTo(iconImageView2.snp.bottom).offset(21.ppaix())
+            make.size.equalTo(CGSize(width: 305.ppaix(), height: 60.ppaix()))
+            make.bottom.equalToSuperview().offset(-191.ppaix())
         }
     }
     

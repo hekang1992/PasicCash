@@ -10,7 +10,7 @@ import SnapKit
 
 class PATabBarButton: UIControl {
     
-    let buttonW = (SCREEN_WIDTH - 40.pix()) / 3
+    let buttonW = (SCREEN_WIDTH - 40.ppaix()) / 3
 
     var block: ((PATabBarButton) -> Void)?
     
@@ -22,7 +22,7 @@ class PATabBarButton: UIControl {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 13.pix())!, textColor: UIColor(hex: "#E6E9ED"), textAlignment: .center)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 13.ppaix())!, textColor: UIColor(hex: "#E6E9ED"), textAlignment: .center)
         return nameLabel
     }()
     
@@ -41,13 +41,13 @@ class PATabBarButton: UIControl {
         addSubview(nameLabel)
         iconBtn.snp.makeConstraints { make in
             make.centerX.equalTo(self)
-            make.top.equalToSuperview().offset(21.5.pix())
-            make.size.equalTo(CGSize(width: 32.pix(), height: 32.pix()))
+            make.top.equalToSuperview().offset(21.5.ppaix())
+            make.size.equalTo(CGSize(width: 32.ppaix(), height: 32.ppaix()))
         }
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(iconBtn.snp.bottom).offset(4.pix())
+            make.top.equalTo(iconBtn.snp.bottom).offset(4.ppaix())
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: buttonW, height: 26.pix()))
+            make.size.equalTo(CGSize(width: buttonW, height: 26.ppaix()))
         }
     }
     

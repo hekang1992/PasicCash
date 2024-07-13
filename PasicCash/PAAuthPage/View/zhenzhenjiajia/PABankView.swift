@@ -20,7 +20,7 @@ class PABankView: PACommonView {
     }()
     
     lazy var label1: UILabel = {
-        let label1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
+        let label1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
         label1.text = "Enter card number to add"
         return label1
     }()
@@ -38,52 +38,52 @@ class PABankView: PACommonView {
         phoneText.keyboardType = .numberPad
         let attrString = NSMutableAttributedString(string: "Card number", attributes: [
             .foregroundColor: UIColor.init(hex: "#CED4BD") as Any,
-            .font: UIFont(name: LilitaOneFont, size: 22.pix())!
+            .font: UIFont(name: LilitaOneFont, size: 22.ppaix())!
         ])
         phoneText.attributedPlaceholder = attrString
         phoneText.rightView = rightView
         phoneText.rightViewMode = .always
         phoneText.leftView = leftView
         phoneText.leftViewMode = .always
-        phoneText.font = UIFont(name: LilitaOneFont, size: 22.pix())
+        phoneText.font = UIFont(name: LilitaOneFont, size: 22.ppaix())
         phoneText.textColor = UIColor.init(hex: "#1C200D")
         phoneText.textAlignment = .center
         return phoneText
     }()
     
     lazy var leftView: UIView = {
-        let leftView = UIView(frame: CGRectMake(0, 0, 40.pix(), 40.pix()))
+        let leftView = UIView(frame: CGRectMake(0, 0, 40.ppaix(), 40.ppaix()))
         return leftView
     }()
     
     lazy var rightView: UIView = {
-        let rightImageView = UIImageView(frame: CGRectMake(0, 0, 40.pix(), 40.pix()))
+        let rightImageView = UIImageView(frame: CGRectMake(0, 0, 40.ppaix(), 40.ppaix()))
         rightImageView.image = UIImage(named: "Group_20")
         rightImageView.contentMode = .left
         rightImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(delTapped))
         rightImageView.addGestureRecognizer(tapGesture)
-        let rightView = UIView(frame: CGRectMake(0, 0, 40.pix(), 40.pix()))
+        let rightView = UIView(frame: CGRectMake(0, 0, 40.ppaix(), 40.ppaix()))
         rightView.addSubview(rightImageView)
         rightView.isHidden = true
         return rightView
     }()
     
     lazy var label2: UILabel = {
-        let label2 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 12.pix())!, textColor: UIColor.init(hex: "#FF5C5D"), textAlignment: .center)
+        let label2 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#FF5C5D"), textAlignment: .center)
         label2.text = "Please confirm that the card number is correct"
         return label2
     }()
     
     lazy var label3: UILabel = {
-        let label3 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
+        let label3 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
         label3.text = "Choose a bank"
         return label3
     }()
     
     lazy var bankBtn: UIButton = {
         let bankBtn = UIButton(type: .custom)
-        bankBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.pix())
+        bankBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.ppaix())
         bankBtn.setTitleColor(UIColor.init(hex: "#0CE094"), for: .normal)
         bankBtn.adjustsImageWhenHighlighted = false
         bankBtn.setBackgroundImage(UIImage(named: "Slice_10"), for: .normal)
@@ -99,7 +99,7 @@ class PABankView: PACommonView {
     }()
     
     lazy var descLabel1: UILabel = {
-        let descLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 9.pix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
+        let descLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 9.ppaix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
         descLabel1.text = "Your data is used exclusively for approval, and PasicCash guarantees the protection of your privacy."
         descLabel1.numberOfLines = 0
         return descLabel1
@@ -107,7 +107,7 @@ class PABankView: PACommonView {
     
     lazy var nextBtn: UIButton = {
         let nextBtn = UIButton(type: .custom)
-        nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.pix())
+        nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.ppaix())
         nextBtn.adjustsImageWhenHighlighted = false
         nextBtn.setBackgroundImage(UIImage(named: "Group_1095"), for: .normal)
         let fullString = "Complete 3/3"
@@ -139,54 +139,54 @@ class PABankView: PACommonView {
         scrollView.addSubview(nextBtn)
         bankImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(24.pix())
-            make.size.equalTo(CGSize(width: 265.pix(), height: 166.pix()))
+            make.top.equalToSuperview().offset(24.ppaix())
+            make.size.equalTo(CGSize(width: 265.ppaix(), height: 166.ppaix()))
         }
         label1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(bankImageView.snp.bottom).offset(30.pix())
-            make.height.equalTo(21.pix())
+            make.top.equalTo(bankImageView.snp.bottom).offset(30.ppaix())
+            make.height.equalTo(21.ppaix())
         }
         iconImageView2.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(label1.snp.bottom).offset(15.pix())
-            make.size.equalTo(CGSize(width: 325.pix(), height: 68.pix()))
+            make.top.equalTo(label1.snp.bottom).offset(15.ppaix())
+            make.size.equalTo(CGSize(width: 325.ppaix(), height: 68.ppaix()))
         }
         phoneText.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         label2.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(phoneText.snp.bottom).offset(11.pix())
-            make.height.equalTo(14.pix())
+            make.top.equalTo(phoneText.snp.bottom).offset(11.ppaix())
+            make.height.equalTo(14.ppaix())
         }
         label3.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(label2.snp.bottom).offset(20.pix())
-            make.height.equalTo(21.pix())
+            make.top.equalTo(label2.snp.bottom).offset(20.ppaix())
+            make.height.equalTo(21.ppaix())
         }
         bankBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(label3.snp.bottom).offset(15.pix())
-            make.height.equalTo(60.pix())
-            make.left.equalToSuperview().offset(25.pix())
+            make.top.equalTo(label3.snp.bottom).offset(15.ppaix())
+            make.height.equalTo(60.ppaix())
+            make.left.equalToSuperview().offset(25.ppaix())
             
         }
         icon7.snp.makeConstraints { make in
-            make.top.equalTo(bankBtn.snp.bottom).offset(159.pix())
-            make.left.equalToSuperview().offset(35.pix())
-            make.size.equalTo(CGSize(width: 16.pix(), height: 16.pix()))
+            make.top.equalTo(bankBtn.snp.bottom).offset(159.ppaix())
+            make.left.equalToSuperview().offset(35.ppaix())
+            make.size.equalTo(CGSize(width: 16.ppaix(), height: 16.ppaix()))
         }
         descLabel1.snp.makeConstraints { make in
-            make.width.equalTo(280.pix())
-            make.left.equalTo(icon7.snp.right).offset(7.pix())
-            make.top.equalTo(icon7.snp.top).offset(-2.5.pix())
+            make.width.equalTo(280.ppaix())
+            make.left.equalTo(icon7.snp.right).offset(7.ppaix())
+            make.top.equalTo(icon7.snp.top).offset(-2.5.ppaix())
         }
         nextBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(descLabel1.snp.bottom).offset(15.pix())
-            make.size.equalTo(CGSize(width: 305.pix(), height: 60.pix()))
-            make.bottom.equalToSuperview().offset(-35.pix())
+            make.top.equalTo(descLabel1.snp.bottom).offset(15.ppaix())
+            make.size.equalTo(CGSize(width: 305.ppaix(), height: 60.ppaix()))
+            make.bottom.equalToSuperview().offset(-35.ppaix())
         }
     }
     

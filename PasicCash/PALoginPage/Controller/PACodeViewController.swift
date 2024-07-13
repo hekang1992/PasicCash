@@ -64,9 +64,9 @@ extension PACodeViewController {
             UIView.animate(withDuration: 0.25) {
                 self.codeView.codeBtn.setTitle("", for: .normal)
                 self.codeView.codeBtn.setTitleColor(UIColor.init(hex: "#FEE610"), for: .normal)
-                self.codeView.codeBtn.layer.cornerRadius = 20.pix()
+                self.codeView.codeBtn.layer.cornerRadius = 20.ppaix()
                 self.codeView.codeBtn.snp.updateConstraints { make in
-                    make.size.equalTo(CGSizeMake(40.pix(), 40.pix()))
+                    make.size.equalTo(CGSizeMake(40.ppaix(), 40.ppaix()))
                 }
                 self.codeView.layoutIfNeeded()
             } completion: { _ in
@@ -82,10 +82,10 @@ extension PACodeViewController {
         self.codeView.codeBtn.isEnabled = true
         self.codeView.codeBtn.setTitle("Resend code", for: .normal)
         UIView.animate(withDuration: 0.25) {
-            self.codeView.codeBtn.layer.cornerRadius = 15.pix()
+            self.codeView.codeBtn.layer.cornerRadius = 15.ppaix()
             self.codeView.codeBtn.setTitleColor(UIColor.white, for: .normal)
             self.codeView.codeBtn.snp.updateConstraints { make in
-                make.size.equalTo(CGSizeMake(110.pix(), 40.pix()))
+                make.size.equalTo(CGSizeMake(110.ppaix(), 40.ppaix()))
             }
             self.codeView.layoutIfNeeded()
         }
@@ -95,7 +95,7 @@ extension PACodeViewController {
     func getCodeApi() {
         ViewHud.addLoadView()
         let dict = ["chuckling": phoneStr, "whooped": "1"]
-        PARequestManager.shared.requestAPI(params: dict, pageUrl: sendCode_api, method: .post) { [weak self] baseModel in
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/exactlyScalp", method: .post) { [weak self] baseModel in
             ViewHud.hideLoadView()
             let handsto = baseModel.handsto
             let jiffy = baseModel.jiffy
@@ -112,7 +112,7 @@ extension PACodeViewController {
         let codeStr = codeView.phoneText.text?.replacingOccurrences(of: " ", with: "")
         ViewHud.addLoadView()
         let dict = ["ruined": phoneStr, "driedblood": codeStr ?? ""]
-        PARequestManager.shared.requestAPI(params: dict, pageUrl: login_api, method: .post) { [weak self] baseModel in
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/twelveWould", method: .post) { [weak self] baseModel in
             let handsto = baseModel.handsto
             if handsto == 0 || handsto == 00 {
                 if let model = JSONDeserializer<LoginModel>.deserializeFrom(dict: baseModel.shepointed) {

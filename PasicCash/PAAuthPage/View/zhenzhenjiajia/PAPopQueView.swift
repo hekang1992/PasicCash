@@ -26,7 +26,7 @@ class PAPopQueView: UIView {
         addSubview(bgImageView)
         bgImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 375.pix(), height: 525.pix()))
+            make.size.equalTo(CGSize(width: 375.ppaix(), height: 525.ppaix()))
         }
     }
     

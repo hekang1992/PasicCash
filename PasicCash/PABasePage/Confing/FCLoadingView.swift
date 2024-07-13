@@ -13,7 +13,7 @@ class PALoadingView: UIView {
     
     lazy var grayView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 25.pix()
+        view.layer.cornerRadius = 25.ppaix()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         return view
     }()
@@ -47,7 +47,7 @@ class PALoadingView: UIView {
         }
         hudView.snp.makeConstraints { make in
             make.center.equalTo(self)
-            make.size.equalTo(CGSize(width: 144.pix(), height: 144.pix()))
+            make.size.equalTo(CGSize(width: 144.ppaix(), height: 144.ppaix()))
         }
     }
 }

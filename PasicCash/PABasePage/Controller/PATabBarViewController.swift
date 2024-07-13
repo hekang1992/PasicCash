@@ -34,9 +34,9 @@ class PATabBarViewController: UITabBarController {
         }
         customTabBar.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(20.pix())
+            make.left.equalToSuperview().offset(20.ppaix())
             make.bottom.equalToSuperview()
-            make.height.equalTo(115.pix())
+            make.height.equalTo(115.ppaix())
         }
     }
     
@@ -77,7 +77,7 @@ class PATabBarViewController: UITabBarController {
     
     func showTabBar() {
         UIView.animate(withDuration: 0.25) {
-            self.customTabBar.frame.origin.y = self.view.bounds.size.height - 115.pix()
+            self.customTabBar.frame.origin.y = self.view.bounds.size.height - 115.ppaix()
         }
     }
     

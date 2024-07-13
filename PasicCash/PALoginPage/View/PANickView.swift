@@ -56,7 +56,7 @@ class PANickView: UIView {
         skipBtn.contentHorizontalAlignment = .right
         skipBtn.setTitle("Skip", for: .normal)
         skipBtn.setTitleColor(UIColor.white, for: .normal)
-        skipBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 20.pix())
+        skipBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 20.ppaix())
         skipBtn.addTarget(self, action: #selector(skipBtnClick), for: .touchUpInside)
         return skipBtn
     }()
@@ -65,7 +65,7 @@ class PANickView: UIView {
         let imageBtn = UIButton(type: .custom)
         imageBtn.setImage(UIImage(named: "Group_987"), for: .normal)
         imageBtn.addTarget(self, action: #selector(imageBtnClick), for: .touchUpInside)
-        imageBtn.layer.cornerRadius = 39.pix()
+        imageBtn.layer.cornerRadius = 39.ppaix()
         imageBtn.layer.masksToBounds = true
         return imageBtn
     }()
@@ -88,17 +88,17 @@ class PANickView: UIView {
         phoneText.delegate = self
         let attrString = NSMutableAttributedString(string: "Nickname", attributes: [
             .foregroundColor: UIColor.init(hex: "#D8DDCA") as Any,
-            .font: UIFont(name: LilitaOneFont, size: 27.pix())!
+            .font: UIFont(name: LilitaOneFont, size: 27.ppaix())!
         ])
         phoneText.textAlignment = .center
         phoneText.attributedPlaceholder = attrString
-        phoneText.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        phoneText.font = UIFont(name: LilitaOneFont, size: 27.ppaix())
         phoneText.textColor = UIColor.init(hex: "#1C200D")
         return phoneText
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 12.pix())!, textColor: UIColor.init(hex: "#FF5C5D"), textAlignment: .center)
+        let descLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#FF5C5D"), textAlignment: .center)
         descLabel.text = "Nickname must be between 2 and 18 characters"
         return descLabel
     }()
@@ -107,7 +107,7 @@ class PANickView: UIView {
         let maleBtn = UIButton(type: .custom)
         maleBtn.setTitle("Male", for: .normal)
         maleBtn.setTitleColor(UIColor.init(hex: "#1C200D"), for: .normal)
-        maleBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        maleBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.ppaix())
         maleBtn.addTarget(self, action: #selector(maleBtnClick(_ :)), for: .touchUpInside)
         return maleBtn
     }()
@@ -116,7 +116,7 @@ class PANickView: UIView {
         let femaleBtn = UIButton(type: .custom)
         femaleBtn.setTitle("Female", for: .normal)
         femaleBtn.setTitleColor(UIColor.init(hex: "#CED4BD"), for: .normal)
-        femaleBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        femaleBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.ppaix())
         femaleBtn.addTarget(self, action: #selector(maleBtnClick(_ :)), for: .touchUpInside)
         return femaleBtn
     }()
@@ -147,61 +147,61 @@ class PANickView: UIView {
         }
         bgImageView.snp.makeConstraints { make in
             make.left.top.right.equalToSuperview()
-            make.height.equalTo(375.pix())
+            make.height.equalTo(375.ppaix())
         }
         backBtn.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 30.pix(), height: 30.pix()))
-            make.left.equalToSuperview().offset(25.pix())
-            make.top.equalToSuperview().offset(50.pix())
+            make.size.equalTo(CGSize(width: 30.ppaix(), height: 30.ppaix()))
+            make.left.equalToSuperview().offset(25.ppaix())
+            make.top.equalToSuperview().offset(50.ppaix())
         }
         skipBtn.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 40.pix(), height: 23.pix()))
-            make.right.equalToSuperview().offset(-25.pix())
-            make.top.equalToSuperview().offset(52.5.pix())
+            make.size.equalTo(CGSize(width: 40.ppaix(), height: 23.ppaix()))
+            make.right.equalToSuperview().offset(-25.ppaix())
+            make.top.equalToSuperview().offset(52.5.ppaix())
         }
         imageBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 78.pix(), height: 78.pix()))
-            make.bottom.equalTo(bgImageView.snp.bottom).offset(-47.pix())
+            make.size.equalTo(CGSize(width: 78.ppaix(), height: 78.ppaix()))
+            make.bottom.equalTo(bgImageView.snp.bottom).offset(-47.ppaix())
         }
         iconImageView1.snp.makeConstraints { make in
             make.right.equalTo(imageBtn.snp.right)
             make.bottom.equalTo(imageBtn.snp.bottom)
-            make.size.equalTo(CGSize(width: 28.pix(), height: 28.pix()))
+            make.size.equalTo(CGSize(width: 28.ppaix(), height: 28.ppaix()))
         }
         iconImageView2.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 313.pix(), height: 73.pix()))
-            make.top.equalTo(imageBtn.snp.bottom).offset(22.pix())
+            make.size.equalTo(CGSize(width: 313.ppaix(), height: 73.ppaix()))
+            make.top.equalTo(imageBtn.snp.bottom).offset(22.ppaix())
         }
         phoneText.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         descLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(iconImageView2.snp.bottom).offset(11.pix())
-            make.height.equalTo(14.pix())
+            make.top.equalTo(iconImageView2.snp.bottom).offset(11.ppaix())
+            make.height.equalTo(14.ppaix())
         }
         maleBtn.snp.makeConstraints { make in
-            make.top.equalTo(descLabel.snp.bottom).offset(30.pix())
-            make.left.equalToSuperview().offset(63.pix())
-            make.size.equalTo(CGSize(width: 60.pix(), height: 32.pix()))
+            make.top.equalTo(descLabel.snp.bottom).offset(30.ppaix())
+            make.left.equalToSuperview().offset(63.ppaix())
+            make.size.equalTo(CGSize(width: 60.ppaix(), height: 32.ppaix()))
         }
         lineView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(descLabel.snp.bottom).offset(35.5.pix())
-            make.size.equalTo(CGSize(width: 4.pix(), height: 20.pix()))
+            make.top.equalTo(descLabel.snp.bottom).offset(35.5.ppaix())
+            make.size.equalTo(CGSize(width: 4.ppaix(), height: 20.ppaix()))
         }
         femaleBtn.snp.makeConstraints { make in
-            make.top.equalTo(descLabel.snp.bottom).offset(30.pix())
-            make.right.equalToSuperview().offset(-53.pix())
-            make.size.equalTo(CGSize(width: 82.pix(), height: 32.pix()))
+            make.top.equalTo(descLabel.snp.bottom).offset(30.ppaix())
+            make.right.equalToSuperview().offset(-53.ppaix())
+            make.size.equalTo(CGSize(width: 82.ppaix(), height: 32.ppaix()))
         }
         nextBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(femaleBtn.snp.bottom).offset(25.pix())
-            make.size.equalTo(CGSize(width: 305.pix(), height: 60.pix()))
-            make.bottom.equalToSuperview().offset(-191.pix())
+            make.top.equalTo(femaleBtn.snp.bottom).offset(25.ppaix())
+            make.size.equalTo(CGSize(width: 305.ppaix(), height: 60.ppaix()))
+            make.bottom.equalToSuperview().offset(-191.ppaix())
         }
     }
     

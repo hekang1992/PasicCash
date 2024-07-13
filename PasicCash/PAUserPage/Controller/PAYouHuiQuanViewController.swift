@@ -69,7 +69,7 @@ extension PAYouHuiQuanViewController {
     func getyouhuiquan() {
         let dict = ["whooped": "1"]
         ViewHud.addLoadView()
-        PARequestManager.shared.requestAPI(params: dict, pageUrl: youhui_quan, method: .post) { [weak self] baseModel in
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/LoveMa", method: .post) { [weak self] baseModel in
             let handsto = baseModel.handsto
             let jiffy = baseModel.jiffy ?? ""
             if handsto == 0 || handsto == 00 {

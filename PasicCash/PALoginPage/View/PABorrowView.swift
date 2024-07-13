@@ -34,20 +34,20 @@ class PABorrowView: UIView {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 13.pix())!, textColor: UIColor.init(hex: "#293014"), textAlignment: .center)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 13.ppaix())!, textColor: UIColor.init(hex: "#293014"), textAlignment: .center)
         nameLabel.text = "PasicCash"
         return nameLabel
     }()
     
     lazy var nameLabel1: UILabel = {
-        let nameLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 28.pix())!, textColor: UIColor.init(hex: "#293014"), textAlignment: .left)
+        let nameLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 28.ppaix())!, textColor: UIColor.init(hex: "#293014"), textAlignment: .left)
         nameLabel1.numberOfLines = 0
         nameLabel1.text = "How Much Would You Like to Borrow?"
         return nameLabel1
     }()
     
     lazy var nameLabel2: UILabel = {
-        let nameLabel2 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 12.pix())!, textColor: UIColor.init(hex: "#ACAFA1"), textAlignment: .left)
+        let nameLabel2 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#ACAFA1"), textAlignment: .left)
         nameLabel2.numberOfLines = 0
         nameLabel2.text = "We are here to assist you with your financial needs. Please let us know the amount you wish to borrow so we can proceed with your application!"
         return nameLabel2
@@ -61,19 +61,19 @@ class PABorrowView: UIView {
     }()
     
     lazy var nameLabel3: UILabel = {
-        let nameLabel3 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 32.pix())!, textColor: UIColor.init(hex: "#CED4BD"), textAlignment: .center)
+        let nameLabel3 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 32.ppaix())!, textColor: UIColor.init(hex: "#CED4BD"), textAlignment: .center)
         nameLabel3.text = "50,000 Max"
         return nameLabel3
     }()
     
     lazy var nameLabel4: UILabel = {
-        let nameLabel4 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 12.pix())!, textColor: UIColor.init(hex: "#CED4BD"), textAlignment: .center)
+        let nameLabel4 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#CED4BD"), textAlignment: .center)
         nameLabel4.text = "2,000(Min)"
         return nameLabel4
     }()
     
     lazy var nameLabel5: UILabel = {
-        let nameLabel5 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 12.pix())!, textColor: UIColor.init(hex: "#CED4BD"), textAlignment: .center)
+        let nameLabel5 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#CED4BD"), textAlignment: .center)
         nameLabel5.text = "50,000(Max)"
         return nameLabel5
     }()
@@ -90,7 +90,7 @@ class PABorrowView: UIView {
     }()
     
     lazy var nameLabel6: UILabel = {
-        let nameLabel6 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 10.pix())!, textColor: UIColor.init(hex: "#D9D9D9"), textAlignment: .center)
+        let nameLabel6 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 10.ppaix())!, textColor: UIColor.init(hex: "#D9D9D9"), textAlignment: .center)
         nameLabel6.text = "The actual loan amount is subject to system review."
         return nameLabel6
     }()
@@ -122,63 +122,63 @@ class PABorrowView: UIView {
         }
         bgImageView.snp.makeConstraints { make in
             make.left.top.right.equalToSuperview()
-            make.height.equalTo(375.pix())
+            make.height.equalTo(375.ppaix())
         }
         iconImageView.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(35.pix())
-            make.top.equalToSuperview().offset(282.pix())
-            make.size.equalTo(CGSize(width: 79.pix(), height: 29.pix()))
+            make.left.equalToSuperview().offset(35.ppaix())
+            make.top.equalToSuperview().offset(282.ppaix())
+            make.size.equalTo(CGSize(width: 79.ppaix(), height: 29.ppaix()))
         }
         nameLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         nameLabel1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(iconImageView.snp.bottom).offset(10.pix())
+            make.top.equalTo(iconImageView.snp.bottom).offset(10.ppaix())
             make.left.equalTo(iconImageView.snp.left)
-            make.height.equalTo(66.pix())
+            make.height.equalTo(66.ppaix())
         }
         nameLabel2.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(nameLabel1.snp.bottom).offset(15.pix())
+            make.top.equalTo(nameLabel1.snp.bottom).offset(15.ppaix())
             make.left.equalTo(iconImageView.snp.left)
-            make.height.equalTo(66.pix())
+            make.height.equalTo(66.ppaix())
         }
         iconImageView1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(nameLabel2.snp.bottom).offset(46.pix())
+            make.top.equalTo(nameLabel2.snp.bottom).offset(46.ppaix())
             make.left.equalTo(iconImageView.snp.left)
-            make.height.equalTo(72.pix())
+            make.height.equalTo(72.ppaix())
         }
         nameLabel3.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         nameLabel4.snp.makeConstraints { make in
             make.left.equalTo(iconImageView1.snp.left)
-            make.top.equalTo(iconImageView1.snp.bottom).offset(47.pix())
-            make.height.equalTo(14.pix())
+            make.top.equalTo(iconImageView1.snp.bottom).offset(47.ppaix())
+            make.height.equalTo(14.ppaix())
         }
         nameLabel5.snp.makeConstraints { make in
             make.right.equalTo(iconImageView1.snp.right)
-            make.top.equalTo(iconImageView1.snp.bottom).offset(47.pix())
-            make.height.equalTo(14.pix())
+            make.top.equalTo(iconImageView1.snp.bottom).offset(47.ppaix())
+            make.height.equalTo(14.ppaix())
         }
         slider.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(iconImageView1.snp.bottom).offset(14.pix())
+            make.top.equalTo(iconImageView1.snp.bottom).offset(14.ppaix())
             make.left.equalTo(iconImageView.snp.left)
-            make.height.equalTo(40.pix())
+            make.height.equalTo(40.ppaix())
         }
         nameLabel6.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(slider.snp.bottom).offset(65.pix())
-            make.height.equalTo(12.pix())
+            make.top.equalTo(slider.snp.bottom).offset(65.ppaix())
+            make.height.equalTo(12.ppaix())
         }
         nextBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(nameLabel6.snp.bottom).offset(10.pix())
-            make.size.equalTo(CGSize(width: 305.pix(), height: 60.pix()))
-            make.bottom.equalToSuperview().offset(-45.pix())
+            make.top.equalTo(nameLabel6.snp.bottom).offset(10.ppaix())
+            make.size.equalTo(CGSize(width: 305.ppaix(), height: 60.ppaix()))
+            make.bottom.equalToSuperview().offset(-45.ppaix())
         }
     }
     

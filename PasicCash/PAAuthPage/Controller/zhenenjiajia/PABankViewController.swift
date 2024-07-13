@@ -84,7 +84,7 @@ extension PABankViewController {
         }
         let customStyle = BRPickerStyle()
         customStyle.pickerColor = UIColor.init(hex: "#F4FDDA")
-        customStyle.pickerTextFont = UIFont(name: LilitaOneFont, size: 18.pix())
+        customStyle.pickerTextFont = UIFont(name: LilitaOneFont, size: 18.ppaix())
         customStyle.selectRowTextFont = customStyle.pickerTextFont
         customStyle.selectRowTextColor = UIColor.init(hex: "#0CE094")
         stringPickerView.pickerStyle = customStyle

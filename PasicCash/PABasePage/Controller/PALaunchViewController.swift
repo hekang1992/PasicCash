@@ -95,7 +95,7 @@ extension PALaunchViewController {
     func requsetFirstApi() {
         let isShow = UserDefaults.standard.object(forKey: IS_SHOWLAND) as? String
         let dict = ["tfollow":"1", "hershe": "1"]
-        PARequestManager.shared.requestAPI(params: dict, pageUrl: main_api, method: .get) { [weak self] baseModel in
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/maudiebeenShouldnt", method: .get) { [weak self] baseModel in
             let handsto = baseModel.handsto
             if handsto == 0 || handsto == 00 {
                 if isShow != "1" && !IS_LOGIN {

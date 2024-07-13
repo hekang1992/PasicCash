@@ -19,7 +19,7 @@ class PAPullHeader: MJRefreshHeader {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 15.pix())!, textColor: UIColor.init(hex: "#943800"), textAlignment: .center)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 15.ppaix())!, textColor: UIColor.init(hex: "#943800"), textAlignment: .center)
         nameLabel.text = "Loading..."
         return nameLabel
     }()
@@ -28,7 +28,7 @@ class PAPullHeader: MJRefreshHeader {
         super.prepare()
         addSubview(headTapView)
         addSubview(nameLabel)
-        self.mj_h = 90.pix()
+        self.mj_h = 90.ppaix()
     }
 
     override func placeSubviews() {
@@ -36,12 +36,12 @@ class PAPullHeader: MJRefreshHeader {
         headTapView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 72.pix(), height: 72.pix()))
+            make.size.equalTo(CGSize(width: 72.ppaix(), height: 72.ppaix()))
         }
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(headTapView.snp.bottom)
-            make.size.equalTo(CGSize(width: 150.pix(), height: 16.pix()))
+            make.size.equalTo(CGSize(width: 150.ppaix(), height: 16.ppaix()))
         }
     }
 

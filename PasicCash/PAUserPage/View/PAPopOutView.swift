@@ -37,18 +37,18 @@ class PAPopOutView: UIView {
         bgImageView.addSubview(cancelBtn)
         bgImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 375.pix(), height: 525.pix()))
+            make.size.equalTo(CGSize(width: 375.ppaix(), height: 525.ppaix()))
         }
         agreeBtn.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(27.pix())
-            make.bottom.equalToSuperview().offset(-45.pix())
-            make.size.equalTo(CGSize(width: 120.pix(), height: 100.pix()))
+            make.left.equalToSuperview().offset(27.ppaix())
+            make.bottom.equalToSuperview().offset(-45.ppaix())
+            make.size.equalTo(CGSize(width: 120.ppaix(), height: 100.ppaix()))
         }
         cancelBtn.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-27.pix())
-            make.bottom.equalToSuperview().offset(-45.pix())
+            make.right.equalToSuperview().offset(-27.ppaix())
+            make.bottom.equalToSuperview().offset(-45.ppaix())
             make.left.equalTo(agreeBtn.snp.right)
-            make.height.equalTo(100.pix())
+            make.height.equalTo(100.ppaix())
         }
     }
     

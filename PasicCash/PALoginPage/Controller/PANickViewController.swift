@@ -88,7 +88,7 @@ extension PANickViewController: UIImagePickerControllerDelegate, UINavigationCon
     
     func upIconImage(_ data: Data, _ image: UIImage) {
         ViewHud.addLoadView()
-        PARequestManager.shared.uploadAPI(params: [:], pageUrl: head_img, method: .post, data: data, complete: { [weak self] baseModel in
+        PARequestManager.shared.uploadAPI(params: [:], pageUrl: "/sicch/headImg", method: .post, data: data, complete: { [weak self] baseModel in
             let handsto = baseModel.handsto
             if handsto == 0 || handsto == 00 {
                 if let model = JSONDeserializer<BearuftModel>.deserializeFrom(dict: baseModel.shepointed) {
@@ -116,7 +116,7 @@ extension PANickViewController: UIImagePickerControllerDelegate, UINavigationCon
     func save() {
         ViewHud.addLoadView()
         let dict = ["clank": nickView.phoneText.text ?? "", "recipecalled": recipecalled]
-        PARequestManager.shared.requestAPI(params: dict, pageUrl: save_nick, method: .post) { baseModel in
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/afterHedidnt", method: .post) { baseModel in
             let handsto = baseModel.handsto
             let jiffy = baseModel.jiffy
             if handsto == 0 || handsto == 00 {

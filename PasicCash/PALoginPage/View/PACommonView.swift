@@ -24,7 +24,7 @@ class PACommonView: UIView {
     }()
     
     lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 20.pix())!, textColor: UIColor.init(hex: "#1E230F"), textAlignment: .center)
+        let titleLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 20.ppaix())!, textColor: UIColor.init(hex: "#1E230F"), textAlignment: .center)
         return titleLabel
     }()
 
@@ -48,13 +48,13 @@ class PACommonView: UIView {
         }
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(52.pix())
-            make.height.equalTo(23.pix())
+            make.top.equalToSuperview().offset(52.ppaix())
+            make.height.equalTo(23.ppaix())
         }
         backBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50.pix())
-            make.left.equalToSuperview().offset(25.pix())
-            make.size.equalTo(CGSize(width: 30.pix(), height: 30.pix()))
+            make.top.equalToSuperview().offset(50.ppaix())
+            make.left.equalToSuperview().offset(25.ppaix())
+            make.size.equalTo(CGSize(width: 30.ppaix(), height: 30.ppaix()))
         }
         scrollView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()

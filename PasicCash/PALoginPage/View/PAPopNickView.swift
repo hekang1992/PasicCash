@@ -15,19 +15,19 @@ class PAPopNickView: UIView {
 
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 30.pix()
+        bgView.layer.cornerRadius = 30.ppaix()
         bgView.backgroundColor = UIColor.init(hex: "#FDFFF6")
         return bgView
     }()
     
     lazy var tipLabel: UILabel = {
-        let tipLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 20.pix())!, textColor: UIColor.init(hex: "#DC143C"), textAlignment: .center)
+        let tipLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 20.ppaix())!, textColor: UIColor.init(hex: "#DC143C"), textAlignment: .center)
         tipLabel.text = "🌟NOTICE🌟"
         return tipLabel
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 20.pix())!, textColor: UIColor.init(hex: "#DC143C"), textAlignment: .left)
+        let descLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 20.ppaix())!, textColor: UIColor.init(hex: "#DC143C"), textAlignment: .left)
         descLabel.numberOfLines = 0
         descLabel.text = "⚠️You can set a custom avatar and nickname or skip this step. If not set, a default avatar will be used."
         return descLabel
@@ -36,7 +36,7 @@ class PAPopNickView: UIView {
     lazy var albumBtn: UIButton = {
         let albumBtn = UIButton(type: .custom)
         albumBtn.setTitle("Go to Settings", for: .normal)
-        albumBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        albumBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.ppaix())
         albumBtn.setTitleColor(UIColor.init(hex: "#1C200D"), for: .normal)
         albumBtn.addTarget(self, action: #selector(albumBtnClick), for: .touchUpInside)
         return albumBtn
@@ -45,7 +45,7 @@ class PAPopNickView: UIView {
     lazy var cancelBtn: UIButton = {
         let cancelBtn = UIButton(type: .custom)
         cancelBtn.setTitle("Skip", for: .normal)
-        cancelBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        cancelBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.ppaix())
         cancelBtn.setTitleColor(UIColor.init(hex: "#CED4BD"), for: .normal)
         cancelBtn.addTarget(self, action: #selector(cancelBtnClick), for: .touchUpInside)
         return cancelBtn
@@ -60,23 +60,23 @@ class PAPopNickView: UIView {
         bgView.addSubview(cancelBtn)
         bgView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 320.pix(), height: 320.pix()))
+            make.size.equalTo(CGSize(width: 320.ppaix(), height: 320.ppaix()))
         }
         tipLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(20.pix())
-            make.height.equalTo(28.pix())
+            make.top.equalToSuperview().offset(20.ppaix())
+            make.height.equalTo(28.ppaix())
         }
         descLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(tipLabel.snp.bottom)
-            make.left.equalToSuperview().offset(20.pix())
-            make.height.equalTo(130.pix())
+            make.left.equalToSuperview().offset(20.ppaix())
+            make.height.equalTo(130.ppaix())
         }
         albumBtn.snp.makeConstraints { make in
             make.top.equalTo(descLabel.snp.bottom)
             make.right.left.equalToSuperview()
-            make.height.equalTo(80.pix())
+            make.height.equalTo(80.ppaix())
         }
         cancelBtn.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()

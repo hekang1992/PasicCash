@@ -71,7 +71,7 @@ extension PAUserViewController {
     
     func getPersonInfo() {
         ViewHud.addLoadView()
-        PARequestManager.shared.requestAPI(params: [:], pageUrl: get_nick, method: .post) { [weak self] baseModel in
+        PARequestManager.shared.requestAPI(params: [:], pageUrl: "/sicch/whatArYour", method: .post) { [weak self] baseModel in
             let handsto = baseModel.handsto
             if handsto == 0 || handsto == 00 {
                 if let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed), let nickModel = model.overcoat {
@@ -120,7 +120,7 @@ extension PAUserViewController {
     
     func logOut() {
         ViewHud.addLoadView()
-        PARequestManager.shared.requestAPI(params: [:], pageUrl: logout_api, method: .get) { [weak self] baseModel in
+        PARequestManager.shared.requestAPI(params: [:], pageUrl: "/sicch/atticusRegarded", method: .get) { [weak self] baseModel in
             let handsto = baseModel.handsto
             let jiffy = baseModel.jiffy ?? ""
             if handsto == 0 || handsto == 00 {
@@ -135,7 +135,7 @@ extension PAUserViewController {
     
     func delOut() {
         ViewHud.addLoadView()
-        PARequestManager.shared.requestAPI(params: [:], pageUrl: delAccount_api, method: .get) { [weak self] baseModel in
+        PARequestManager.shared.requestAPI(params: [:], pageUrl: "/sicch/planeGrinned", method: .get) { [weak self] baseModel in
             let handsto = baseModel.handsto
             let jiffy = baseModel.jiffy ?? ""
             if handsto == 0 || handsto == 00 {

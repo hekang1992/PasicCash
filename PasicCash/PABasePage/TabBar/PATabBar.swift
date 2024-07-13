@@ -88,10 +88,10 @@ extension PATabBar {
     override func layoutSubviews() {
         super.layoutSubviews()
         let buttonW = frame.width / CGFloat(tabbarBtnArray.count)
-        let buttonY = 1.pix()
+        let buttonY = 1.ppaix()
         for (index, button) in tabbarBtnArray.enumerated() {
             let buttonX = CGFloat(index) * buttonW
-            button.frame = CGRect(x: buttonX, y: CGFloat(buttonY), width: buttonW, height: 115.pix())
+            button.frame = CGRect(x: buttonX, y: CGFloat(buttonY), width: buttonW, height: 115.ppaix())
             button.tag = index
         }
     }

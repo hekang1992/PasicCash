@@ -14,7 +14,7 @@ class PAUserYView: UIView {
 
     lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.layer.cornerRadius = 30.pix()
+        bgView.layer.cornerRadius = 30.ppaix()
         bgView.backgroundColor = UIColor.init(hex: "#FDFFF6")
         return bgView
     }()
@@ -22,7 +22,7 @@ class PAUserYView: UIView {
     lazy var albumBtn: UIButton = {
         let albumBtn = UIButton(type: .custom)
         albumBtn.setTitle("YES", for: .normal)
-        albumBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        albumBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.ppaix())
         albumBtn.setTitleColor(UIColor.init(hex: "#1C200D"), for: .normal)
         albumBtn.addTarget(self, action: #selector(albumBtnClick), for: .touchUpInside)
         return albumBtn
@@ -31,14 +31,14 @@ class PAUserYView: UIView {
     lazy var cancelBtn: UIButton = {
         let cancelBtn = UIButton(type: .custom)
         cancelBtn.setTitle("NO", for: .normal)
-        cancelBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        cancelBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 27.ppaix())
         cancelBtn.setTitleColor(UIColor.init(hex: "#CED4BD"), for: .normal)
         cancelBtn.addTarget(self, action: #selector(cancelBtnClick), for: .touchUpInside)
         return cancelBtn
     }()
     
     lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 25.pix())!, textColor: UIColor.init(hex: "#F84343"), textAlignment: .center)
+        let titleLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 25.ppaix())!, textColor: UIColor.init(hex: "#F84343"), textAlignment: .center)
         titleLabel.numberOfLines = 0
         titleLabel.text = "Would you like to use your coupon?"
         return titleLabel
@@ -52,25 +52,25 @@ class PAUserYView: UIView {
         bgView.addSubview(cancelBtn)
         bgView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 320.pix(), height: 180.pix()))
+            make.size.equalTo(CGSize(width: 320.ppaix(), height: 180.ppaix()))
         }
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20.pix())
+            make.top.equalToSuperview().offset(20.ppaix())
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(10.pix())
-            make.height.equalTo(60.pix())
+            make.left.equalToSuperview().offset(10.ppaix())
+            make.height.equalTo(60.ppaix())
         }
         albumBtn.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(40.pix())
-            make.left.equalToSuperview().offset(30.pix())
+            make.top.equalTo(titleLabel.snp.bottom).offset(40.ppaix())
+            make.left.equalToSuperview().offset(30.ppaix())
             make.bottom.equalToSuperview()
-            make.width.equalTo(100.pix())
+            make.width.equalTo(100.ppaix())
         }
         cancelBtn.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(40.pix())
-            make.right.equalToSuperview().offset(-30.pix())
+            make.top.equalTo(titleLabel.snp.bottom).offset(40.ppaix())
+            make.right.equalToSuperview().offset(-30.ppaix())
             make.bottom.equalToSuperview()
-            make.width.equalTo(100.pix())
+            make.width.equalTo(100.ppaix())
         }
     }
     

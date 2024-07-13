@@ -121,6 +121,9 @@ class plantsModel: HandyJSON {
     var forcovering: String?
     var lively: String?
     var smoke: String?
+    var eaten: String?
+    var cordial: String?
+    var someday: String?
 }
 
 class dangerModel: HandyJSON {

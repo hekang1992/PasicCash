@@ -23,7 +23,7 @@ class PAExpanView: UIView {
     lazy var agreeBtn: UIButton = {
         let agreeBtn = UIButton(type: .custom)
         agreeBtn.setTitleColor(UIColor.init(hex: "#1C200D"), for: .normal)
-        agreeBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.pix())
+        agreeBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.ppaix())
         agreeBtn.addTarget(self, action: #selector(agreeClick(_ :)), for: .touchUpInside)
         return agreeBtn
     }()
@@ -32,7 +32,7 @@ class PAExpanView: UIView {
         let daikuanBtn = UIButton(type: .custom)
         daikuanBtn.alpha = 0
         daikuanBtn.setTitle("", for: .normal)
-        daikuanBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.pix())
+        daikuanBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.ppaix())
         daikuanBtn.addTarget(self, action: #selector(daikuanBtnClick), for: .touchUpInside)
         return daikuanBtn
     }()
@@ -41,7 +41,7 @@ class PAExpanView: UIView {
         let yinsiBtn = UIButton(type: .custom)
         yinsiBtn.alpha = 0
         yinsiBtn.setTitle("", for: .normal)
-        yinsiBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.pix())
+        yinsiBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.ppaix())
         yinsiBtn.addTarget(self, action: #selector(yinsiBtnClick), for: .touchUpInside)
         return yinsiBtn
     }()
@@ -53,23 +53,23 @@ class PAExpanView: UIView {
         addSubview(daikuanBtn)
         addSubview(yinsiBtn)
         icon.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(15.pix())
-            make.right.equalToSuperview().offset(-22.pix())
-            make.size.equalTo(CGSize(width: 30.pix(), height: 30.pix()))
+            make.top.equalToSuperview().offset(15.ppaix())
+            make.right.equalToSuperview().offset(-22.ppaix())
+            make.size.equalTo(CGSize(width: 30.ppaix(), height: 30.ppaix()))
         }
         agreeBtn.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
-            make.height.equalTo(60.pix())
+            make.height.equalTo(60.ppaix())
         }
         daikuanBtn.snp.makeConstraints { make in
             make.top.equalTo(agreeBtn.snp.bottom)
             make.left.right.equalToSuperview()
-            make.height.equalTo(21.pix())
+            make.height.equalTo(21.ppaix())
         }
         yinsiBtn.snp.makeConstraints { make in
-            make.top.equalTo(daikuanBtn.snp.bottom).offset(20.pix())
+            make.top.equalTo(daikuanBtn.snp.bottom).offset(20.ppaix())
             make.left.right.equalToSuperview()
-            make.height.equalTo(21.pix())
+            make.height.equalTo(21.ppaix())
         }
         
     }
@@ -90,7 +90,7 @@ extension PAExpanView {
             self.yinsiBtn.alpha = sender.isSelected ? 1 : 0
             self.daikuanBtn.alpha = sender.isSelected ? 1 : 0
             self.snp.updateConstraints { make in
-                make.height.equalTo(sender.isSelected ? 141.pix() : 60.pix())
+                make.height.equalTo(sender.isSelected ? 141.ppaix() : 60.ppaix())
             }
             self.superview?.layoutIfNeeded()
         }

@@ -31,8 +31,8 @@ class PAFaceView: PACommonView {
     
     lazy var whiteView: UIView = {
         let whiteView = UIView()
-        whiteView.layer.cornerRadius = 30.pix()
-        whiteView.layer.borderWidth = 4.pix()
+        whiteView.layer.cornerRadius = 30.ppaix()
+        whiteView.layer.borderWidth = 4.ppaix()
         whiteView.backgroundColor = UIColor.init(hex: "#FDFFF6")
         whiteView.layer.borderColor = UIColor.init(hex: "#C6F14D").cgColor
         return whiteView
@@ -40,7 +40,7 @@ class PAFaceView: PACommonView {
     
     lazy var icon3: UIImageView = {
         let icon3 = UIImageView()
-        icon3.layer.cornerRadius = 32.pix()
+        icon3.layer.cornerRadius = 32.ppaix()
         icon3.layer.masksToBounds = true
         icon3.contentMode = .scaleAspectFill
         icon3.image = UIImage(named: "Group_1021")
@@ -66,7 +66,7 @@ class PAFaceView: PACommonView {
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 15.pix())!, textColor: UIColor.init(hex: "#0CE094"), textAlignment: .center)
+        let descLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 15.ppaix())!, textColor: UIColor.init(hex: "#0CE094"), textAlignment: .center)
         descLabel.text = "Make sure you have good lighting, no obstructions, a natural expression, and remain relatively still."
         descLabel.numberOfLines = 0
         return descLabel
@@ -79,7 +79,7 @@ class PAFaceView: PACommonView {
     }()
     
     lazy var descLabel1: UILabel = {
-        let descLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 9.pix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
+        let descLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 9.ppaix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
         descLabel1.text = "Your data is used exclusively for approval, and PasicCash guarantees the protection of your privacy."
         descLabel1.numberOfLines = 0
         return descLabel1
@@ -87,7 +87,7 @@ class PAFaceView: PACommonView {
     
     lazy var nextBtn: UIButton = {
         let nextBtn = UIButton(type: .custom)
-        nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.pix())
+        nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.ppaix())
         nextBtn.adjustsImageWhenHighlighted = false
         nextBtn.setBackgroundImage(UIImage(named: "Group_1095"), for: .normal)
         let fullString = "Continue 2/3"
@@ -120,60 +120,60 @@ class PAFaceView: PACommonView {
         scrollView.addSubview(descLabel1)
         scrollView.addSubview(nextBtn)
         icon1.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(33.pix())
+            make.top.equalToSuperview().offset(33.ppaix())
             make.left.equalToSuperview()
-            make.size.equalTo(CGSize(width: 130.pix(), height: 75.pix()))
+            make.size.equalTo(CGSize(width: 130.ppaix(), height: 75.ppaix()))
         }
         icon2.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(33.pix())
-            make.left.equalTo(icon1.snp.right).offset(15.pix())
-            make.size.equalTo(CGSize(width: 205.pix(), height: 75.pix()))
+            make.top.equalToSuperview().offset(33.ppaix())
+            make.left.equalTo(icon1.snp.right).offset(15.ppaix())
+            make.size.equalTo(CGSize(width: 205.ppaix(), height: 75.ppaix()))
         }
         whiteView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(icon2.snp.bottom).offset(37.5.pix())
-            make.size.equalTo(CGSize(width: 325.pix(), height: 430.pix()))
+            make.top.equalTo(icon2.snp.bottom).offset(37.5.ppaix())
+            make.size.equalTo(CGSize(width: 325.ppaix(), height: 430.ppaix()))
         }
         icon3.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(icon2.snp.bottom).offset(16.pix())
-            make.size.equalTo(CGSize(width: 242.pix(), height: 242.pix()))
+            make.top.equalTo(icon2.snp.bottom).offset(16.ppaix())
+            make.size.equalTo(CGSize(width: 242.ppaix(), height: 242.ppaix()))
         }
         icon4.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(10.pix())
-            make.top.equalTo(icon3.snp.bottom).offset(23.pix())
-            make.size.equalTo(CGSize(width: 75.pix(), height: 95.pix()))
+            make.left.equalToSuperview().offset(10.ppaix())
+            make.top.equalTo(icon3.snp.bottom).offset(23.ppaix())
+            make.size.equalTo(CGSize(width: 75.ppaix(), height: 95.ppaix()))
         }
         icon5.snp.makeConstraints { make in
-            make.left.equalTo(icon4.snp.right).offset(10.pix())
-            make.top.equalTo(icon3.snp.bottom).offset(23.pix())
-            make.size.equalTo(CGSize(width: 105.pix(), height: 95.pix()))
+            make.left.equalTo(icon4.snp.right).offset(10.ppaix())
+            make.top.equalTo(icon3.snp.bottom).offset(23.ppaix())
+            make.size.equalTo(CGSize(width: 105.ppaix(), height: 95.ppaix()))
         }
         icon6.snp.makeConstraints { make in
-            make.left.equalTo(icon5.snp.right).offset(10.pix())
-            make.top.equalTo(icon3.snp.bottom).offset(23.pix())
-            make.size.equalTo(CGSize(width: 105.pix(), height: 95.pix()))
+            make.left.equalTo(icon5.snp.right).offset(10.ppaix())
+            make.top.equalTo(icon3.snp.bottom).offset(23.ppaix())
+            make.size.equalTo(CGSize(width: 105.ppaix(), height: 95.ppaix()))
         }
         descLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(35.pix())
-            make.top.equalTo(icon6.snp.bottom).offset(20.pix())
+            make.left.equalToSuperview().offset(35.ppaix())
+            make.top.equalTo(icon6.snp.bottom).offset(20.ppaix())
         }
         icon7.snp.makeConstraints { make in
-            make.top.equalTo(whiteView.snp.bottom).offset(33.pix())
-            make.left.equalToSuperview().offset(35.pix())
-            make.size.equalTo(CGSize(width: 16.pix(), height: 16.pix()))
+            make.top.equalTo(whiteView.snp.bottom).offset(33.ppaix())
+            make.left.equalToSuperview().offset(35.ppaix())
+            make.size.equalTo(CGSize(width: 16.ppaix(), height: 16.ppaix()))
         }
         descLabel1.snp.makeConstraints { make in
-            make.width.equalTo(280.pix())
-            make.left.equalTo(icon7.snp.right).offset(7.pix())
-            make.top.equalTo(icon7.snp.top).offset(-2.5.pix())
+            make.width.equalTo(280.ppaix())
+            make.left.equalTo(icon7.snp.right).offset(7.ppaix())
+            make.top.equalTo(icon7.snp.top).offset(-2.5.ppaix())
         }
         nextBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(descLabel1.snp.bottom).offset(15.pix())
-            make.size.equalTo(CGSize(width: 305.pix(), height: 60.pix()))
-            make.bottom.equalToSuperview().offset(-35.pix())
+            make.top.equalTo(descLabel1.snp.bottom).offset(15.ppaix())
+            make.size.equalTo(CGSize(width: 305.ppaix(), height: 60.ppaix()))
+            make.bottom.equalToSuperview().offset(-35.ppaix())
         }
     }
     

@@ -51,7 +51,7 @@ extension PAHomeViewController {
     
     func homeDataApi() {
         ViewHud.addLoadView()
-        PARequestManager.shared.requestAPI(params: [:], pageUrl: home_api, method: .get) { [weak self] baseModel in
+        PARequestManager.shared.requestAPI(params: [:], pageUrl: "/sicch/smallStrolled", method: .get) { [weak self] baseModel in
             let handsto = baseModel.handsto
             if handsto == 0 || handsto == 00 {
                 if let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed) {

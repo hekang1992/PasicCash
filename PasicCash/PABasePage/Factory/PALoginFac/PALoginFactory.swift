@@ -25,36 +25,42 @@ class PALoginFactory {
         let footbehind: String = UIDevice.current.systemVersion
         let walkflat: String = "siccs"
         var baffled: String = ""
-        if let sessionId: String = UserDefaults.standard.object(forKey: PHONE_SESSIONID) as? String {
+        if let sessionId: String = UserDefaults.standard.object(forKey: PA_SESSIONID) as? String {
             baffled = sessionId
         }
         let period: String = PADeviceInfo().getIDFV() ?? ""
         let change: String = "pc"
         let peach = PADeviceInfo.vpnConnected()
         let basket = PADeviceInfo.usingProxy()
-        let dict = ["accomplished": accomplished,
+        
+        let dict1 = ["accomplished": accomplished,
                     "seehow": seehow,
                     "egyptians": egyptians,
-                    "declared": declared,
-                    "footbehind": footbehind,
-                    "walkflat": walkflat,
-                    "baffled": baffled,
-                    "period": period,
-                    "change": change,
-                    "peach": peach,
-                    "basket": basket]
-        return dict
+                    "declared": declared]
+        
+        let dict2 = ["footbehind": footbehind,
+                     "walkflat": walkflat,
+                     "baffled": baffled,
+                     "period": period,
+                     "change": change,
+                     "peach": peach,
+                     "basket": basket]
+        
+        let allDict = dict2.reduce(into: dict1) { (result, item) in
+            result[item.key] = item.value
+        }
+        return allDict
     }
     
     static func saveLoginInfo(_ phone: String, _ sessionID: String) {
-        UserDefaults.standard.setValue(phone, forKey: PHONE_LOGIN)
-        UserDefaults.standard.setValue(sessionID, forKey: PHONE_SESSIONID)
+        UserDefaults.standard.setValue(phone, forKey: PA_LOGIN)
+        UserDefaults.standard.setValue(sessionID, forKey: PA_SESSIONID)
         UserDefaults.standard.synchronize()
     }
     
     static func removeLoginInfo() {
-        UserDefaults.standard.setValue("", forKey: PHONE_LOGIN)
-        UserDefaults.standard.setValue("", forKey: PHONE_SESSIONID)
+        UserDefaults.standard.setValue("", forKey: PA_LOGIN)
+        UserDefaults.standard.setValue("", forKey: PA_SESSIONID)
         UserDefaults.standard.synchronize()
     }
 }

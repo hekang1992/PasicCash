@@ -36,19 +36,19 @@ class PALoginView: UIView {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 13.pix())!, textColor: UIColor.init(hex: "#293014"), textAlignment: .center)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 13.ppaix())!, textColor: UIColor.init(hex: "#293014"), textAlignment: .center)
         nameLabel.text = "PasicCash"
         return nameLabel
     }()
     
     lazy var nameLabel1: UILabel = {
-        let nameLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 35.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 35.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         nameLabel1.text = "PASICCASH"
         return nameLabel1
     }()
     
     lazy var nameLabel2: UILabel = {
-        let nameLabel2 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 12.pix())!, textColor: UIColor.init(hex: "#ACAFA1"), textAlignment: .left)
+        let nameLabel2 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#ACAFA1"), textAlignment: .left)
         nameLabel2.text = "Simple Loans, Smart Solutions”"
         return nameLabel2
     }()
@@ -61,7 +61,7 @@ class PALoginView: UIView {
     }()
     
     lazy var nameLabel3: UILabel = {
-        let nameLabel3 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 27.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel3 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 27.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         nameLabel3.text = "+63"
         return nameLabel3
     }()
@@ -79,31 +79,31 @@ class PALoginView: UIView {
         phoneText.keyboardType = .numberPad
         let attrString = NSMutableAttributedString(string: "912 888 8888", attributes: [
             .foregroundColor: UIColor.init(hex: "#D8DDCA") as Any,
-            .font: UIFont(name: LilitaOneFont, size: 27.pix())!
+            .font: UIFont(name: LilitaOneFont, size: 27.ppaix())!
         ])
         phoneText.attributedPlaceholder = attrString
         phoneText.rightView = rightView
         phoneText.rightViewMode = .always
         phoneText.leftView = leftView
         phoneText.leftViewMode = .always
-        phoneText.font = UIFont(name: LilitaOneFont, size: 27.pix())
+        phoneText.font = UIFont(name: LilitaOneFont, size: 27.ppaix())
         phoneText.textColor = UIColor.init(hex: "#1C200D")
         return phoneText
     }()
     
     lazy var leftView: UIView = {
-        let leftView = UIView(frame: CGRectMake(0, 0, 20.pix(), 20.pix()))
+        let leftView = UIView(frame: CGRectMake(0, 0, 20.ppaix(), 20.ppaix()))
         return leftView
     }()
     
     lazy var rightView: UIView = {
-        let rightImageView = UIImageView(frame: CGRectMake(0, 0, 40.pix(), 40.pix()))
+        let rightImageView = UIImageView(frame: CGRectMake(0, 0, 40.ppaix(), 40.ppaix()))
         rightImageView.image = UIImage(named: "Group_20")
         rightImageView.contentMode = .left
         rightImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(delTapped))
         rightImageView.addGestureRecognizer(tapGesture)
-        let rightView = UIView(frame: CGRectMake(0, 0, 40.pix(), 40.pix()))
+        let rightView = UIView(frame: CGRectMake(0, 0, 40.ppaix(), 40.ppaix()))
         rightView.addSubview(rightImageView)
         rightView.isHidden = true
         return rightView
@@ -114,7 +114,7 @@ class PALoginView: UIView {
         nextBtn.setTitle("Login", for: .normal)
         nextBtn.setTitleColor(.white, for: .normal)
         nextBtn.isEnabled = false
-        nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.pix())
+        nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.ppaix())
         nextBtn.setBackgroundImage(UIImage(named: "Group_1033"), for: .normal)
         nextBtn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
         return nextBtn
@@ -124,7 +124,7 @@ class PALoginView: UIView {
         let visBtn = UIButton(type: .custom)
         visBtn.setTitle("Visitor status access.", for: .normal)
         visBtn.setTitleColor(UIColor.init(hex: "#CED4BD"), for: .normal)
-        visBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 16.pix())
+        visBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 16.ppaix())
         visBtn.addTarget(self, action: #selector(visBtnClick), for: .touchUpInside)
         return visBtn
     }()
@@ -143,7 +143,7 @@ class PALoginView: UIView {
     }()
     
     private lazy var agreeLabel: UILabel = {
-        let agreeLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 12.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let agreeLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         let attributedText = NSMutableAttributedString(string: "By clicking 'Login', you agree to the ")
         let userAgreement = NSMutableAttributedString(string: "USER AGREEMENT", attributes: [
             .foregroundColor: UIColor.init(hex: "#C2EF44"),
@@ -179,65 +179,65 @@ class PALoginView: UIView {
         }
         bgImageView.snp.makeConstraints { make in
             make.left.top.right.equalToSuperview()
-            make.height.equalTo(375.pix())
+            make.height.equalTo(375.ppaix())
         }
         nameLabel1.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(37.5.pix())
+            make.left.equalToSuperview().offset(37.5.ppaix())
             make.top.equalTo(bgImageView.snp.bottom)
-            make.height.equalTo(40.pix())
+            make.height.equalTo(40.ppaix())
         }
         nameLabel2.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(37.5.pix())
+            make.left.equalToSuperview().offset(37.5.ppaix())
             make.top.equalTo(nameLabel1.snp.bottom)
-            make.height.equalTo(13.5.pix())
+            make.height.equalTo(13.5.ppaix())
         }
         iconImageView.snp.makeConstraints { make in
-            make.left.equalTo(nameLabel1.snp.right).offset(10.pix())
+            make.left.equalTo(nameLabel1.snp.right).offset(10.ppaix())
             make.centerY.equalTo(nameLabel1.snp.centerY)
-            make.size.equalTo(CGSize(width: 79.pix(), height: 29.pix()))
+            make.size.equalTo(CGSize(width: 79.ppaix(), height: 29.ppaix()))
         }
         nameLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         nameLabel3.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(35.pix())
-            make.top.equalTo(nameLabel2.snp.bottom).offset(64.pix())
-            make.height.equalTo(31.pix())
+            make.left.equalToSuperview().offset(35.ppaix())
+            make.top.equalTo(nameLabel2.snp.bottom).offset(64.ppaix())
+            make.height.equalTo(31.ppaix())
         }
         iconImageView2.snp.makeConstraints { make in
             make.centerY.equalTo(nameLabel3.snp.centerY)
-            make.left.equalTo(nameLabel3.snp.right).offset(10.pix())
-            make.right.equalToSuperview().offset(-35.pix())
-            make.height.equalTo(68.pix())
+            make.left.equalTo(nameLabel3.snp.right).offset(10.ppaix())
+            make.right.equalToSuperview().offset(-35.ppaix())
+            make.height.equalTo(68.ppaix())
         }
         phoneText.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         nextBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(iconImageView2.snp.bottom).offset(21.pix())
-            make.size.equalTo(CGSize(width: 305.pix(), height: 60.pix()))
+            make.top.equalTo(iconImageView2.snp.bottom).offset(21.ppaix())
+            make.size.equalTo(CGSize(width: 305.ppaix(), height: 60.ppaix()))
         }
         visBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(nextBtn.snp.bottom).offset(21.pix())
-            make.size.equalTo(CGSize(width: 150.pix(), height: 19.pix()))
+            make.top.equalTo(nextBtn.snp.bottom).offset(21.ppaix())
+            make.size.equalTo(CGSize(width: 150.ppaix(), height: 19.ppaix()))
         }
         icon.snp.makeConstraints { make in
             make.centerY.equalTo(visBtn.snp.centerY)
-            make.left.equalTo(visBtn.snp.right).offset(5.pix())
-            make.size.equalTo(CGSize(width: 17.pix(), height: 17.pix()))
+            make.left.equalTo(visBtn.snp.right).offset(5.ppaix())
+            make.size.equalTo(CGSize(width: 17.ppaix(), height: 17.ppaix()))
         }
         agreeBtn.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(30.pix())
-            make.top.equalTo(visBtn.snp.bottom).offset(94.pix())
-            make.size.equalTo(CGSize(width: 28.pix(), height: 28.pix()))
-            make.bottom.equalToSuperview().offset(-45.pix())
+            make.left.equalToSuperview().offset(30.ppaix())
+            make.top.equalTo(visBtn.snp.bottom).offset(94.ppaix())
+            make.size.equalTo(CGSize(width: 28.ppaix(), height: 28.ppaix()))
+            make.bottom.equalToSuperview().offset(-45.ppaix())
         }
         agreeLabel.snp.makeConstraints { make in
             make.centerY.equalTo(agreeBtn.snp.centerY)
             make.left.equalTo(agreeBtn.snp.right)
-            make.height.equalTo(14.pix())
+            make.height.equalTo(14.ppaix())
         }
     }
     

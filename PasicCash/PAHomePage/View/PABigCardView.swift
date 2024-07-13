@@ -37,7 +37,7 @@ class PABigCardView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100.pix()
+        tableView.estimatedRowHeight = 100.ppaix()
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
@@ -65,7 +65,7 @@ class PABigCardView: UIView {
         super.layoutSubviews()
         setGradient()
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 60.pix(), right: 0))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 60.ppaix(), right: 0))
         }
     }
     
@@ -127,7 +127,7 @@ extension PABigCardView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if expandedIndexPaths.contains(indexPath) {
-            return 125.pix()
+            return 125.ppaix()
         } else {
             return UITableView.automaticDimension
         }
@@ -194,7 +194,7 @@ class PABannerCell: UITableViewCell, GKCycleScrollViewDataSource, GKCycleScrollV
         let bannerView = GKCycleScrollView()
         bannerView.delegate = self
         bannerView.dataSource = self
-        bannerView.layer.cornerRadius = 20.pix()
+        bannerView.layer.cornerRadius = 20.ppaix()
         bannerView.minimumCellAlpha = 0.0;
         return bannerView
     }()
@@ -204,9 +204,9 @@ class PABannerCell: UITableViewCell, GKCycleScrollViewDataSource, GKCycleScrollV
         contentView.addSubview(bannerView)
         bannerView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(25.pix())
-            make.top.equalToSuperview().offset(40.pix())
-            make.height.equalTo(110.pix())
+            make.left.equalToSuperview().offset(25.ppaix())
+            make.top.equalToSuperview().offset(40.ppaix())
+            make.height.equalTo(110.ppaix())
             make.bottom.equalToSuperview()
         }
     }
@@ -251,17 +251,17 @@ class PABigCardCell: UITableViewCell {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 20.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 20.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var jiageLabel: UILabel = {
-        let jiageLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 70.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let jiageLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 70.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         return jiageLabel
     }()
     
     lazy var descLabel: UILabel = {
-        let descLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 12.pix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
+        let descLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
         return descLabel
     }()
     
@@ -273,7 +273,7 @@ class PABigCardCell: UITableViewCell {
     }()
     
     lazy var agreeLabel: UILabel = {
-        let agreeLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 12.pix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
+        let agreeLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
         let attributedText = NSMutableAttributedString(string: "I have read and agreed to the ")
         let userAgreement = NSMutableAttributedString(string: "Loan Agreement", attributes: [
             .foregroundColor: UIColor.init(hex: "#C2EF44"),
@@ -294,7 +294,7 @@ class PABigCardCell: UITableViewCell {
     
     lazy var applyBtn: UIButton = {
         let applyBtn = UIButton(type: .custom)
-        applyBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.pix())
+        applyBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.ppaix())
         applyBtn.setTitleColor(.white, for: .normal)
         applyBtn.isEnabled = false
         applyBtn.setBackgroundImage(UIImage(named: "Group_1001"), for: .normal)
@@ -303,7 +303,7 @@ class PABigCardCell: UITableViewCell {
     }()
     
     lazy var descLabel1: UILabel = {
-        let descLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 8.pix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .center)
+        let descLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 8.ppaix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .center)
         descLabel1.text = "The actual loan amount is subject to system review."
         return descLabel1
     }()
@@ -321,49 +321,49 @@ class PABigCardCell: UITableViewCell {
         bgImageView.addSubview(descLabel1)
         bgImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 375.pix(), height: 450.pix()))
+            make.size.equalTo(CGSize(width: 375.ppaix(), height: 450.ppaix()))
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
         }
         nameLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(56.pix())
-            make.top.equalToSuperview().offset(36.pix())
-            make.height.equalTo(23.pix())
+            make.left.equalToSuperview().offset(56.ppaix())
+            make.top.equalToSuperview().offset(36.ppaix())
+            make.height.equalTo(23.ppaix())
         }
         jiageLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(55.pix())
-            make.top.equalTo(nameLabel.snp.bottom).offset(30.pix())
-            make.height.equalTo(80.pix())
+            make.left.equalToSuperview().offset(55.ppaix())
+            make.top.equalTo(nameLabel.snp.bottom).offset(30.ppaix())
+            make.height.equalTo(80.ppaix())
         }
         descLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(56.pix())
-            make.top.equalTo(jiageLabel.snp.bottom).offset(10.pix())
-            make.height.equalTo(14.pix())
+            make.left.equalToSuperview().offset(56.ppaix())
+            make.top.equalTo(jiageLabel.snp.bottom).offset(10.ppaix())
+            make.height.equalTo(14.ppaix())
         }
         agreeBtn.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(42.pix())
-            make.top.equalTo(descLabel.snp.bottom).offset(56.pix())
-            make.size.equalTo(CGSize(width: 28.pix(), height: 28.pix()))
+            make.left.equalToSuperview().offset(42.ppaix())
+            make.top.equalTo(descLabel.snp.bottom).offset(56.ppaix())
+            make.size.equalTo(CGSize(width: 28.ppaix(), height: 28.ppaix()))
         }
         agreeLabel.snp.makeConstraints { make in
             make.centerY.equalTo(agreeBtn.snp.centerY)
             make.left.equalTo(agreeBtn.snp.right)
-            make.height.equalTo(14.pix())
+            make.height.equalTo(14.ppaix())
         }
         iconImageView.snp.makeConstraints { make in
             make.right.equalToSuperview()
             make.bottom.equalTo(agreeLabel.snp.top)
-            make.size.equalTo(CGSize(width: 100.pix(), height: 105.pix()))
+            make.size.equalTo(CGSize(width: 100.ppaix(), height: 105.ppaix()))
         }
         applyBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(agreeLabel.snp.bottom).offset(15.5.pix())
-            make.size.equalTo(CGSize(width: 263.pix(), height: 52.pix()))
+            make.top.equalTo(agreeLabel.snp.bottom).offset(15.5.ppaix())
+            make.size.equalTo(CGSize(width: 263.ppaix(), height: 52.ppaix()))
         }
         descLabel1.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(applyBtn.snp.bottom).offset(5.pix())
-            make.height.equalTo(9.pix())
+            make.top.equalTo(applyBtn.snp.bottom).offset(5.ppaix())
+            make.height.equalTo(9.ppaix())
         }
     }
     
@@ -416,7 +416,7 @@ class PABigCardCell: UITableViewCell {
 class PAAuthCell: UITableViewCell, GKCycleScrollViewDelegate, GKCycleScrollViewDataSource {
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 27.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 27.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
         return nameLabel
     }()
     
@@ -433,7 +433,7 @@ class PAAuthCell: UITableViewCell, GKCycleScrollViewDelegate, GKCycleScrollViewD
         bannerView.isInfiniteLoop = false
         bannerView.minimumCellAlpha = 0.0
         bannerView.defaultSelectIndex = 1
-        bannerView.leftRightMargin = 1.pix()
+        bannerView.leftRightMargin = 1.ppaix()
         return bannerView
     }()
     
@@ -445,12 +445,12 @@ class PAAuthCell: UITableViewCell, GKCycleScrollViewDelegate, GKCycleScrollViewD
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 250.pix(), height: 31.pix()))
+            make.size.equalTo(CGSize(width: 250.ppaix(), height: 31.ppaix()))
         }
         rongqiView.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(21.pix())
-            make.top.equalTo(nameLabel.snp.bottom).offset(23.pix())
-            make.height.equalTo(98.pix())
+            make.left.equalToSuperview().offset(21.ppaix())
+            make.top.equalTo(nameLabel.snp.bottom).offset(23.ppaix())
+            make.height.equalTo(98.ppaix())
             make.right.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -490,7 +490,7 @@ class PAAuthCell: UITableViewCell, GKCycleScrollViewDelegate, GKCycleScrollViewD
     }
     
     func sizeForCell(in cycleScrollView: GKCycleScrollView!) -> CGSize {
-        return CGSize(width: 170.pix(), height: 98.pix())
+        return CGSize(width: 170.ppaix(), height: 98.ppaix())
     }
     
 }
@@ -504,22 +504,47 @@ class AuthCell: GKCycleScrollViewCell {
     }()
     
     lazy var setpLabel: UILabel = {
-        let setpLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#0F816A"), textAlignment: .center)
+        let setpLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#0F816A"), textAlignment: .center)
         return setpLabel
+    }()
+    
+    lazy var setpLab1l: UILabel = {
+        let setpLab1l = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 15.ppaix())!, textColor: UIColor.init(hex: "#0F816A"), textAlignment: .center)
+        setpLab1l.numberOfLines = 0
+        return setpLab1l
+    }()
+    
+    lazy var statusImagView: UIImageView = {
+        let statusImagView = UIImageView()
+        statusImagView.isHidden = true
+        statusImagView.image = UIImage(named: "Mask_succ")
+        return statusImagView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(iconImageView)
         iconImageView.addSubview(setpLabel)
+        iconImageView.addSubview(setpLab1l)
+        iconImageView.addSubview(statusImagView)
         iconImageView.snp.makeConstraints { make in
             make.left.top.bottom.equalToSuperview()
-            make.width.equalTo(170.pix())
+            make.width.equalTo(170.ppaix())
         }
         setpLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(18.pix())
-            make.height.equalTo(20.5.pix())
+            make.top.equalToSuperview().offset(18.ppaix())
+            make.height.equalTo(20.5.ppaix())
+        }
+        setpLab1l.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-18.ppaix())
+            make.width.equalTo(150.ppaix())
+        }
+        statusImagView.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 50.ppaix(), height: 50.ppaix()))
+            make.left.equalToSuperview()
+            make.top.equalToSuperview()
         }
     }
     
@@ -530,7 +555,9 @@ class AuthCell: GKCycleScrollViewCell {
     var model: plantsModel? {
         didSet {
             if let model = model {
-                setpLabel.text = model.smoke
+                setpLabel.text = model.eaten
+                setpLab1l.text = model.cordial
+                statusImagView.isHidden = model.someday == "1" ? false : true
             }
         }
     }
@@ -539,7 +566,7 @@ class AuthCell: GKCycleScrollViewCell {
 class PASecCell: UITableViewCell {
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 27.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 27.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
         return nameLabel
     }()
     
@@ -556,12 +583,12 @@ class PASecCell: UITableViewCell {
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 250.pix(), height: 31.pix()))
+            make.size.equalTo(CGSize(width: 250.ppaix(), height: 31.ppaix()))
         }
         iconImageView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.equalTo(nameLabel.snp.bottom).offset(20.pix())
-            make.height.equalTo(147.pix())
+            make.top.equalTo(nameLabel.snp.bottom).offset(20.ppaix())
+            make.height.equalTo(147.ppaix())
             make.bottom.equalToSuperview()
         }
     }
@@ -595,7 +622,7 @@ class PARankCell: UITableViewCell {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 27.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 27.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
         nameLabel.numberOfLines = 0
         return nameLabel
     }()
@@ -609,18 +636,18 @@ class PARankCell: UITableViewCell {
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.width.equalTo(250.pix())
+            make.width.equalTo(250.ppaix())
         }
         iconImageView.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 175.pix(), height: 55.pix()))
-            make.top.equalTo(nameLabel.snp.bottom).offset(20.pix())
+            make.size.equalTo(CGSize(width: 175.ppaix(), height: 55.ppaix()))
+            make.top.equalTo(nameLabel.snp.bottom).offset(20.ppaix())
         }
         descImageView.snp.makeConstraints { make in
             make.left.equalTo(nameLabel.snp.left)
             make.top.equalTo(nameLabel.snp.top)
-            make.size.equalTo(CGSize(width: 23.pix(), height: 23.pix()))
+            make.size.equalTo(CGSize(width: 23.ppaix(), height: 23.ppaix()))
         }
     }
     
@@ -645,8 +672,8 @@ class PARankDescCell: UITableViewCell {
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = UIColor.init(hex: "#FDFFF6")
-        bgView.layer.cornerRadius = 20.pix()
-        bgView.layer.borderWidth = 2.pix()
+        bgView.layer.cornerRadius = 20.ppaix()
+        bgView.layer.borderWidth = 2.ppaix()
         bgView.layer.borderColor = UIColor.init(hex: "#C6F14D").cgColor
         return bgView
     }()
@@ -658,12 +685,12 @@ class PARankDescCell: UITableViewCell {
     }()
     
     lazy var fenshuLabel: UILabel = {
-        let fenshuLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 16.pix())!, textColor: UIColor.init(hex: "#C6F14D"), textAlignment: .left)
+        let fenshuLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 16.ppaix())!, textColor: UIColor.init(hex: "#C6F14D"), textAlignment: .left)
         return fenshuLabel
     }()
     
     lazy var contentLabel: UILabel = {
-        let contentLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 13.pix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
+        let contentLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 13.ppaix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
         contentLabel.numberOfLines = 0
         return contentLabel
     }()
@@ -676,12 +703,12 @@ class PARankDescCell: UITableViewCell {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 13.pix())!, textColor: UIColor.init(hex: "#C2C8B0"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 13.ppaix())!, textColor: UIColor.init(hex: "#C2C8B0"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var timeLabel: UILabel = {
-        let timeLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 13.pix())!, textColor: UIColor.init(hex: "#C2C8B0"), textAlignment: .left)
+        let timeLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 13.ppaix())!, textColor: UIColor.init(hex: "#C2C8B0"), textAlignment: .left)
         return timeLabel
     }()
     
@@ -696,40 +723,40 @@ class PARankDescCell: UITableViewCell {
         bgView.addSubview(timeLabel)
         bgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(12.5.pix())
+            make.left.equalToSuperview().offset(12.5.ppaix())
             make.top.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-19.pix())
+            make.bottom.equalToSuperview().offset(-19.ppaix())
         }
         rankImageView.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(15.pix())
-            make.top.equalToSuperview().offset(15.pix())
-            make.size.equalTo(CGSize(width: 120.pix(), height: 19.pix()))
+            make.left.equalToSuperview().offset(15.ppaix())
+            make.top.equalToSuperview().offset(15.ppaix())
+            make.size.equalTo(CGSize(width: 120.ppaix(), height: 19.ppaix()))
         }
         fenshuLabel.snp.makeConstraints { make in
-            make.left.equalTo(rankImageView.snp.right).offset(10.pix())
+            make.left.equalTo(rankImageView.snp.right).offset(10.ppaix())
             make.top.equalTo(rankImageView.snp.top)
             make.bottom.equalTo(rankImageView.snp.bottom)
         }
         contentLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(15.pix())
-            make.top.equalTo(fenshuLabel.snp.bottom).offset(14.pix())
-            make.bottom.equalToSuperview().offset(-45.pix())
+            make.left.equalToSuperview().offset(15.ppaix())
+            make.top.equalTo(fenshuLabel.snp.bottom).offset(14.ppaix())
+            make.bottom.equalToSuperview().offset(-45.ppaix())
         }
         eyeImageView.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-14.pix())
-            make.top.equalToSuperview().offset(20.pix())
-            make.size.equalTo(CGSize(width: 21.pix(), height: 21.pix()))
+            make.right.equalToSuperview().offset(-14.ppaix())
+            make.top.equalToSuperview().offset(20.ppaix())
+            make.size.equalTo(CGSize(width: 21.ppaix(), height: 21.ppaix()))
         }
         nameLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-15.pix())
-            make.left.equalToSuperview().offset(15.pix())
-            make.height.equalTo(15.pix())
+            make.bottom.equalToSuperview().offset(-15.ppaix())
+            make.left.equalToSuperview().offset(15.ppaix())
+            make.height.equalTo(15.ppaix())
         }
         timeLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-15.pix())
-            make.right.equalToSuperview().offset(-15.pix())
-            make.height.equalTo(15.pix())
+            make.bottom.equalToSuperview().offset(-15.ppaix())
+            make.right.equalToSuperview().offset(-15.ppaix())
+            make.height.equalTo(15.ppaix())
         }
     }
     

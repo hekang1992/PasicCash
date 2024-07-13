@@ -14,6 +14,8 @@ class PAQueRenView: PACommonView {
     
     var saveBlock: (() -> Void)?
     
+    var block1: ((String) -> Void)?
+    
     var loanPurBlock: ((UIButton, [BRProvinceModel]) -> Void)?
     
     var loanPurBlock1: ((UIButton, [BRProvinceModel]) -> Void)?
@@ -25,7 +27,7 @@ class PAQueRenView: PACommonView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100.pix()
+        tableView.estimatedRowHeight = 100.ppaix()
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
@@ -46,7 +48,7 @@ class PAQueRenView: PACommonView {
     }()
     
     private lazy var agreeLabel: UILabel = {
-        let agreeLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 12.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let agreeLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         let attributedText = NSMutableAttributedString(string: "I have read and agreed to the ")
         let userAgreement = NSMutableAttributedString(string: "Loan Agreement.", attributes: [
             .foregroundColor: UIColor.init(hex: "#C2EF44"),
@@ -67,7 +69,7 @@ class PAQueRenView: PACommonView {
     }()
     
     lazy var descLabel1: UILabel = {
-        let descLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 9.pix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
+        let descLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 9.ppaix())!, textColor: UIColor.init(hex: "#8D917F"), textAlignment: .left)
         descLabel1.text = "Your data is used exclusively for approval, and PasicCash guarantees the protection of your privacy."
         descLabel1.numberOfLines = 0
         return descLabel1
@@ -75,7 +77,7 @@ class PAQueRenView: PACommonView {
     
     lazy var nextBtn: UIButton = {
         let nextBtn = UIButton(type: .custom)
-        nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.pix())
+        nextBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 24.ppaix())
         nextBtn.adjustsImageWhenHighlighted = false
         nextBtn.setBackgroundImage(UIImage(named: "Group_1095"), for: .normal)
         nextBtn.setTitle("Next", for: .normal)
@@ -110,7 +112,7 @@ extension PAQueRenView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 220.pix()
+        return 220.ppaix()
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -121,29 +123,29 @@ extension PAQueRenView: UITableViewDelegate, UITableViewDataSource {
         bgView.addSubview(descLabel1)
         bgView.addSubview(nextBtn)
         agreeBtn.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(30.pix())
-            make.top.equalToSuperview().offset(15.pix())
-            make.size.equalTo(CGSize(width: 28.pix(), height: 28.pix()))
+            make.left.equalToSuperview().offset(30.ppaix())
+            make.top.equalToSuperview().offset(15.ppaix())
+            make.size.equalTo(CGSize(width: 28.ppaix(), height: 28.ppaix()))
         }
         agreeLabel.snp.makeConstraints { make in
             make.centerY.equalTo(agreeBtn.snp.centerY)
             make.left.equalTo(agreeBtn.snp.right)
-            make.height.equalTo(14.pix())
+            make.height.equalTo(14.ppaix())
         }
         icon7.snp.makeConstraints { make in
-            make.top.equalTo(agreeBtn.snp.bottom).offset(56.pix())
-            make.left.equalToSuperview().offset(35.pix())
-            make.size.equalTo(CGSize(width: 16.pix(), height: 16.pix()))
+            make.top.equalTo(agreeBtn.snp.bottom).offset(56.ppaix())
+            make.left.equalToSuperview().offset(35.ppaix())
+            make.size.equalTo(CGSize(width: 16.ppaix(), height: 16.ppaix()))
         }
         descLabel1.snp.makeConstraints { make in
-            make.width.equalTo(280.pix())
-            make.left.equalTo(icon7.snp.right).offset(7.pix())
-            make.top.equalTo(icon7.snp.top).offset(-2.5.pix())
+            make.width.equalTo(280.ppaix())
+            make.left.equalTo(icon7.snp.right).offset(7.ppaix())
+            make.top.equalTo(icon7.snp.top).offset(-2.5.ppaix())
         }
         nextBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(descLabel1.snp.bottom).offset(15.pix())
-            make.size.equalTo(CGSize(width: 305.pix(), height: 60.pix()))
+            make.top.equalTo(descLabel1.snp.bottom).offset(15.ppaix())
+            make.size.equalTo(CGSize(width: 305.ppaix(), height: 60.ppaix()))
         }
         return bgView
     }
@@ -159,6 +161,9 @@ extension PAQueRenView: UITableViewDelegate, UITableViewDataSource {
                 cell.backgroundColor = .clear
                 cell.selectionStyle = .none
                 cell.model = model
+                cell.block = { [weak self] String in
+                    self?.block1?(cell.monetTextField.text ?? "")
+                }
                 return cell
             }
         }else if model?.goneup == "reminder" {
@@ -219,6 +224,8 @@ class qurenCell1: UITableViewCell, UITextFieldDelegate {
     
     var lastBtn: UIButton?
     
+    var block: ((String) -> Void)?
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.isUserInteractionEnabled = true
@@ -227,7 +234,7 @@ class qurenCell1: UITableViewCell, UITextFieldDelegate {
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         return nameLabel
     }()
     
@@ -235,7 +242,7 @@ class qurenCell1: UITableViewCell, UITextFieldDelegate {
         let monetTextField = NoCopyPasteTextField()
         monetTextField.keyboardType = .numberPad
         monetTextField.delegate = self
-        monetTextField.font = UIFont(name: LilitaOneFont, size: 65.pix())
+        monetTextField.font = UIFont(name: LilitaOneFont, size: 65.ppaix())
         return monetTextField
     }()
     
@@ -260,29 +267,29 @@ class qurenCell1: UITableViewCell, UITextFieldDelegate {
         bgImageView.addSubview(lineView)
         bgImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 375.pix(), height: 335.pix()))
+            make.size.equalTo(CGSize(width: 375.ppaix(), height: 335.ppaix()))
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
         }
         nameLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(45.5.pix())
-            make.top.equalToSuperview().offset(36.5.pix())
-            make.height.equalTo(20.5.pix())
+            make.left.equalToSuperview().offset(45.5.ppaix())
+            make.top.equalToSuperview().offset(36.5.ppaix())
+            make.height.equalTo(20.5.ppaix())
         }
         monetTextField.snp.makeConstraints { make in
             make.left.equalTo(nameLabel.snp.left)
-            make.top.equalTo(nameLabel.snp.bottom).offset(15.pix())
-            make.size.equalTo(CGSize(width: 237.pix(), height: 80.pix()))
+            make.top.equalTo(nameLabel.snp.bottom).offset(15.ppaix())
+            make.size.equalTo(CGSize(width: 237.ppaix(), height: 80.ppaix()))
         }
         editImageView.snp.makeConstraints { make in
-            make.left.equalTo(monetTextField.snp.right).offset(15.pix())
-            make.bottom.equalTo(monetTextField.snp.bottom).offset(-15.5.pix())
-            make.size.equalTo(CGSize(width: 19.pix(), height: 19.pix()))
+            make.left.equalTo(monetTextField.snp.right).offset(15.ppaix())
+            make.bottom.equalTo(monetTextField.snp.bottom).offset(-15.5.ppaix())
+            make.size.equalTo(CGSize(width: 19.ppaix(), height: 19.ppaix()))
         }
         lineView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(45.5.pix())
-            make.height.equalTo(2.pix())
+            make.left.equalToSuperview().offset(45.5.ppaix())
+            make.height.equalTo(2.ppaix())
             make.top.equalTo(monetTextField.snp.bottom)
         }
     }
@@ -299,25 +306,26 @@ class qurenCell1: UITableViewCell, UITextFieldDelegate {
                     subview.removeFromSuperview()
                 }
             }
-            let buttonHeight: CGFloat = 30.pix()
-            let buttonWidth: CGFloat = 70.pix()
+            let buttonHeight: CGFloat = 30.ppaix()
+            let buttonWidth: CGFloat = 70.ppaix()
             let padding: CGFloat = 10
-            let startY: CGFloat = 189.pix()
-            var xPosition = 45.5.pix()
+            let startY: CGFloat = 189.ppaix()
+            var xPosition = 45.5.ppaix()
             nameLabel.text = model.forcovering
             monetTextField.text = model.pester
+            self.block?(model.pester ?? "")
             if let birds = model.birds {
                 for (index, option) in birds.enumerated() {
                     let radioButton = UIButton(type: .custom)
-                    radioButton.titleLabel?.font = UIFont(name: LilitaOneFont, size: 16.pix())
+                    radioButton.titleLabel?.font = UIFont(name: LilitaOneFont, size: 16.ppaix())
                     radioButton.setTitleColor(UIColor.init(hex: "#0CE094"), for: .normal)
-                    radioButton.layer.cornerRadius = 10.pix()
-                    radioButton.layer.borderWidth = 2.pix()
+                    radioButton.layer.cornerRadius = 10.ppaix()
+                    radioButton.layer.borderWidth = 2.ppaix()
                     radioButton.layer.borderColor = UIColor.init(hex: "#0CE094").cgColor
                     radioButton.backgroundColor = UIColor.clear
                     radioButton.setTitle(option.hoses, for: .normal)
                     if index == 3 {
-                        radioButton.frame = CGRect(x: xPosition, y: startY, width: 45.pix(), height: 30.pix())
+                        radioButton.frame = CGRect(x: xPosition, y: startY, width: 45.ppaix(), height: 30.ppaix())
                     }else {
                         radioButton.frame = CGRect(x: xPosition, y: startY, width: buttonWidth, height: buttonHeight)
                     }
@@ -379,17 +387,17 @@ class qurenCell2: UITableViewCell {
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = UIColor.init(hex: "#FDFFF6")
-        bgView.layer.cornerRadius = 20.pix()
+        bgView.layer.cornerRadius = 20.ppaix()
         return bgView
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var nameLabel1: UILabel = {
-        let nameLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         return nameLabel1
     }()
     
@@ -403,7 +411,7 @@ class qurenCell2: UITableViewCell {
     
     lazy var grView: UIView = {
         let grView = UIView()
-        grView.layer.cornerRadius = 10.pix()
+        grView.layer.cornerRadius = 10.ppaix()
         grView.backgroundColor = UIColor.init(hex: "#EFF5E7")
         return grView
     }()
@@ -431,36 +439,36 @@ class qurenCell2: UITableViewCell {
         grView.addSubview(clickBtn)
         bgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(25.5.pix())
+            make.left.equalToSuperview().offset(25.5.ppaix())
             make.top.equalToSuperview()
-            make.height.equalTo(136.pix())
-            make.bottom.equalToSuperview().offset(-14.pix())
+            make.height.equalTo(136.ppaix())
+            make.bottom.equalToSuperview().offset(-14.ppaix())
         }
         nameLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.pix())
-            make.top.equalToSuperview().offset(20.pix())
-            make.height.equalTo(20.5.pix())
+            make.left.equalToSuperview().offset(20.ppaix())
+            make.top.equalToSuperview().offset(20.ppaix())
+            make.height.equalTo(20.5.ppaix())
         }
         nameLabel1.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.pix())
-            make.top.equalTo(nameLabel.snp.bottom).offset(20.pix())
-            make.height.equalTo(20.5.pix())
+            make.left.equalToSuperview().offset(20.ppaix())
+            make.top.equalTo(nameLabel.snp.bottom).offset(20.ppaix())
+            make.height.equalTo(20.5.ppaix())
         }
         switchIcon.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20.pix())
-            make.right.equalToSuperview().offset(-20.pix())
-            make.size.equalTo(CGSize(width: 45.pix(), height: 20.pix()))
+            make.top.equalToSuperview().offset(20.ppaix())
+            make.right.equalToSuperview().offset(-20.ppaix())
+            make.size.equalTo(CGSize(width: 45.ppaix(), height: 20.ppaix()))
         }
         grView.snp.makeConstraints { make in
             make.left.equalTo(nameLabel1.snp.left)
-            make.right.equalToSuperview().offset(-20.pix())
-            make.top.equalTo(nameLabel1.snp.bottom).offset(5.pix())
-            make.height.equalTo(30.pix())
+            make.right.equalToSuperview().offset(-20.ppaix())
+            make.top.equalTo(nameLabel1.snp.bottom).offset(5.ppaix())
+            make.height.equalTo(30.ppaix())
         }
         icon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.size.equalTo(CGSize(width: 8.pix(), height: 12.pix()))
-            make.right.equalToSuperview().offset(-15.pix())
+            make.size.equalTo(CGSize(width: 8.ppaix(), height: 12.ppaix()))
+            make.right.equalToSuperview().offset(-15.ppaix())
         }
         clickBtn.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -497,18 +505,18 @@ class qurenCell3: UITableViewCell {
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = UIColor.init(hex: "#FDFFF6")
-        bgView.layer.cornerRadius = 20.pix()
+        bgView.layer.cornerRadius = 20.ppaix()
         return bgView
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var grView: UIView = {
         let grView = UIView()
-        grView.layer.cornerRadius = 10.pix()
+        grView.layer.cornerRadius = 10.ppaix()
         grView.backgroundColor = UIColor.init(hex: "#EFF5E7")
         return grView
     }()
@@ -526,13 +534,13 @@ class qurenCell3: UITableViewCell {
     }()
     
     lazy var nameLabel1: UILabel = {
-        let nameLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         return nameLabel1
     }()
     
     lazy var grView1: UIView = {
         let grView1 = UIView()
-        grView1.layer.cornerRadius = 10.pix()
+        grView1.layer.cornerRadius = 10.ppaix()
         grView1.backgroundColor = UIColor.init(hex: "#EFF5E7")
         return grView1
     }()
@@ -550,20 +558,20 @@ class qurenCell3: UITableViewCell {
     }()
     
     lazy var nameLabel2: UILabel = {
-        let nameLabel2 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel2 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         return nameLabel2
     }()
     
     lazy var grView2: UIView = {
         let grView2 = UIView()
-        grView2.layer.cornerRadius = 10.pix()
+        grView2.layer.cornerRadius = 10.ppaix()
         grView2.backgroundColor = UIColor.init(hex: "#EFF5E7")
         return grView2
     }()
     
     lazy var clickBtn2: UIButton = {
         let clickBtn2 = UIButton(type: .custom)
-        clickBtn2.titleLabel?.font = UIFont(name: LilitaOneFont, size: 16.pix())
+        clickBtn2.titleLabel?.font = UIFont(name: LilitaOneFont, size: 16.ppaix())
         clickBtn2.setTitleColor(UIColor.init(hex: "#0CE094"), for: .normal)
         return clickBtn2
     }()
@@ -584,59 +592,59 @@ class qurenCell3: UITableViewCell {
         grView2.addSubview(clickBtn2)
         bgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(25.5.pix())
+            make.left.equalToSuperview().offset(25.5.ppaix())
             make.top.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-14.pix())
+            make.bottom.equalToSuperview().offset(-14.ppaix())
         }
         nameLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.pix())
-            make.top.equalToSuperview().offset(20.pix())
-            make.height.equalTo(20.5.pix())
+            make.left.equalToSuperview().offset(20.ppaix())
+            make.top.equalToSuperview().offset(20.ppaix())
+            make.height.equalTo(20.5.ppaix())
         }
         grView.snp.makeConstraints { make in
             make.left.equalTo(nameLabel.snp.left)
-            make.right.equalToSuperview().offset(-20.pix())
-            make.top.equalTo(nameLabel.snp.bottom).offset(5.pix())
-            make.height.equalTo(30.pix())
+            make.right.equalToSuperview().offset(-20.ppaix())
+            make.top.equalTo(nameLabel.snp.bottom).offset(5.ppaix())
+            make.height.equalTo(30.ppaix())
         }
         icon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.size.equalTo(CGSize(width: 8.pix(), height: 12.pix()))
-            make.right.equalToSuperview().offset(-15.pix())
+            make.size.equalTo(CGSize(width: 8.ppaix(), height: 12.ppaix()))
+            make.right.equalToSuperview().offset(-15.ppaix())
         }
         clickBtn.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         nameLabel1.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.pix())
-            make.top.equalTo(grView.snp.bottom).offset(20.pix())
-            make.height.equalTo(20.5.pix())
+            make.left.equalToSuperview().offset(20.ppaix())
+            make.top.equalTo(grView.snp.bottom).offset(20.ppaix())
+            make.height.equalTo(20.5.ppaix())
         }
         grView1.snp.makeConstraints { make in
             make.left.equalTo(nameLabel1.snp.left)
-            make.right.equalToSuperview().offset(-20.pix())
-            make.top.equalTo(nameLabel1.snp.bottom).offset(5.pix())
-            make.height.equalTo(30.pix())
+            make.right.equalToSuperview().offset(-20.ppaix())
+            make.top.equalTo(nameLabel1.snp.bottom).offset(5.ppaix())
+            make.height.equalTo(30.ppaix())
         }
         icon1.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.size.equalTo(CGSize(width: 8.pix(), height: 12.pix()))
-            make.right.equalToSuperview().offset(-15.pix())
+            make.size.equalTo(CGSize(width: 8.ppaix(), height: 12.ppaix()))
+            make.right.equalToSuperview().offset(-15.ppaix())
         }
         clickBtn1.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         nameLabel2.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.pix())
-            make.top.equalTo(grView1.snp.bottom).offset(20.pix())
-            make.height.equalTo(20.5.pix())
+            make.left.equalToSuperview().offset(20.ppaix())
+            make.top.equalTo(grView1.snp.bottom).offset(20.ppaix())
+            make.height.equalTo(20.5.ppaix())
         }
         grView2.snp.makeConstraints { make in
             make.left.equalTo(nameLabel2.snp.left)
-            make.right.equalToSuperview().offset(-20.pix())
-            make.top.equalTo(nameLabel2.snp.bottom).offset(5.pix())
-            make.height.equalTo(30.pix())
-            make.bottom.equalToSuperview().offset(-14.pix())
+            make.right.equalToSuperview().offset(-20.ppaix())
+            make.top.equalTo(nameLabel2.snp.bottom).offset(5.ppaix())
+            make.height.equalTo(30.ppaix())
+            make.bottom.equalToSuperview().offset(-14.ppaix())
         }
         clickBtn2.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -676,27 +684,27 @@ class qurenCell4: UITableViewCell {
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = UIColor.init(hex: "#FDFFF6")
-        bgView.layer.cornerRadius = 20.pix()
+        bgView.layer.cornerRadius = 20.ppaix()
         return bgView
     }()
     
     lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var nameLabel1: UILabel = {
-        let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 16.pix())!, textColor: UIColor.init(hex: "#C2C8B0"), textAlignment: .left)
+        let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 16.ppaix())!, textColor: UIColor.init(hex: "#C2C8B0"), textAlignment: .left)
         return nameLabel
     }()
     
     lazy var nameLabel2: UILabel = {
-        let nameLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
+        let nameLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         return nameLabel1
     }()
     
     lazy var nameLabel3: UILabel = {
-        let nameLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 16.pix())!, textColor: UIColor.init(hex: "#C2C8B0"), textAlignment: .left)
+        let nameLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 16.ppaix())!, textColor: UIColor.init(hex: "#C2C8B0"), textAlignment: .left)
         return nameLabel1
     }()
     
@@ -709,30 +717,30 @@ class qurenCell4: UITableViewCell {
         bgView.addSubview(nameLabel3)
         bgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(25.5.pix())
+            make.left.equalToSuperview().offset(25.5.ppaix())
             make.top.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-14.pix())
+            make.bottom.equalToSuperview().offset(-14.ppaix())
         }
         nameLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.pix())
-            make.top.equalToSuperview().offset(20.pix())
-            make.height.equalTo(20.5.pix())
+            make.left.equalToSuperview().offset(20.ppaix())
+            make.top.equalToSuperview().offset(20.ppaix())
+            make.height.equalTo(20.5.ppaix())
         }
         nameLabel1.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.pix())
-            make.top.equalTo(nameLabel.snp.bottom).offset(10.pix())
-            make.height.equalTo(20.5.pix())
+            make.left.equalToSuperview().offset(20.ppaix())
+            make.top.equalTo(nameLabel.snp.bottom).offset(10.ppaix())
+            make.height.equalTo(20.5.ppaix())
         }
         nameLabel2.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.pix())
-            make.top.equalTo(nameLabel1.snp.bottom).offset(20.pix())
-            make.height.equalTo(20.5.pix())
+            make.left.equalToSuperview().offset(20.ppaix())
+            make.top.equalTo(nameLabel1.snp.bottom).offset(20.ppaix())
+            make.height.equalTo(20.5.ppaix())
         }
         nameLabel3.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(20.pix())
-            make.top.equalTo(nameLabel2.snp.bottom).offset(10.pix())
-            make.height.equalTo(20.5.pix())
-            make.bottom.equalToSuperview().offset(-14.pix())
+            make.left.equalToSuperview().offset(20.ppaix())
+            make.top.equalTo(nameLabel2.snp.bottom).offset(10.ppaix())
+            make.height.equalTo(20.5.ppaix())
+            make.bottom.equalToSuperview().offset(-14.ppaix())
         }
     }
     
