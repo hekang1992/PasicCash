@@ -16,6 +16,10 @@ class PAQueRenView: PACommonView {
     
     var loanPurBlock: ((UIButton, [BRProvinceModel]) -> Void)?
     
+    var loanPurBlock1: ((UIButton, [BRProvinceModel]) -> Void)?
+    
+    var loanPurBlock2: ((UIButton, [BRProvinceModel]) -> Void)?
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.delegate = self
@@ -172,6 +176,12 @@ extension PAQueRenView: UITableViewDelegate, UITableViewDataSource {
                 cell.backgroundColor = .clear
                 cell.selectionStyle = .none
                 cell.model = array?[indexPath.row]
+                cell.block = { [weak self] btn, array in
+                    self?.loanPurBlock1?(btn, array)
+                }
+                cell.block1 = { [weak self] btn, array in
+                    self?.loanPurBlock2?(btn, array)
+                }
                 return cell
             }
         }else if model?.goneup == "companyName" {
@@ -207,12 +217,6 @@ extension PAQueRenView: UITableViewDelegate, UITableViewDataSource {
 
 class qurenCell1: UITableViewCell, UITextFieldDelegate {
     
-    let buttonHeight: CGFloat = 30.pix()
-    let buttonWidth: CGFloat = 70.pix()
-    let padding: CGFloat = 10
-    let startX: CGFloat = 45.5.pix()
-    let startY: CGFloat = 189.pix()
-    var xPosition = 45.5.pix()
     var lastBtn: UIButton?
     
     lazy var bgImageView: UIImageView = {
@@ -290,6 +294,16 @@ class qurenCell1: UITableViewCell, UITextFieldDelegate {
     var model: twitchModel? {
         didSet {
             guard let model = model else { return }
+            for subview in bgImageView.subviews {
+                if subview is UIButton {
+                    subview.removeFromSuperview()
+                }
+            }
+            let buttonHeight: CGFloat = 30.pix()
+            let buttonWidth: CGFloat = 70.pix()
+            let padding: CGFloat = 10
+            let startY: CGFloat = 189.pix()
+            var xPosition = 45.5.pix()
             nameLabel.text = model.forcovering
             monetTextField.text = model.pester
             if let birds = model.birds {
@@ -319,11 +333,11 @@ class qurenCell1: UITableViewCell, UITextFieldDelegate {
         let currentText = textField.text ?? ""
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
         if updatedText.isEmpty {
-            return true // Allow empty text
+            return true
         } else if updatedText.count > 5 {
-            return false // Limit to 5 characters
+            return false
         } else if let number = Int(updatedText), number > 50000 {
-            textField.text = "50000" // Cap the value at 50000
+            textField.text = "50000"
             return false
         }
         return true
@@ -478,6 +492,8 @@ class qurenCell3: UITableViewCell {
     
     var block: ((UIButton, [BRProvinceModel]) -> Void)?
     
+    var block1: ((UIButton, [BRProvinceModel]) -> Void)?
+    
     lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = UIColor.init(hex: "#FDFFF6")
@@ -529,7 +545,7 @@ class qurenCell3: UITableViewCell {
     
     lazy var clickBtn1: UIButton = {
         let clickBtn1 = UIButton(type: .custom)
-        clickBtn1.addTarget(self, action: #selector(clickBtnClick(_ :)), for: .touchUpInside)
+        clickBtn1.addTarget(self, action: #selector(clickBtnClick1(_ :)), for: .touchUpInside)
         return clickBtn1
     }()
     
@@ -547,7 +563,8 @@ class qurenCell3: UITableViewCell {
     
     lazy var clickBtn2: UIButton = {
         let clickBtn2 = UIButton(type: .custom)
-        clickBtn2.addTarget(self, action: #selector(clickBtnClick(_ :)), for: .touchUpInside)
+        clickBtn2.titleLabel?.font = UIFont(name: LilitaOneFont, size: 16.pix())
+        clickBtn2.setTitleColor(UIColor.init(hex: "#0CE094"), for: .normal)
         return clickBtn2
     }()
     
@@ -631,10 +648,13 @@ class qurenCell3: UITableViewCell {
     }
     
     @objc func clickBtnClick(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+        self.block?(sender, [])
+    }
+    
+    @objc func clickBtnClick1(_ sender: UIButton) {
         if let bankArray = model?[1].birds {
             let loanPArray = yijiModel.getSimpleModelArr(dataSourceArr: bankArray)
-            self.block?(sender, loanPArray)
+            self.block1?(sender, loanPArray)
         }
     }
     
@@ -644,6 +664,7 @@ class qurenCell3: UITableViewCell {
             nameLabel.text = model[0].forcovering
             nameLabel1.text = model[1].forcovering
             nameLabel2.text = model[3].forcovering
+            clickBtn2.setTitle(model[3].pester, for: .normal)
         }
     }
 }
@@ -668,7 +689,7 @@ class qurenCell4: UITableViewCell {
         let nameLabel = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 16.pix())!, textColor: UIColor.init(hex: "#C2C8B0"), textAlignment: .left)
         return nameLabel
     }()
-  
+    
     lazy var nameLabel2: UILabel = {
         let nameLabel1 = UILabel.createLabel(font: UIFont(name: LilitaOneFont, size: 18.pix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         return nameLabel1

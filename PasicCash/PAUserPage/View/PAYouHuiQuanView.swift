@@ -9,6 +9,8 @@ import UIKit
 
 class PAYouHuiQuanView: PACommonView {
     
+    var block1: ((cashClasModel) -> Void)?
+    
     lazy var bgIcon: UIImageView = {
         let bgIcon = UIImageView()
         bgIcon.image = UIImage(named: "Group_1020")
@@ -141,14 +143,20 @@ extension PAYouHuiQuanView: UITableViewDelegate, UITableViewDataSource {
         cell.model = array?[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let model = array?[indexPath.row] {
+            self.block1?(model)
+        }
+    }
 }
 
 class youhuiCell: UITableViewCell {
     
-    lazy var bgImageView: UIImageView = {
-        let bgImageView = UIImageView()
-        bgImageView.image = UIImage(named: "Group_1014")
-        return bgImageView
+    lazy var bgImageView: UIButton = {
+        let bgIcon = UIButton(type: .custom)
+        bgIcon.setImage(UIImage(named: "Group_1014"), for: .normal)
+        return bgIcon
     }()
     
     lazy var titleLabel: UILabel = {
@@ -217,6 +225,12 @@ class youhuiCell: UITableViewCell {
             guard let model = model else { return }
             titleLabel1.text = model.geminiFlas
             titleLabel3.text = model.turbo
+            if model.riverbank == "1" {
+                bgImageView.isEnabled = true
+            }else {
+                bgImageView.isEnabled = false
+                
+            }
         }
     }
     

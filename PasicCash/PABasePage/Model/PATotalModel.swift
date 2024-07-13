@@ -160,4 +160,5 @@ class cashClasModel: HandyJSON {
     var geminiFlas: String?
     var turbo: String?
     var flowFind: String?
+    var riverbank: String?
 }

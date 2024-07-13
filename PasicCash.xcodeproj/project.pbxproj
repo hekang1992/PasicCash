@@ -61,6 +61,7 @@
 		18513FC22C40E2BC004870E1 /* PAQueRenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18513FC12C40E2BC004870E1 /* PAQueRenView.swift */; };
 		18513FC42C41453E004870E1 /* PAPendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18513FC32C41453E004870E1 /* PAPendingViewController.swift */; };
 		18513FC62C4145E7004870E1 /* PAPendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18513FC52C4145E7004870E1 /* PAPendingView.swift */; };
+		18513FC82C424DEE004870E1 /* PAUserYView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18513FC72C424DEE004870E1 /* PAUserYView.swift */; };
 		FE032C0307388BCDF7A98BEC /* Pods_PasicCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		18513FC12C40E2BC004870E1 /* PAQueRenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAQueRenView.swift; sourceTree = "<group>"; };
 		18513FC32C41453E004870E1 /* PAPendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPendingViewController.swift; sourceTree = "<group>"; };
 		18513FC52C4145E7004870E1 /* PAPendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPendingView.swift; sourceTree = "<group>"; };
+		18513FC72C424DEE004870E1 /* PAUserYView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAUserYView.swift; sourceTree = "<group>"; };
 		3599269F8DA2C63D45CD9672 /* Pods-PasicCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.release.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.release.xcconfig"; sourceTree = "<group>"; };
 		DAC85EBC70A8689A703671B1 /* Pods-PasicCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.debug.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.debug.xcconfig"; sourceTree = "<group>"; };
 		DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasicCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 				18513FBF2C40E0C5004870E1 /* PAPopQueView.swift */,
 				18513FC12C40E2BC004870E1 /* PAQueRenView.swift */,
 				18513FC52C4145E7004870E1 /* PAPendingView.swift */,
+				18513FC72C424DEE004870E1 /* PAUserYView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				182C80332C367C7F00CE3716 /* PALoginViewController.swift in Sources */,
 				182C7FF12C33F22E00CE3716 /* PATabBarViewController.swift in Sources */,
 				182B6D8C2C3F8780004F317C /* PACommonView.swift in Sources */,
+				18513FC82C424DEE004870E1 /* PAUserYView.swift in Sources */,
 				182C804C2C3809C900CE3716 /* PAProductView.swift in Sources */,
 				182C803B2C36AE9000CE3716 /* PANickViewController.swift in Sources */,
 				182C802D2C3554C800CE3716 /* PABorrowViewController.swift in Sources */,

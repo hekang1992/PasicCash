@@ -8,6 +8,7 @@
 import UIKit
 import MBProgressHUD_WJExtension
 import HandyJSON
+import TYAlertController
 
 class PAYouHuiQuanViewController: PABaseViewController {
     
@@ -15,6 +16,11 @@ class PAYouHuiQuanViewController: PABaseViewController {
         let youhuiView = PAYouHuiQuanView()
         youhuiView.titleLabel.text = "Discount Coupon"
         return youhuiView
+    }()
+    
+    lazy var popYouView: PAUserYView = {
+        let popYouView = PAUserYView(frame: self.view.bounds)
+        return popYouView
     }()
     
     override func viewDidLoad() {
@@ -28,6 +34,13 @@ class PAYouHuiQuanViewController: PABaseViewController {
         youhuiView.block = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
+        youhuiView.block1 = { [weak self] model in
+            if model.riverbank != "1" {
+                MBProgressHUD.wj_showPlainText("Coupon has expired", view: nil)
+            }else {
+                self?.userP()
+            }
+        }
         getyouhuiquan()
         self.youhuiView.tableView.mj_header = PAPullHeader(refreshingTarget: self, refreshingAction: #selector(loadNeData))
     }
@@ -35,6 +48,19 @@ class PAYouHuiQuanViewController: PABaseViewController {
 }
 
 extension PAYouHuiQuanViewController {
+    
+    @objc func userP() {
+        let alertVc = TYAlertController(alert: popYouView, preferredStyle: .alert)
+        self.present(alertVc!, animated: true)
+        popYouView.block = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                self?.navigationController?.popViewController(animated: true)
+            })
+        }
+        popYouView.block1 = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+    }
     
     @objc func loadNeData() {
         getyouhuiquan()
