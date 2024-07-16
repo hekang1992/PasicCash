@@ -64,6 +64,12 @@ class PAUserViewController: PABaseViewController {
         super.viewWillAppear(animated)
         PATabBarManager.showTabBar()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        PATabBarManager.hideTabBar()
+    }
+    
 }
 
 

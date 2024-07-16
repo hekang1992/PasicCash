@@ -46,6 +46,11 @@ class PAOrderViewController: PABaseViewController {
         PATabBarManager.showTabBar()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        PATabBarManager.hideTabBar()
+    }
+    
 }
 
 
