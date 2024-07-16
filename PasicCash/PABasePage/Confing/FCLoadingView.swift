@@ -55,6 +55,7 @@ class PALoadingView: UIView {
 class ViewHud {
     
     static let loadView = PALoadingView()
+    
     static func addLoadView() {
         DispatchQueue.main.async {
             if let keyWindow = UIApplication.shared.windows.first {

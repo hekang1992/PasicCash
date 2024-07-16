@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>我们需要访问您的相册来选择照片</string>
+	<string>We will use your photo album permissions solely for uploading ID card images to ensure the accuracy of your ID information.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>我们需要使用您的相机来拍照</string>
+	<string>We need to use your camera to take photos and recognize basic facial information to ensure the accuracy of your identity information.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

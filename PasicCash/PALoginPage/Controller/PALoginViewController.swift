@@ -53,6 +53,7 @@ extension PALoginViewController {
                 let codeVc = PACodeViewController()
                 codeVc.phoneStr = phoneStr
                 self?.navigationController?.pushViewController(codeVc, animated: true)
+                
             }
         } errorBlock: { error in
             ViewHud.hideLoadView()

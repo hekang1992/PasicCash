@@ -50,13 +50,12 @@ class PATabBarViewController: UITabBarController {
         setupChildViewController(userVC, title: "Profile", imageName: "user_nor", selectedImageName: "user_sel")
     }
     
-    private func setupChildViewController(_ viewController: UIViewController, title: String, imageName: String, selectedImageName: String) {
+    private func setupChildViewController(_ viewController: PABaseViewController, title: String, imageName: String, selectedImageName: String) {
         viewController.title = title
         viewController.tabBarItem.image = UIImage(named: imageName)
         if let selectedImage = UIImage(named: selectedImageName)?.withRenderingMode(.alwaysOriginal) {
             viewController.tabBarItem.selectedImage = selectedImage
         }
-        
         let navController = PANavigationViewController(rootViewController: viewController)
         addChild(navController)
         customTabBar.addTabBarButtonNorImageUrl(imageName, selImageUrl: selectedImageName, title: title)

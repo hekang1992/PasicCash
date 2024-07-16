@@ -59,8 +59,8 @@ class PAAuthIDViewController: PABaseViewController {
             if let picUrl = self?.picUrl, picUrl.isEmpty {
                 self?.popPhotot()
             } else {
-                RequestManager.detailPageInfo(productID: self?.productID ?? "", startTime: self?.startime ?? "", type: "") { model1, model2, productID in
-                    RequestManager.nextStep(type: model2.smoke ?? "", productID: productID)
+                self?.detailPageInfo(productID: self?.productID ?? "", startTime: self?.startime ?? "", type: "") { model1, model2, productID in
+                    self?.nextStep(type: model2.smoke ?? "", productID: productID)
                 }
             }
         }

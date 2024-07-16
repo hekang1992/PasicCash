@@ -52,7 +52,7 @@ class PATabBarManager {
 }
 
 class NavigationControllerHelper {
-    class func getNavigationController(from viewController: UIViewController) -> PANavigationViewController? {
+    class func getNavigationController(from viewController: PABaseViewController) -> PANavigationViewController? {
         if let navigationController = viewController.navigationController {
             return navigationController as? PANavigationViewController
         } else if let tabBarController = viewController.tabBarController {
@@ -64,14 +64,17 @@ class NavigationControllerHelper {
     }
     
     class func getRootNavigationController() -> PANavigationViewController? {
-        if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
-            if let navigationController = rootViewController as? UINavigationController {
-                return navigationController as? PANavigationViewController
-            } else if let tabBarController = rootViewController as? UITabBarController {
-                if let selectedController = tabBarController.selectedViewController as? UINavigationController {
-                    return selectedController as? PANavigationViewController
-                }
-            }
+        guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else {
+            return nil
+        }
+        var rootViewController = window.rootViewController
+        while let presentedViewController = rootViewController?.presentedViewController {
+            rootViewController = presentedViewController
+        }
+        if let navigationController = rootViewController as? UINavigationController {
+            return navigationController as? PANavigationViewController
+        } else if let navigationController = rootViewController?.navigationController {
+            return navigationController as? PANavigationViewController
         }
         return nil
     }
@@ -80,7 +83,6 @@ class NavigationControllerHelper {
 class CountdownManager {
     private static var countdownTimer: Timer?
     private static var backgroundTask: UIBackgroundTaskIdentifier = .invalid
-    
     class func startCountdown(startDate: Date, duration: TimeInterval, updateHandler: @escaping (Int, Int, Int) -> Void) {
         countdownTimer?.invalidate()
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
@@ -217,6 +219,10 @@ class yijiModel {
             let proviceModel = BRProvinceModel()
             proviceModel.code = proviceDic.goneup
             proviceModel.name = proviceDic.hoses
+            let sreally = proviceDic.sreally ?? ""
+            if !sreally.isEmpty {
+                proviceModel.picUrl = proviceDic.sreally
+            }
             proviceModel.index = dataSourceArr.firstIndex(where: { $0 as AnyObject === proviceDic as AnyObject }) ?? 0
             result.append(proviceModel)
         }

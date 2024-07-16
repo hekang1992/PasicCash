@@ -92,6 +92,7 @@ class soundsModel: HandyJSON {
     var goneup: String?
     var rains: String?
     var handsto: String?
+    var sounds: [soundsModel]?
     var birds: [birdsModel]?
 }
 
@@ -169,6 +170,14 @@ class plantsModel: HandyJSON {
     var heavyoak: String?
     var erected: String?
     var direst: String?
+    var bringing: String?
+    var surprised: String?
+    var lovely: String?
+    var dandy: String?
+    var creation: String?
+    var charred: String?
+    var saving: String?
+    var shyly: String?
     var phrase: [birdsModel]?
     var plants: [plantsModel]?
 }

@@ -1,13 +1,15 @@
 //
-//  PAInputCell.swift
+//  PADianziQinabaoCell.swift
 //  PasicCash
 //
-//  Created by apple on 2024/7/15.
+//  Created by apple on 2024/7/16.
 //
 
 import UIKit
 
-class PAInputCell: UITableViewCell {
+class PADianziQinabaoCell: UITableViewCell {
+    
+    var block: ((UITextField, UIImageView) -> Void)?
     
     var model: soundsModel? {
         didSet {
@@ -24,7 +26,6 @@ class PAInputCell: UITableViewCell {
             ]
             let attributedPlaceholder = NSAttributedString(string: model.andmen ?? "", attributes: attributes)
             inputField.attributedPlaceholder = attributedPlaceholder
-            inputField.text = model.pester
         }
     }
 
@@ -41,43 +42,58 @@ class PAInputCell: UITableViewCell {
         bgView.layer.borderColor = UIColor.init(hex: "#C6F14D").cgColor
         return bgView
     }()
-    
+
     lazy var inputField: UITextField = {
         let inputField = UITextField()
         inputField.font = UIFont(name: LilitaOneFont, size: 20.ppaix())
         inputField.textColor = UIColor.init(hex: "#719F60")
-        let attributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.init(hex: "#CED4BD"),
-            .font: UIFont(name: LilitaOneFont, size: 20.ppaix())!
-        ]
-        let attributedPlaceholder = NSAttributedString(string: "Please select marital state", attributes: attributes)
-        inputField.attributedPlaceholder = attributedPlaceholder
-        inputField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
+        inputField.isEnabled = false
         return inputField
     }()
     
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
-        iconImageView.image = UIImage(named: "Sliceshuru")
+        iconImageView.image = UIImage(named: "Slicearrow")
         return iconImageView
+    }()
+    
+    lazy var iconImageView1: UIImageView = {
+        let iconImageView1 = UIImageView()
+        iconImageView1.layer.cornerRadius = 15.ppaix()
+        iconImageView1.layer.masksToBounds = true
+        iconImageView1.image = UIImage(named: "Group_1099")
+        return iconImageView1
+    }()
+    
+    lazy var selectBtn: UIButton = {
+        let selectBtn = UIButton(type: .custom)
+        selectBtn.addTarget(self, action: #selector(selectBtnClick(_ :)), for: .touchUpInside)
+        return selectBtn
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(nameLabel)
         contentView.addSubview(bgView)
+        contentView.addSubview(iconImageView1)
         bgView.addSubview(iconImageView)
         bgView.addSubview(inputField)
+        bgView.addSubview(selectBtn)
         nameLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(25.ppaix())
             make.top.equalToSuperview().offset(23.ppaix())
             make.height.equalTo(21.ppaix())
         }
+        iconImageView1.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom).offset(13.ppaix())
+            make.left.equalToSuperview().offset(23.ppaix())
+            make.size.equalTo(CGSize(width: 64.ppaix(), height: 64.ppaix()))
+        }
         bgView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
             make.top.equalTo(nameLabel.snp.bottom).offset(15.ppaix())
-            make.left.equalToSuperview().offset(25.ppaix())
+            make.left.equalTo(iconImageView1.snp.right).offset(13.ppaix())
             make.height.equalTo(60.ppaix())
+            make.right.equalToSuperview().offset(-25.ppaix())
             make.bottom.equalToSuperview()
         }
         iconImageView.snp.makeConstraints { make in
@@ -90,6 +106,9 @@ class PAInputCell: UITableViewCell {
             make.right.equalTo(iconImageView.snp.left).offset(-13.ppaix())
             make.left.equalToSuperview().offset(20.ppaix())
         }
+        selectBtn.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -98,13 +117,9 @@ class PAInputCell: UITableViewCell {
     
 }
 
-extension PAInputCell {
+extension PADianziQinabaoCell {
     
-    @objc func textFieldEditingChanged(_ textField: UITextField) {
-        if textField == inputField {
-            if let model = model {
-                model.pester = textField.text
-            }
-        }
+    @objc func selectBtnClick(_ sender: UIButton) {
+        self.block?(inputField, iconImageView1)
     }
 }

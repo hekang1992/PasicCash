@@ -44,8 +44,8 @@ class PAFaceViewController: PABaseViewController {
             if let picUrl = self?.picUrl, picUrl.isEmpty {
                 PAMediaManager.shared.presentCamera(from: self!, isfront: "1")
             } else {
-                RequestManager.detailPageInfo(productID: self?.productID ?? "", startTime: self?.startime ?? "", type: "") { model1, model2, productID in
-                    RequestManager.nextStep(type: model2.smoke ?? "", productID: productID)
+                self?.detailPageInfo(productID: self?.productID ?? "", startTime: self?.startime ?? "", type: "") { model1, model2, productID in
+                    self?.nextStep(type: model2.smoke ?? "", productID: productID)
                 }
             }
         }

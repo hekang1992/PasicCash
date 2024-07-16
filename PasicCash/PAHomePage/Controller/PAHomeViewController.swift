@@ -29,9 +29,9 @@ class PAHomeViewController: PABaseViewController {
             make.edges.equalToSuperview()
         }
         self.oneView.tableView.mj_header = PAPullHeader(refreshingTarget: self, refreshingAction: #selector(loadNewData))
-        oneView.block = { productID in
-            RequestManager.applyClick(productID: productID) { nightwas in
-                RequestManager.judguUrlSche(nightwas)
+        oneView.block = { [weak self] productID in
+            self?.applyClick(productID: productID) { nightwas in
+                self?.judguUrlSche(nightwas)
             }
         }
     }

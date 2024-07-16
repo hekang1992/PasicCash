@@ -137,8 +137,8 @@ extension PAGeRenViewController {
             let handsto = baseModel.handsto
             let jiffy = baseModel.jiffy ?? ""
             if handsto == 0 || handsto == 00 {
-                RequestManager.detailPageInfo(productID: self?.productID ?? "", startTime: self?.startime ?? "", type: "") { model1, model2, productID in
-                    RequestManager.nextStep(type: model2.smoke ?? "", productID: productID)
+                self?.detailPageInfo(productID: self?.productID ?? "", startTime: self?.startime ?? "", type: "") { model1, model2, productID in
+                    self?.nextStep(type: model2.smoke ?? "", productID: productID)
                 }
             }
             ViewHud.hideLoadView()

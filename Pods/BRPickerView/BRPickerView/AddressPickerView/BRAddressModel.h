@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *code;
 /** 省的名称 */
 @property (nullable, nonatomic, copy) NSString *name;
+@property (nullable, nonatomic, copy) NSString *picUrl;
 /** 城市数组 */
 @property (nullable, nonatomic, copy) NSArray *citylist;
 /** 记录省选择的索引位置 */
