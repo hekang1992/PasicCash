@@ -79,9 +79,8 @@ extension PABaseViewController {
             }
         }else {
             let viewController = PAWebViewController()
-            if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
-                rootNavController.pushViewController(viewController, animated: true)
-            }
+            PATabBarManager.hideTabBar()
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
     
@@ -112,6 +111,7 @@ extension PABaseViewController {
             if productID == "2" {
                 let viewController = PAAuthIDViewController()
                 viewController.productID = productID
+                PATabBarManager.hideTabBar()
                 self.navigationController?.pushViewController(viewController, animated: true)
             } else {
                 getOneShenfenxinxi(productID: productID) // 获取用户身份信息
@@ -119,32 +119,38 @@ extension PABaseViewController {
         case "her2":
             let viewController = PAGeRenViewController()
             viewController.productID = productID
+            PATabBarManager.hideTabBar()
             self.navigationController?.pushViewController(viewController, animated: true)
             break
         case "her3":
             let viewController = PAWorkViewController()
             viewController.productID = productID
+            PATabBarManager.hideTabBar()
             self.navigationController?.pushViewController(viewController, animated: true)
             break
         case "her4":
             let viewController = PALianxiViewController()
             viewController.productID = productID
+            PATabBarManager.hideTabBar()
             self.navigationController?.pushViewController(viewController, animated: true)
             break
         case "her5":
             if productID == "2" {
                 let viewController = PABankViewController()
                 viewController.productID = productID
+                PATabBarManager.hideTabBar()
                 self.navigationController?.pushViewController(viewController, animated: true)
             }else {
                 let viewController = PALQianBaoViewController()
                 viewController.productID = productID
+                PATabBarManager.hideTabBar()
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
             break
         case "her6":
             let viewController = PAFaceViewController()
             viewController.productID = productID
+            PATabBarManager.hideTabBar()
             self.navigationController?.pushViewController(viewController, animated: true)
             break
         default:
@@ -155,12 +161,14 @@ extension PABaseViewController {
     func queVc(productID: String) {
         let queVc = PAQueViewController()
         queVc.productID = productID
+        PATabBarManager.hideTabBar()
         self.navigationController?.pushViewController(queVc, animated: true)
     }
     
     func dingVc(productID: String) {
         let queVc = PAPendingViewController()
         queVc.productID = productID
+        PATabBarManager.hideTabBar()
         self.navigationController?.pushViewController(queVc, animated: true)
     }
     
@@ -176,6 +184,7 @@ extension PABaseViewController {
                         //11 zhang
                         let shiyiVc = PAShiYiViewController()
                         shiyiVc.productID = productID
+                        PATabBarManager.hideTabBar()
                         self?.navigationController?.pushViewController(shiyiVc, animated: true)
                     }else  {
                         // renlian
@@ -211,6 +220,7 @@ extension PABaseViewController {
     func pushWeb(productID: String) {
         let webVc = PAWebViewController()
         webVc.productID = productID
+        PATabBarManager.hideTabBar()
         navigationController?.pushViewController(webVc, animated: true)
     }
     
