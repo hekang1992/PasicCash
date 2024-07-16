@@ -154,13 +154,15 @@ class RequestManager {
                     if !step.isEmpty {
                         RequestManager.nextStep(type: step, productID: productID)
                     }else {
-                        if productID == "2" {
-                            queVc(productID: productID)
-                        }else {
-                            
-                        }
+                        
                     }
                 }
+            }else if url.contains("notOk") {
+                let array = url.components(separatedBy: "affairs=")
+                queVc(productID: array.last ?? "")
+            }else if url.contains("yourOk") {
+                let array = url.components(separatedBy: "affairs=")
+                dingVc(productID: array.last ?? "")
             }
         }else {
             
@@ -190,46 +192,74 @@ class RequestManager {
     }
     
     static func nextStep(type: String, productID: String) {
-        let controllers: [String: UIViewController.Type] = [
-            "her1": PAAuthIDViewController.self,
-            "her5": PABankViewController.self,
-            "her6": PAFaceViewController.self
-        ]
-        
-        func pushViewController(_ viewControllerType: UIViewController.Type, productID: String) {
-            let viewController = viewControllerType.init()
-            if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
-                viewController.setValue(productID, forKey: "productID")
-                rootNavController.pushViewController(viewController, animated: true)
-            }
-        }
-        
         switch type {
         case "her1":
             if productID == "2" {
-                pushViewController(PAAuthIDViewController.self, productID: productID)
+                let viewController = PAAuthIDViewController()
+                if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+                    viewController.productID = productID
+                    rootNavController.pushViewController(viewController, animated: true)
+                }
             } else {
                 getOneShenfenxinxi(productID: productID) // 获取用户身份信息
             }
         case "her2":
+            let viewController = PAGeRenViewController()
+            if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+                viewController.productID = productID
+                rootNavController.pushViewController(viewController, animated: true)
+            }
             break
         case "her3":
+            let viewController = PAWorkViewController()
+            if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+                viewController.productID = productID
+                rootNavController.pushViewController(viewController, animated: true)
+            }
             break
         case "her4":
-            break
-        case "her5", "her6":
-            if productID == "2", let viewControllerType = controllers[type] {
-                pushViewController(viewControllerType, productID: productID)
-            }else {
-                
+            let viewController = PALianxiViewController()
+            if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+                viewController.productID = productID
+                rootNavController.pushViewController(viewController, animated: true)
             }
+            break
+        case "her5":
+            if productID == "2" {
+                let viewController = PABankViewController()
+                if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+                    viewController.productID = productID
+                    rootNavController.pushViewController(viewController, animated: true)
+                }
+            }else {
+                let viewController = PABankViewController()
+                if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+                    viewController.productID = productID
+                    rootNavController.pushViewController(viewController, animated: true)
+                }
+            }
+            break
+        case "her6":
+            let viewController = PAFaceViewController()
+            if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+                viewController.productID = productID
+                rootNavController.pushViewController(viewController, animated: true)
+            }
+            break
         default:
             break
         }
     }
     
     static func queVc(productID: String) {
-        //        let queVc = PAQueViewController()
+        let queVc = PAQueViewController()
+        if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
+            queVc.productID = productID
+            rootNavController.pushViewController(queVc, animated: true)
+        }
+    }
+    
+    static func dingVc(productID: String) {
         let queVc = PAPendingViewController()
         if let rootNavController = NavigationControllerHelper.getRootNavigationController() {
             queVc.productID = productID
@@ -265,3 +295,4 @@ class RequestManager {
     }
     
 }
+

@@ -10,10 +10,13 @@ import TYAlertController
 import HandyJSON
 import MBProgressHUD_WJExtension
 import Kingfisher
+import BRPickerView
 
 class PAAuthIDViewController: PABaseViewController {
     
     var productID: String?
+    
+    var typeModel: undressModel?
     
     var picUrl: String = ""
     
@@ -24,9 +27,19 @@ class PAAuthIDViewController: PABaseViewController {
         return albumView
     }()
     
+    lazy var popView: PAPopNameView = {
+        let popView = PAPopNameView(frame: self.view.bounds)
+        return popView
+    }()
+    
     lazy var idView: PAAuthIDView = {
         let idView = PAAuthIDView()
         idView.titleLabel.text = "Validation"
+        if productID != "2" {
+            let attributedString = NSMutableAttributedString(string: "Start")
+            attributedString.addAttribute(.foregroundColor, value: UIColor.init(hex: "#FEE610") , range: NSRange(location: 0, length: 5))
+            idView.nextBtn.setAttributedTitle(attributedString, for: .normal)
+        }
         return idView
     }()
     
@@ -54,6 +67,7 @@ class PAAuthIDViewController: PABaseViewController {
         idView.block2 = { [weak self] in
             self?.popPhotot()
         }
+        idView.icon3.kf.setImage(with: URL(string: typeModel?.lively ?? ""), placeholder: UIImage(named: "Group_1031"))
     }
 }
 
@@ -99,9 +113,14 @@ extension PAAuthIDViewController: UIImagePickerControllerDelegate, UINavigationC
             dict["goneup"] = "1"
         }else {
             apiUrl = "/sicch/oneSese"
+            dict["goneup"] = "11"
+            dict["affairs"] = productID
+            dict["burst"] = "1"
+            dict["stairs"] = typeModel?.goneup
         }
         PARequestManager.shared.uploadAPI(params: dict, pageUrl: apiUrl, method: .post, data: data, complete: { [weak self] baseModel in
             let handsto = baseModel.handsto
+            let jiffy = baseModel.jiffy ?? ""
             if handsto == 0 || handsto == 00 {
                 if let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed) {
                     self?.picUrl = model.lively ?? ""
@@ -115,12 +134,93 @@ extension PAAuthIDViewController: UIImagePickerControllerDelegate, UINavigationC
                         }
                         indicator.color = .black
                     }
-                    self?.idView.icon3.kf.setImage(with: URL(string: model.lively ?? ""), options: options)
+                    if self?.productID == "2" {
+                        self?.idView.icon3.kf.setImage(with: URL(string: model.lively ?? ""), options: options)
+                    }else {
+                        self?.idView.icon3.kf.setImage(with: URL(string: model.nightwas ?? ""), options: options, completionHandler: { _ in
+                            DelayUtils.delay(0.25) {
+                                self?.popName(model: model)
+                            }
+                        })
+                    }
                 }
+            }else {
+                MBProgressHUD.wj_showPlainText(jiffy, view: nil)
             }
             ViewHud.hideLoadView()
         }, errorBlock: { error in
             ViewHud.hideLoadView()
         }, type: "image")
     }
+    
+    func popName(model: shepointedModel) {
+        let alertVc = TYAlertController(alert: popView, preferredStyle: .actionSheet)
+        self.popView.textFi1.text = model.hoses ?? ""
+        self.popView.textFi2.text = model.mattress ?? ""
+        let dateStr = (model.tthey ?? "") + "-" + (model.truck ?? "") + "-" + (model.acrowd ?? "")
+        self.popView.dateBtn.setTitle(dateStr, for: .normal)
+        self.present(alertVc!, animated: true)
+        popView.block = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                self?.saveNameInfo()
+            })
+        }
+        popView.block1 = { [weak self] in
+            self?.datePop(time: self?.popView.dateBtn.titleLabel?.text ?? "")
+        }
+    }
+    
+    func datePop(time: String) {
+        let datePickerView = BRDatePickerView()
+        datePickerView.pickerMode = .YMD
+        datePickerView.title = "Date of Birth"
+        let array = time.components(separatedBy: "-").compactMap { Int($0) }
+        if array.count == 3 {
+            datePickerView.selectDate = NSDate.br_setYear(array[2], month: array[1], day: array[0])
+        }
+        datePickerView.minDate = NSDate.br_setYear(1900, month: 10, day: 1)
+        datePickerView.maxDate = Date()
+        datePickerView.resultBlock = { [weak self] selectDate, selectValue in
+            guard let selectValue = selectValue else { return }
+            let timeArray = selectValue.components(separatedBy: "-")
+            if timeArray.count == 3 {
+                let dateStr = "\(timeArray[2])-\(timeArray[1])-\(timeArray[0])"
+                self?.popView.dateBtn.setTitle(dateStr, for: .normal)
+            }
+        }
+        let customStyle = BRPickerStyle()
+        customStyle.pickerColor = UIColor(hex: "#F4FDDA")
+        customStyle.pickerTextFont = UIFont(name: LilitaOneFont, size: 18.ppaix())
+        customStyle.selectRowTextFont = customStyle.pickerTextFont
+        customStyle.selectRowTextColor = UIColor(hex: "#0CE094")
+        datePickerView.pickerStyle = customStyle
+        datePickerView.show()
+    }
+    
+    func saveNameInfo() {
+        ViewHud.addLoadView()
+        let array = popView.dateBtn.titleLabel?.text?.components(separatedBy: "-")
+        let dateStr = String(format: "%@-%@-%@", array?[2] ?? "",array?[1] ?? "",array?[0] ?? "")
+        let dict = ["shouts": dateStr,
+                    "mattress": popView.textFi2.text ?? "",
+                    "hoses": popView.textFi1.text ?? "",
+                    "goneup": "11",
+                    "stairs": typeModel?.goneup ?? "",
+                    "spewing": "11",]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/lookinWorked", method: .post) { [weak self] baseModel in
+            let handsto = baseModel.handsto
+            let jiffy = baseModel.jiffy ?? ""
+            if handsto == 0 || handsto == 00 {
+                let faceVc = PAFaceViewController()
+                faceVc.productID = self?.productID
+                self?.navigationController?.pushViewController(faceVc, animated: true)
+            }
+            ViewHud.hideLoadView()
+            MBProgressHUD.wj_showPlainText(jiffy, view: nil)
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+        
+    }
+    
 }

@@ -20,6 +20,11 @@ class PAFaceViewController: PABaseViewController {
     lazy var faceView: PAFaceView = {
         let faceView = PAFaceView()
         faceView.titleLabel.text = "Validation"
+        if productID != "2" {
+            let attributedString = NSMutableAttributedString(string: "Continue")
+            attributedString.addAttribute(.foregroundColor, value: UIColor.init(hex: "#FEE610") , range: NSRange(location: 0, length: 8))
+            faceView.nextBtn.setAttributedTitle(attributedString, for: .normal)
+        }
         return faceView
     }()
 
@@ -74,6 +79,10 @@ extension PAFaceViewController: UIImagePickerControllerDelegate, UINavigationCon
             dict["goneup"] = "1"
         }else {
             apiUrl = "/sicch/oneSese"
+            dict["goneup"] = "10"
+            dict["affairs"] = productID
+            dict["burst"] = "1"
+            dict["letyou"] = "1"
         }
         PARequestManager.shared.uploadAPI(params: dict, pageUrl: apiUrl, method: .post, data: data, complete: { [weak self] baseModel in
             let handsto = baseModel.handsto

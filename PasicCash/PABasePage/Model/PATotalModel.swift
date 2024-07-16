@@ -39,7 +39,39 @@ class shepointedModel: HandyJSON {
     var myshoulders: myshouldersModel?
     var sounds: [soundsModel]?
     var twitch: [[twitchModel]]?
+    var undress: [undressModel]?
+    var perfect: [perfectModel]?
+    var plants: [plantsModel]?
+    var predictions: predictionsModel?
     var nightwas: String?
+    var lively: String?
+    var hoses: String?
+    var mattress: String?
+    var shouts: String?
+    var tthey: String?
+    var truck: String?
+    var acrowd: String?
+    var flowFind: String?
+    var earTree: String?
+    var usingWare: String?
+}
+
+class predictionsModel: HandyJSON {
+    required init() {}
+    var plants: [plantsModel]?
+}
+
+
+class perfectModel: HandyJSON {
+    required init() {}
+    var forcovering: String?
+    var riverbank: String?
+    var cocoa: String?
+}
+
+class undressModel: HandyJSON {
+    required init() {}
+    var goneup: String?
     var lively: String?
 }
 
@@ -53,6 +85,13 @@ class twitchModel: HandyJSON {
 
 class soundsModel: HandyJSON {
     required init() {}
+    var cordial: String?
+    var andmen: String?
+    var taffeta: String?
+    var pester: String?
+    var goneup: String?
+    var rains: String?
+    var handsto: String?
     var birds: [birdsModel]?
 }
 
@@ -61,6 +100,7 @@ class birdsModel: HandyJSON {
     var goneup: String?
     var hoses: String?
     var sreally: String?
+    var birds: [birdsModel]?
 }
 
 class myshouldersModel: HandyJSON {
@@ -124,6 +164,13 @@ class plantsModel: HandyJSON {
     var eaten: String?
     var cordial: String?
     var someday: String?
+    var hoses: String?
+    var formy: String?
+    var heavyoak: String?
+    var erected: String?
+    var direst: String?
+    var phrase: [birdsModel]?
+    var plants: [plantsModel]?
 }
 
 class dangerModel: HandyJSON {

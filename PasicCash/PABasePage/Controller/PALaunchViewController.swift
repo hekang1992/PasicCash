@@ -23,7 +23,7 @@ class PALaunchViewController: PABaseViewController {
     lazy var icon1: UIImageView = {
         let icon1 = UIImageView()
         icon1.isUserInteractionEnabled = true
-        icon1.image = UIImage(named: "pic1")
+        icon1.image = UIImage(named: "page1")
         icon1.contentMode = .scaleAspectFill
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped1))
         icon1.addGestureRecognizer(tapGesture)
@@ -33,7 +33,7 @@ class PALaunchViewController: PABaseViewController {
     lazy var icon2: UIImageView = {
         let icon2 = UIImageView()
         icon2.isUserInteractionEnabled = true
-        icon2.image = UIImage(named: "pic2")
+        icon2.image = UIImage(named: "page2")
         icon2.contentMode = .scaleAspectFill
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped2))
         icon2.addGestureRecognizer(tapGesture)
@@ -43,7 +43,7 @@ class PALaunchViewController: PABaseViewController {
     lazy var icon3: UIImageView = {
         let icon3 = UIImageView()
         icon3.isUserInteractionEnabled = true
-        icon3.image = UIImage(named: "pic3")
+        icon3.image = UIImage(named: "page3")
         icon3.contentMode = .scaleAspectFill
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped3))
         icon3.addGestureRecognizer(tapGesture)

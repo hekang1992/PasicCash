@@ -115,9 +115,15 @@ class PAYouHuiQuanView: PACommonView {
             if let array = array, !array.isEmpty {
                 let model = array[0]
                 if let date = DateConverter.date(from: model.flowFind ?? "") {
-                    CountdownManager.startCountdown(startDate: date) { [weak self] hours, minutes, seconds in
+                    CountdownManager.startCountdown(startDate: date, duration: 48 * 60 * 60) { [weak self] hours, minutes, seconds in
                         DispatchQueue.main.async {
                             self?.timeLabel.text = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+                            let model = array.last
+                            if model?.riverbank == "0" {
+                                self?.timeLabel.text = "Expired"
+                            }else if model?.riverbank == "2" {
+                                self?.timeLabel.text = "Used"
+                            }
                         }
                     }
                 }
@@ -140,23 +146,27 @@ extension PAYouHuiQuanView: UITableViewDelegate, UITableViewDataSource {
         }
         cell.selectionStyle = .none
         cell.backgroundColor = .clear
-        cell.model = array?[indexPath.row]
+        if let model = array?[indexPath.row] {
+            cell.model = model
+            cell.block1 = { [weak self] in
+                self?.block1?(model)
+            }
+        }
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let model = array?[indexPath.row] {
-            self.block1?(model)
-        }
-    }
+
 }
 
 class youhuiCell: UITableViewCell {
     
+    var block1: (() -> Void)?
+    
     lazy var bgImageView: UIButton = {
-        let bgIcon = UIButton(type: .custom)
-        bgIcon.setImage(UIImage(named: "Group_1014"), for: .normal)
-        return bgIcon
+        let bgImageView = UIButton(type: .custom)
+        bgImageView.adjustsImageWhenHighlighted = false
+        bgImageView.setImage(UIImage(named: "Group_1014"), for: .normal)
+        bgImageView.addTarget(self, action: #selector(bgclick), for: .touchUpInside)
+        return bgImageView
     }()
     
     lazy var titleLabel: UILabel = {
@@ -225,13 +235,11 @@ class youhuiCell: UITableViewCell {
             guard let model = model else { return }
             titleLabel1.text = model.geminiFlas
             titleLabel3.text = model.turbo
-            if model.riverbank == "1" {
-                bgImageView.isEnabled = true
-            }else {
-                bgImageView.isEnabled = false
-                
-            }
         }
+    }
+    
+    @objc func bgclick() {
+        self.block1?()
     }
     
 }

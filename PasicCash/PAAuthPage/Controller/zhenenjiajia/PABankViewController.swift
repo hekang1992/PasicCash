@@ -63,7 +63,7 @@ extension PABankViewController {
             let handsto = baseModel.handsto
             if handsto == 0 || handsto == 00 {
                 if let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed), let bankArrayModel = model.sounds?.last?.birds{
-                    let bankArray = yijiModel.getSimpleModelArr(dataSourceArr: bankArrayModel)
+                    let bankArray = yijiModel.getyijiArr(dataSourceArr: bankArrayModel)
                     self?.bankArray = bankArray
                 }
             }

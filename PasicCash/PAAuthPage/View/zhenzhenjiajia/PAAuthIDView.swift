@@ -40,7 +40,7 @@ class PAAuthIDView: PACommonView {
     
     lazy var icon3: UIImageView = {
         let icon3 = UIImageView()
-        icon3.layer.cornerRadius = 32.ppaix()
+        icon3.layer.cornerRadius = 25.ppaix()
         icon3.layer.masksToBounds = true
         icon3.contentMode = .scaleAspectFill
         icon3.image = UIImage(named: "Group_1031")

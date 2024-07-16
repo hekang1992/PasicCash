@@ -12,6 +12,8 @@ import TYAlertController
 
 class PAYouHuiQuanViewController: PABaseViewController {
     
+    var block: (() -> Void)?
+    
     lazy var youhuiView: PAYouHuiQuanView = {
         let youhuiView = PAYouHuiQuanView()
         youhuiView.titleLabel.text = "Discount Coupon"
@@ -35,10 +37,12 @@ class PAYouHuiQuanViewController: PABaseViewController {
             self?.navigationController?.popViewController(animated: true)
         }
         youhuiView.block1 = { [weak self] model in
-            if model.riverbank != "1" {
-                MBProgressHUD.wj_showPlainText("Coupon has expired", view: nil)
-            }else {
+            if model.riverbank == "1" {
                 self?.userP()
+            }else if model.riverbank == "2" {
+                MBProgressHUD.wj_showPlainText("Coupon has been used", view: nil)
+            }else {
+                MBProgressHUD.wj_showPlainText("Coupon has expired", view: nil)
             }
         }
         getyouhuiquan()
@@ -54,6 +58,7 @@ extension PAYouHuiQuanViewController {
         self.present(alertVc!, animated: true)
         popYouView.block = { [weak self] in
             self?.dismiss(animated: true, completion: {
+                self?.block?()
                 self?.navigationController?.popViewController(animated: true)
             })
         }

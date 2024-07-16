@@ -80,9 +80,8 @@ class NavigationControllerHelper {
 class CountdownManager {
     private static var countdownTimer: Timer?
     private static var backgroundTask: UIBackgroundTaskIdentifier = .invalid
-    private static let duration: TimeInterval = 48 * 60 * 60
     
-    class func startCountdown(startDate: Date, updateHandler: @escaping (Int, Int, Int) -> Void) {
+    class func startCountdown(startDate: Date, duration: TimeInterval, updateHandler: @escaping (Int, Int, Int) -> Void) {
         countdownTimer?.invalidate()
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             let timeRemaining = timeRemaining(from: startDate, duration: duration)
@@ -134,82 +133,82 @@ class DateConverter {
     }
 }
 
-//class ProvinceModelConverter {
-//    static func getProvinceModelArr(dataSourceArr: [Any]) -> [BRProvinceModel] {
-//        var tempArr1 = [BRProvinceModel]()
-//        for proviceDic in dataSourceArr {
-//            guard let proviceDic = proviceDic as? PlaceModel else {
-//                continue
-//            }
-//            let proviceModel = BRProvinceModel()
-//            proviceModel.code = proviceDic.particularly
-//            proviceModel.name = proviceDic.employment
-//            proviceModel.index = dataSourceArr.firstIndex(where: { $0 as AnyObject === proviceDic as AnyObject }) ?? 0
-//            let cityList = proviceDic.palace ?? proviceDic.palace ?? []
-//            var tempArr2 = [BRCityModel]()
-//            for cityDic in cityList {
-//                let cityModel = BRCityModel()
-//                cityModel.code = cityDic.particularly
-//                cityModel.name = cityDic.employment
-//                cityModel.index = cityList.firstIndex(where: { $0 as AnyObject === cityDic as AnyObject }) ?? 0
-//                let areaList = cityDic.palace ?? cityDic.palace ?? []
-//                var tempArr3 = [BRAreaModel]()
-//                for areaDic in areaList {
-//                    let areaModel = BRAreaModel()
-//                    areaModel.code = areaDic.particularly
-//                    areaModel.name = areaDic.employment
-//                    areaModel.index = areaList.firstIndex(where: { $0 as AnyObject === areaDic as AnyObject }) ?? 0
-//                    tempArr3.append(areaModel)
-//                }
-//                cityModel.arealist = tempArr3
-//                tempArr2.append(cityModel)
-//            }
-//            proviceModel.citylist = tempArr2
-//            tempArr1.append(proviceModel)
-//        }
-//        return tempArr1
-//    }
-//}
+class sanjiModel {
+    static func getsanjiArr(dataSourceArr: [Any]) -> [BRProvinceModel] {
+        var tempArr1 = [BRProvinceModel]()
+        for proviceDic in dataSourceArr {
+            guard let proviceDic = proviceDic as? plantsModel else {
+                continue
+            }
+            let proviceModel = BRProvinceModel()
+            proviceModel.code = proviceDic.formy
+            proviceModel.name = proviceDic.hoses
+            proviceModel.index = dataSourceArr.firstIndex(where: { $0 as AnyObject === proviceDic as AnyObject }) ?? 0
+            let cityList = proviceDic.plants ?? proviceDic.plants ?? []
+            var tempArr2 = [BRCityModel]()
+            for cityDic in cityList {
+                let cityModel = BRCityModel()
+                cityModel.code = cityDic.formy
+                cityModel.name = cityDic.hoses
+                cityModel.index = cityList.firstIndex(where: { $0 as AnyObject === cityDic as AnyObject }) ?? 0
+                let areaList = cityDic.plants ?? cityDic.plants ?? []
+                var tempArr3 = [BRAreaModel]()
+                for areaDic in areaList {
+                    let areaModel = BRAreaModel()
+                    areaModel.code = areaDic.formy
+                    areaModel.name = areaDic.hoses
+                    areaModel.index = areaList.firstIndex(where: { $0 as AnyObject === areaDic as AnyObject }) ?? 0
+                    tempArr3.append(areaModel)
+                }
+                cityModel.arealist = tempArr3
+                tempArr2.append(cityModel)
+            }
+            proviceModel.citylist = tempArr2
+            tempArr1.append(proviceModel)
+        }
+        return tempArr1
+    }
+}
 
-//class GetPayday {
-//    static func getPaydayModelArr(dataSourceArr: [Any]) -> [BRProvinceModel] {
-//        var tempArr1 = [BRProvinceModel]()
-//        for proviceDic in dataSourceArr {
-//            guard let proviceDic = proviceDic as? ChildrenModel else {
-//                continue
-//            }
-//            let proviceModel = BRProvinceModel()
-//            proviceModel.code = proviceDic.excuse
-//            proviceModel.name = proviceDic.employment
-//            proviceModel.index = dataSourceArr.firstIndex(where: { $0 as AnyObject === proviceDic as AnyObject }) ?? 0
-//            let cityList = proviceDic.children ?? proviceDic.children ?? []
-//            var tempArr2 = [BRCityModel]()
-//            for cityDic in cityList {
-//                let cityModel = BRCityModel()
-//                cityModel.code = cityDic.excuse
-//                cityModel.name = cityDic.employment
-//                cityModel.index = cityList.firstIndex(where: { $0 as AnyObject === cityDic as AnyObject }) ?? 0
-//                let areaList = cityDic.children ?? cityDic.children ?? []
-//                var tempArr3 = [BRAreaModel]()
-//                for areaDic in areaList {
-//                    let areaModel = BRAreaModel()
-//                    areaModel.code = areaDic.excuse
-//                    areaModel.name = areaDic.employment
-//                    areaModel.index = areaList.firstIndex(where: { $0 as AnyObject === areaDic as AnyObject }) ?? 0
-//                    tempArr3.append(areaModel)
-//                }
-//                cityModel.arealist = tempArr3
-//                tempArr2.append(cityModel)
-//            }
-//            proviceModel.citylist = tempArr2
-//            tempArr1.append(proviceModel)
-//        }
-//        return tempArr1
-//    }
-//}
+class erjiModel {
+    static func geterjiArr(dataSourceArr: [Any]) -> [BRProvinceModel] {
+        var tempArr1 = [BRProvinceModel]()
+        for proviceDic in dataSourceArr {
+            guard let proviceDic = proviceDic as? birdsModel else {
+                continue
+            }
+            let proviceModel = BRProvinceModel()
+            proviceModel.code = proviceDic.goneup
+            proviceModel.name = proviceDic.hoses
+            proviceModel.index = dataSourceArr.firstIndex(where: { $0 as AnyObject === proviceDic as AnyObject }) ?? 0
+            let cityList = proviceDic.birds ?? proviceDic.birds ?? []
+            var tempArr2 = [BRCityModel]()
+            for cityDic in cityList {
+                let cityModel = BRCityModel()
+                cityModel.code = cityDic.goneup
+                cityModel.name = cityDic.hoses
+                cityModel.index = cityList.firstIndex(where: { $0 as AnyObject === cityDic as AnyObject }) ?? 0
+                let areaList = cityDic.birds ?? cityDic.birds ?? []
+                var tempArr3 = [BRAreaModel]()
+                for areaDic in areaList {
+                    let areaModel = BRAreaModel()
+                    areaModel.code = areaDic.goneup
+                    areaModel.name = areaDic.hoses
+                    areaModel.index = areaList.firstIndex(where: { $0 as AnyObject === areaDic as AnyObject }) ?? 0
+                    tempArr3.append(areaModel)
+                }
+                cityModel.arealist = tempArr3
+                tempArr2.append(cityModel)
+            }
+            proviceModel.citylist = tempArr2
+            tempArr1.append(proviceModel)
+        }
+        return tempArr1
+    }
+}
 
 class yijiModel {
-    static func getSimpleModelArr(dataSourceArr: [Any]) -> [BRProvinceModel] {
+    static func getyijiArr(dataSourceArr: [Any]) -> [BRProvinceModel] {
         var result = [BRProvinceModel]()
         for proviceDic in dataSourceArr {
             guard let proviceDic = proviceDic as? birdsModel else {

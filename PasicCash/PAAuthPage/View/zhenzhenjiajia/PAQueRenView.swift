@@ -482,7 +482,7 @@ class qurenCell2: UITableViewCell {
     @objc func clickBtnClick(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if let bankArray = model?[1].birds {
-            let loanPArray = yijiModel.getSimpleModelArr(dataSourceArr: bankArray)
+            let loanPArray = yijiModel.getyijiArr(dataSourceArr: bankArray)
             self.block?(sender, loanPArray)
         }
     }
@@ -530,6 +530,8 @@ class qurenCell3: UITableViewCell {
     lazy var clickBtn: UIButton = {
         let clickBtn = UIButton(type: .custom)
         clickBtn.addTarget(self, action: #selector(clickBtnClick(_ :)), for: .touchUpInside)
+        clickBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 16.ppaix())
+        clickBtn.setTitleColor(UIColor.init(hex: "#0CE094"), for: .normal)
         return clickBtn
     }()
     
@@ -661,7 +663,7 @@ class qurenCell3: UITableViewCell {
     
     @objc func clickBtnClick1(_ sender: UIButton) {
         if let bankArray = model?[1].birds {
-            let loanPArray = yijiModel.getSimpleModelArr(dataSourceArr: bankArray)
+            let loanPArray = yijiModel.getyijiArr(dataSourceArr: bankArray)
             self.block1?(sender, loanPArray)
         }
     }
@@ -670,6 +672,7 @@ class qurenCell3: UITableViewCell {
         didSet {
             guard let model = model else { return }
             nameLabel.text = model[0].forcovering
+            clickBtn.setTitle(model[0].pester, for: .normal)
             nameLabel1.text = model[1].forcovering
             nameLabel2.text = model[3].forcovering
             clickBtn2.setTitle(model[3].pester, for: .normal)

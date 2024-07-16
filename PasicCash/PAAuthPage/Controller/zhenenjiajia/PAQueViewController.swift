@@ -41,6 +41,9 @@ class PAQueViewController: PABaseViewController {
         }
         queView.loanPurBlock1 = { [weak self] btn, array in
             let youVc = PAYouHuiQuanViewController()
+            youVc.block = {
+                btn.setTitle("Used 10% off coupon", for: .normal)
+            }
             self?.navigationController?.pushViewController(youVc, animated: true)
         }
         queView.loanPurBlock2 = { [weak self] btn, array in
@@ -97,8 +100,8 @@ extension PAQueViewController {
     
     func sureQueMoney() {
         ViewHud.addLoadView()
-        let dict = ["backing": productID ?? "", "punywhen": self.moneyStr ?? "30000", "natural": "90", "awoke": "1", "househe": "3"]
-        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/sisterLove", method: .post) { [weak self] baseModel in
+        let dict = ["backing": productID ?? "", "punywhen": self.moneyStr ?? "30000", "natural": "90", "awoke": "1", "househe": "3", "cashClas": "1", "nature": "1"]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/titleWork", method: .post) { [weak self] baseModel in
             let handsto = baseModel.handsto
             let jiffy = baseModel.jiffy ?? ""
             if handsto == 0 || handsto == 00 {
@@ -111,7 +114,6 @@ extension PAQueViewController {
         } errorBlock: { error in
             ViewHud.hideLoadView()
         }
-        
     }
     
 }
