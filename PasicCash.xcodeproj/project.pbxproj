@@ -83,6 +83,8 @@
 		18513FF22C4649CF004870E1 /* PAOrderListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18513FF12C4649CF004870E1 /* PAOrderListController.swift */; };
 		18513FF42C464AED004870E1 /* PAOrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18513FF32C464AED004870E1 /* PAOrderListView.swift */; };
 		188300792C466BC700BF892C /* PANoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188300782C466BC700BF892C /* PANoDataView.swift */; };
+		18D517022C47C71B0049AEDE /* PAAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D517012C47C71B0049AEDE /* PAAboutViewController.swift */; };
+		18D517042C47C72C0049AEDE /* PAAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D517032C47C72C0049AEDE /* PAAboutView.swift */; };
 		FE032C0307388BCDF7A98BEC /* Pods_PasicCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +168,8 @@
 		18513FF12C4649CF004870E1 /* PAOrderListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOrderListController.swift; sourceTree = "<group>"; };
 		18513FF32C464AED004870E1 /* PAOrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOrderListView.swift; sourceTree = "<group>"; };
 		188300782C466BC700BF892C /* PANoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PANoDataView.swift; sourceTree = "<group>"; };
+		18D517012C47C71B0049AEDE /* PAAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAAboutViewController.swift; sourceTree = "<group>"; };
+		18D517032C47C72C0049AEDE /* PAAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAAboutView.swift; sourceTree = "<group>"; };
 		3599269F8DA2C63D45CD9672 /* Pods-PasicCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.release.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.release.xcconfig"; sourceTree = "<group>"; };
 		DAC85EBC70A8689A703671B1 /* Pods-PasicCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasicCash.debug.xcconfig"; path = "Target Support Files/Pods-PasicCash/Pods-PasicCash.debug.xcconfig"; sourceTree = "<group>"; };
 		DEFB93E6F4DEDEDEF8A40086 /* Pods_PasicCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasicCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -483,6 +487,7 @@
 				18513FDD2C4528CF004870E1 /* PAWorkViewController.swift */,
 				18513FDF2C452EE8004870E1 /* PALianxiViewController.swift */,
 				18513FE52C460F7E004870E1 /* PALQianBaoViewController.swift */,
+				18D517012C47C71B0049AEDE /* PAAboutViewController.swift */,
 			);
 			path = zhen;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 				18513FE32C45318A004870E1 /* PALianxiCell.swift */,
 				18513FE72C460FBB004870E1 /* PALQianBaoView.swift */,
 				18513FE92C4615B8004870E1 /* PADianziQinabaoCell.swift */,
+				18D517032C47C72C0049AEDE /* PAAboutView.swift */,
 			);
 			path = zhen;
 			sourceTree = "<group>";
@@ -677,6 +683,7 @@
 				182B6D8A2C3E8F61004F317C /* PAYouHuiQuanView.swift in Sources */,
 				182B6D882C3E8C12004F317C /* PAYouHuiQuanViewController.swift in Sources */,
 				182C80272C35350D00CE3716 /* PADeviceInfo.swift in Sources */,
+				18D517022C47C71B0049AEDE /* PAAboutViewController.swift in Sources */,
 				18513FD62C43C9C0004870E1 /* PAGeRenViewController.swift in Sources */,
 				18513FDE2C4528CF004870E1 /* PAWorkViewController.swift in Sources */,
 				182B6D972C3FD837004F317C /* PAFaceView.swift in Sources */,
@@ -689,6 +696,7 @@
 				18513FC22C40E2BC004870E1 /* PAQueRenView.swift in Sources */,
 				18513FBE2C40E0A1004870E1 /* PAQueViewController.swift in Sources */,
 				18513FD22C4296D9004870E1 /* PAPopShiYiView.swift in Sources */,
+				18D517042C47C72C0049AEDE /* PAAboutView.swift in Sources */,
 				18513FE42C45318A004870E1 /* PALianxiCell.swift in Sources */,
 				182B6D952C3FD829004F317C /* PAFaceViewController.swift in Sources */,
 				18513FEC2C462E36004870E1 /* PAWebViewController.swift in Sources */,
@@ -872,7 +880,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.dancepeso;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -911,7 +919,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.dancepeso;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

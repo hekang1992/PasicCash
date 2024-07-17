@@ -55,7 +55,9 @@ class PAUserViewController: PABaseViewController {
             self?.navigationController?.pushViewController(youVc, animated: true)
         }
         userView.block6 = { [weak self] in
-            MBProgressHUD.wj_showPlainText("about us", view: nil)
+            let aboutVc = PAAboutViewController()
+            PATabBarManager.hideTabBar()
+            self?.navigationController?.pushViewController(aboutVc, animated: true)
         }
         getPersonInfo()
     }

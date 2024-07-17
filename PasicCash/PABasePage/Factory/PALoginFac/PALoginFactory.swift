@@ -21,14 +21,14 @@ class PALoginFactory {
         let accomplished: String = "iOS"
         let seehow: String = getAppVersion()
         let egyptians: String = Device.current.description
-        let declared: String = PADeviceInfo().getIDFV() ?? ""
+        let declared: String = PADeviceInfo.getIDFV() ?? ""
         let footbehind: String = UIDevice.current.systemVersion
         let walkflat: String = "siccs"
         var baffled: String = ""
         if let sessionId: String = UserDefaults.standard.object(forKey: PA_SESSIONID) as? String {
             baffled = sessionId
         }
-        let period: String = PADeviceInfo().getIDFV() ?? ""
+        let period: String = PADeviceInfo.getIDFV() ?? ""
         let change: String = "pc"
         let peach = PADeviceInfo.vpnConnected()
         let basket = PADeviceInfo.usingProxy()

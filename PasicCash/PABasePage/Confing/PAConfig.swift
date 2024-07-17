@@ -22,6 +22,8 @@ let PA_SESSIONID = "PA_SESSIONID"
 
 let ROOT_VC = "ROOT_VC"
 
+let IDFA_PA = "IDFA_PA"
+
 var IS_LOGIN: Bool {
     if let sessionID = UserDefaults.standard.object(forKey: PA_SESSIONID) as? String {
         return !sessionID.isEmpty

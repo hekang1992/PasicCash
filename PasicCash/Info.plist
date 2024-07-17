@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>To provide you with more accurate product recommendations, we request your Advertising ID. We are committed to protecting your privacy and strictly adhere to all relevant laws and regulations. Your Advertising ID will be used solely to enhance our services.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We will use your photo album permissions solely for uploading ID card images to ensure the accuracy of your ID information.</string>
 	<key>NSCameraUsageDescription</key>

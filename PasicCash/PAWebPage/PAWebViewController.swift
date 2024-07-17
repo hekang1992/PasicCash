@@ -11,32 +11,31 @@ class PAWebViewController: PABaseViewController {
     
     var productID: String?
     
-    lazy var webView: PAWebView = {
-        let webView = PAWebView()
-        return webView
+    var webStr: String?
+    
+    lazy var webPaView: PAWebView = {
+        let webPaView = PAWebView()
+        return webPaView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        view.addSubview(webView)
-        webView.block = { [weak self] in
+        view.addSubview(webPaView)
+        webPaView.block = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
-        webView.snp.makeConstraints { make in
+        webPaView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        if let webStr = webStr {
+            var urlString = ""
+            urlString = webStr.replacingOccurrences(of: " ", with: "%20")
+            if let url = URL(string: urlString) {
+                webPaView.webView.load(URLRequest(url: url))
+            }
+        }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

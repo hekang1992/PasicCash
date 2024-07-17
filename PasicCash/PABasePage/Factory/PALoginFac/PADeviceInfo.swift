@@ -13,26 +13,26 @@ import SystemConfiguration
 
 class PADeviceInfo {
     
-    func requestIDFA() {
+    static func requestIDFA(completion: @escaping (String?) -> Void) {
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization { status in
                 switch status {
                 case .authorized:
                     let idfa = ASIdentifierManager.shared().advertisingIdentifier
-                    print("IDFA>>>>>>>: \(idfa.uuidString)")
+                    completion(idfa.uuidString)
                 case .denied, .restricted, .notDetermined:
-                    print("NO IDFA")
+                    completion(nil)
                 @unknown default:
-                    print("WEIZHI")
+                    completion(nil)
                 }
             }
         } else {
             let idfa = ASIdentifierManager.shared().advertisingIdentifier
-            print("IDFA>>>>>>>>>\(idfa.uuidString)")
+            completion(idfa.uuidString)
         }
     }
     
-    func getIDFV() -> String? {
+   static func getIDFV() -> String? {
         if let uuid = SAMKeychain.password(forService: "Key_Service", account: "Key_Account"), !uuid.isEmpty {
             return uuid
         } else {

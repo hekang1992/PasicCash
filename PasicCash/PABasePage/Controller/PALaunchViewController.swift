@@ -91,7 +91,6 @@ extension PALaunchViewController {
         }
     }
     
-    
     func requsetFirstApi() {
         let isShow = UserDefaults.standard.object(forKey: IS_SHOWLAND) as? String
         let dict = ["tfollow":"1", "hershe": "1"]
@@ -101,9 +100,7 @@ extension PALaunchViewController {
                 if isShow != "1" && !IS_LOGIN {
                     self?.setupScrollView()
                 } else {
-                    let loginStatus = IS_LOGIN ? "1" : "0"
-                    let dict = ["login": loginStatus]
-                    NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC), object: nil, userInfo: dict)
+                    self?.toRootVC()
                 }
             }else {
                 self?.requestHuanJing()
@@ -155,4 +152,12 @@ extension PALaunchViewController {
         let borrowVc = PABorrowViewController()
         self.navigationController?.pushViewController(borrowVc, animated: true)
     }
+    
+    func toRootVC() {
+        let loginStatus = IS_LOGIN ? "1" : "0"
+        let dict = ["login": loginStatus]
+        NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC), object: nil, userInfo: dict)
+        NotificationCenter.default.post(name: NSNotification.Name(IDFA_PA), object: nil, userInfo: nil)
+    }
+    
 }
