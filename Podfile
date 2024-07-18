@@ -32,6 +32,8 @@ target 'Pesoin' do
   pod 'MBProgressHUD+WJExtension', '~> 1.3.1'
   
   pod 'GKCycleScrollView', '~> 1.2.2'
+  
+  pod 'RxSwift', '~> 6.6.0'
 
   # Pods for Pesoin
 

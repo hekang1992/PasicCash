@@ -27,14 +27,35 @@ class PABorrowViewController: PABaseViewController {
         borrowView.block = { [weak self] in
             self?.nextVc()
         }
-        PALocation.shared.startUpdatingLocation { locationModel in
-            
+        PALocation.shared.startUpdatingLocation { [weak self] locationModel in
+            print("locationModel>>>>>>>\(locationModel.molded)")
+            self?.shangbaoweizhi(model: locationModel)
         }
+        
     }
 }
 
-
 extension PABorrowViewController {
+    
+    func shangbaoweizhi(model: LocationModel) {
+        let dict = ["asnowman": model.asnowman,
+                    "shaped": model.shaped,
+                    "twinkling": model.twinkling,
+                    "swaistline": model.swaistline,
+                    "stomach": model.stomach,
+                    "molded": model.molded,
+                    "thoughtfully": "Manila",
+                    "helooked": "Manila",] as [String : Any]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/burrisMyself", method: .post) { baseModel in
+            let handsto = baseModel.handsto
+            if handsto == 0 || handsto == 00 {
+                
+            }
+        } errorBlock: { error in
+            
+        }
+
+    }
     
     @objc func sliderValueChanged(_ sender: UISlider) {
         let step: Float = 1000

@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import RxSwift
 import CoreLocation
 
 typealias LocationModelBlock = (_ locationModel: LocationModel) -> Void
 
 class PALocation: NSObject {
-
+    
     static let shared = PALocation()
     
     private var locationManager = CLLocationManager()
@@ -20,6 +21,10 @@ class PALocation: NSObject {
     
     var locatinModel = LocationModel()
     
+    var obs: PublishSubject<LocationModel?> = PublishSubject()
+    
+    let bag = DisposeBag()
+    
     override init() {
         super.init()
         locationManager.delegate = self
@@ -27,6 +32,11 @@ class PALocation: NSObject {
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.distanceFilter = 1000
+        obs.debounce(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] locationModel in
+                guard let self = self, let locationModel = locationModel else { return }
+                self.locationUpdateHandler?(locationModel)
+            }).disposed(by: bag)
     }
     
 }
@@ -80,7 +90,7 @@ extension PALocation: CLLocationManagerDelegate {
                 guard let strongSelf = self else { return }
                 strongSelf.locatinModel = model
             }
-            self.locationUpdateHandler?(model)
+            self.obs.onNext(model)
             locationManager.stopUpdatingLocation()
         }
     }
