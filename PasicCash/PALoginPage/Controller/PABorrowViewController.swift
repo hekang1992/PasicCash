@@ -60,7 +60,7 @@ extension PABorrowViewController {
     
     func helloWord() {
         ViewHud.addLoadView()
-        let dict = ["hello": "1"]
+        let dict = ["hello": "Borrow"]
         PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/helloWord", method: .post) { [weak self] baseModel in
             ViewHud.hideLoadView()
             let handsto = baseModel.handsto

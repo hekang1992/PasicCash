@@ -114,6 +114,7 @@ extension PACodeViewController {
         let dict = ["ruined": phoneStr, "driedblood": codeStr ?? ""]
         PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/twelveWould", method: .post) { [weak self] baseModel in
             let handsto = baseModel.handsto
+            let jiffy = baseModel.jiffy ?? ""
             if handsto == 0 || handsto == 00 {
                 if let model = JSONDeserializer<LoginModel>.deserializeFrom(dict: baseModel.shepointed) {
                     PALoginFactory.removeLoginInfo()
@@ -122,6 +123,7 @@ extension PACodeViewController {
                 self?.popView()
             }
             ViewHud.hideLoadView()
+            MBProgressHUD.wj_showPlainText(jiffy, view: nil)
         } errorBlock: { error in
             ViewHud.hideLoadView()
         }

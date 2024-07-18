@@ -49,12 +49,23 @@ class PANickViewController: PABaseViewController {
         nickView.block4 = { [weak self] sex in
             self?.recipecalled = sex
         }
+        helloWord()
     }
     
 }
 
 
 extension PANickViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func helloWord() {
+        ViewHud.addLoadView()
+        let dict = ["hello": "NickName"]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/helloWord", method: .post) { baseModel in
+            ViewHud.hideLoadView()
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+    }
     
     func popAlubum() {
         let alertVc = TYAlertController(alert: albumView, preferredStyle: .alert)

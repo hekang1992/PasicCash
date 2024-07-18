@@ -40,7 +40,7 @@ class PALoginViewController: PABaseViewController {
 extension PALoginViewController {
     
     @objc func codeVc() {
-        let dict = ["hello": "2"]
+        let dict = ["hello": "Login"]
         guard let phoneStr = loginView.phoneText.text?.replacingOccurrences(of: " ", with: ""), phoneStr.count >= 10 else {
             MBProgressHUD.wj_showPlainText("Please enter a 10-digit mobile phone number", view: nil)
             return
