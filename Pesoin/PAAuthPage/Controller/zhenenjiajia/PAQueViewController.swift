@@ -100,7 +100,7 @@ extension PAQueViewController {
     
     func sureQueMoney() {
         ViewHud.addLoadView()
-        let dict = ["backing": productID ?? "", "punywhen": self.moneyStr ?? "30000", "natural": "90", "awoke": "1", "househe": "3", "cashClas": "1", "nature": "1"]
+        let dict = ["backing": productID ?? "", "punywhen": self.moneyStr ?? "30000", "natural": "90", "awoke": "1", "househe": "3", "cashClas": "1", "nature": "1", "issendCode": "1"]
         PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/titleWork", method: .post) { [weak self] baseModel in
             let handsto = baseModel.handsto
             let jiffy = baseModel.jiffy ?? ""

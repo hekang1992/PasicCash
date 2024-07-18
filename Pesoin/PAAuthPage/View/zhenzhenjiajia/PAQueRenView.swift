@@ -492,6 +492,9 @@ class qurenCell2: UITableViewCell {
             guard let model = model else { return }
             nameLabel.text = model[0].forcovering
             nameLabel1.text = model[1].forcovering
+            clickBtn.setTitle(model[1].pester, for: .normal)
+            clickBtn.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.ppaix())
+            clickBtn.setTitleColor(UIColor.init(hex: "#0CE094"), for: .normal)
         }
     }
 }
@@ -676,6 +679,9 @@ class qurenCell3: UITableViewCell {
             nameLabel1.text = model[1].forcovering
             nameLabel2.text = model[3].forcovering
             clickBtn2.setTitle(model[3].pester, for: .normal)
+            clickBtn1.setTitle(model[1].pester, for: .normal)
+            clickBtn1.titleLabel?.font = UIFont(name: LilitaOneFont, size: 18.ppaix())
+            clickBtn1.setTitleColor(UIColor.init(hex: "#0CE094"), for: .normal)
         }
     }
 }
