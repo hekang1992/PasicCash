@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '12.4'
 
-target 'PasicCash' do
+target 'Pesoin' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   
@@ -33,6 +33,6 @@ target 'PasicCash' do
   
   pod 'GKCycleScrollView', '~> 1.2.2'
 
-  # Pods for PasicCash
+  # Pods for Pesoin
 
 end
