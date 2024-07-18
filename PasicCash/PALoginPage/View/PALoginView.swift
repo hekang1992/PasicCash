@@ -37,13 +37,13 @@ class PALoginView: UIView {
     
     lazy var nameLabel: UILabel = {
         let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 13.ppaix())!, textColor: UIColor.init(hex: "#293014"), textAlignment: .center)
-        nameLabel.text = "PasicCash"
+        nameLabel.text = "Pesoin"
         return nameLabel
     }()
     
     lazy var nameLabel1: UILabel = {
         let nameLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 35.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
-        nameLabel1.text = "PASICCASH"
+        nameLabel1.text = "PESOIN"
         return nameLabel1
     }()
     

@@ -211,6 +211,11 @@ class overcoatModel: HandyJSON {
     var clank: String?
     var shutUp: String?
     var shutDown: String?
+    var blueFine: String?
+    var redFine: String?
+    var idecided: String?
+    var forthe: String?
+    var chainanyway: String?
 }
 
 class cashClasModel: HandyJSON {

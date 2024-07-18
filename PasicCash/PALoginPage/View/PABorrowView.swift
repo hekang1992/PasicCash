@@ -35,7 +35,7 @@ class PABorrowView: UIView {
     
     lazy var nameLabel: UILabel = {
         let nameLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 13.ppaix())!, textColor: UIColor.init(hex: "#293014"), textAlignment: .center)
-        nameLabel.text = "PasicCash"
+        nameLabel.text = "Pesoin"
         return nameLabel
     }()
     

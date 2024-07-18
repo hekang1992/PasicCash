@@ -85,6 +85,7 @@ extension PABaseViewController {
     }
     
     func detailPageInfo(productID: String, startTime: String, type: String, completion: @escaping CompletionHandler) {
+       
         ViewHud.addLoadView()
         let dict = ["affairs": productID, "handextinguishers": "1", "therewas": "1"]
         PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/jemWehad", method: .post) { baseModel in
@@ -208,7 +209,7 @@ extension PABaseViewController {
             let handsto = baseModel.handsto
             if handsto == 0 || handsto == 00 {
                 if let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed), let nightwas = model.nightwas {
-                    self?.pushWeb(productID: productID)
+                    self?.pushWeb(productID: productID, webUrl: "")
                 }
             }
             ViewHud.hideLoadView()
@@ -216,10 +217,11 @@ extension PABaseViewController {
             ViewHud.hideLoadView()
         }
     }
-    
-    func pushWeb(productID: String) {
+
+    func pushWeb(productID: String, webUrl: String) {
         let webVc = PAWebViewController()
         webVc.productID = productID
+        webVc.webStr = webUrl
         PATabBarManager.hideTabBar()
         navigationController?.pushViewController(webVc, animated: true)
     }

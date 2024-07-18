@@ -38,10 +38,10 @@ class PAUserViewController: PABaseViewController {
             make.edges.equalToSuperview()
         }
         userView.block1 = { [weak self] in
-            MBProgressHUD.wj_showPlainText("1", view: nil)
+            self?.pushWeb(productID: "", webUrl: "https://pasigborongan.com/scaerdsaf")
         }
         userView.block2 = { [weak self] in
-            MBProgressHUD.wj_showPlainText("2", view: nil)
+            self?.pushWeb(productID: "", webUrl: "https://pasigborongan.com/gbeighwif")
         }
         userView.block3 = { [weak self] in
             self?.poplogout()

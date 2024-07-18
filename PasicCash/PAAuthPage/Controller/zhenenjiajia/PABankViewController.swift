@@ -39,7 +39,7 @@ class PABankViewController: PABaseViewController {
             make.edges.equalToSuperview()
         }
         bankView.block = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.navigationController?.popToRootViewController(animated: true)
         }
         bankView.block1 = { [weak self] in
             if let bankArray = self?.bankArray, !bankArray.isEmpty {
@@ -50,12 +50,29 @@ class PABankViewController: PABaseViewController {
             self?.saveBankInfo()
         }
         bankApi()
+        huoquyonghuxinxi()
     }
     
 }
 
 
 extension PABankViewController {
+    
+    func huoquyonghuxinxi() {
+        PARequestManager.shared.requestAPI(params: [:], pageUrl: "/sicch/whatArYour", method: .post) { [weak self] baseModel in
+            let handsto = baseModel.handsto
+            if handsto == 0 || handsto == 00 {
+                if let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed), let nickModel = model.overcoat {
+                    self?.bankView.phoneText.text = nickModel.idecided ?? ""
+                    self?.bankView.bankBtn.setTitle(nickModel.forthe ?? "", for: .normal)
+                    self?.bankCode = nickModel.chainanyway ?? ""
+                }
+            }
+            ViewHud.hideLoadView()
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+    }
     
     func bankApi() {
         let dict = ["withmiss": "1", "inher": "2"]

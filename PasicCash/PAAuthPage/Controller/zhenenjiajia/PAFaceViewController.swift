@@ -32,31 +32,56 @@ class PAFaceViewController: PABaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let serialQueue = DispatchQueue(label: "com.example.serialQueue")
+
         view.addSubview(faceView)
         startime = PADeviceInfo.getCurrentTime()
         faceView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         faceView.block = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.navigationController?.popToRootViewController(animated: true)
         }
         faceView.block1 = { [weak self] in
             if let picUrl = self?.picUrl, picUrl.isEmpty {
                 PAMediaManager.shared.presentCamera(from: self!, isfront: "1")
             } else {
-                self?.detailPageInfo(productID: self?.productID ?? "", startTime: self?.startime ?? "", type: "") { model1, model2, productID in
-                    self?.nextStep(type: model2.smoke ?? "", productID: productID)
+                self?.sicchfashDali {
+                    serialQueue.async {
+                        self?.detailPageInfo(productID: self?.productID ?? "", startTime: self?.startime ?? "", type: "") { model1, model2, productID in
+                            self?.nextStep(type: model2.smoke ?? "", productID: productID)
+                        }
+                    }
                 }
             }
         }
         faceView.block2 = { [weak self] in
             PAMediaManager.shared.presentCamera(from: self!, isfront: "1")
         }
+        huoquyonghuxinxi()
     }
 
 }
 
 extension PAFaceViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func huoquyonghuxinxi() {
+        PARequestManager.shared.requestAPI(params: [:], pageUrl: "/sicch/whatArYour", method: .post) { [weak self] baseModel in
+            let handsto = baseModel.handsto
+            if handsto == 0 || handsto == 00 {
+                if let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed), let nickModel = model.overcoat {
+                    let redFine = nickModel.redFine ?? ""
+                    self?.picUrl = redFine
+                    if !redFine.isEmpty {
+                        self?.faceView.icon3.kf.setImage(with: URL(string: nickModel.redFine ?? ""))
+                    }
+                }
+            }
+            ViewHud.hideLoadView()
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
@@ -76,7 +101,7 @@ extension PAFaceViewController: UIImagePickerControllerDelegate, UINavigationCon
         var dict: [String: Any] = [:]
         if productID == "2" {
             apiUrl = "/sicch/iwantToHere"
-            dict["goneup"] = "1"
+            dict["goneup"] = "2"
         }else {
             apiUrl = "/sicch/oneSese"
             dict["goneup"] = "10"
@@ -100,7 +125,9 @@ extension PAFaceViewController: UIImagePickerControllerDelegate, UINavigationCon
                         indicator.color = .black
                     }
                     self?.faceView.icon3.kf.setImage(with: URL(string: model.lively ?? ""), options: options)
-                    self?.sicchfashDali()
+                    self?.sicchfashDali(completion: {
+                        
+                    })
                 }
             }
             ViewHud.hideLoadView()
@@ -109,14 +136,14 @@ extension PAFaceViewController: UIImagePickerControllerDelegate, UINavigationCon
         }, type: "image")
     }
     
-    func sicchfashDali() {
+    func sicchfashDali(completion: @escaping () -> Void) {
         let dict = ["affairs": productID ?? "", "withmiss": "1", "inher": "2"]
         PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/fashDali", method: .post) { baseModel in
-            
+            completion()
         } errorBlock: { error in
-            
+            completion()
         }
-
     }
+    
 }
 

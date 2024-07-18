@@ -53,26 +53,46 @@ class PAAuthIDViewController: PABaseViewController {
             make.edges.equalToSuperview()
         }
         idView.block = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.navigationController?.popToRootViewController(animated: true)
         }
         idView.block1 = { [weak self] in
             if let picUrl = self?.picUrl, picUrl.isEmpty {
                 self?.popPhotot()
             } else {
-                self?.detailPageInfo(productID: self?.productID ?? "", startTime: self?.startime ?? "", type: "") { model1, model2, productID in
-                    self?.nextStep(type: model2.smoke ?? "", productID: productID)
-                }
+                let viewController = PAFaceViewController()
+                viewController.productID = self?.productID ?? ""
+                PATabBarManager.hideTabBar()
+                self?.navigationController?.pushViewController(viewController, animated: true)
             }
         }
         idView.block2 = { [weak self] in
             self?.popPhotot()
         }
         idView.icon3.kf.setImage(with: URL(string: typeModel?.lively ?? ""), placeholder: UIImage(named: "Group_1031"))
+        huoquyonghuxinxi()
     }
 }
 
 
 extension PAAuthIDViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func huoquyonghuxinxi() {
+        PARequestManager.shared.requestAPI(params: [:], pageUrl: "/sicch/whatArYour", method: .post) { [weak self] baseModel in
+            let handsto = baseModel.handsto
+            if handsto == 0 || handsto == 00 {
+                if let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed), let nickModel = model.overcoat {
+                    let blueFine = nickModel.blueFine ?? ""
+                    self?.picUrl = blueFine
+                    if !blueFine.isEmpty {
+                        self?.idView.icon3.kf.setImage(with: URL(string: nickModel.blueFine ?? ""))
+                    }
+                }
+            }
+            ViewHud.hideLoadView()
+        } errorBlock: { error in
+            ViewHud.hideLoadView()
+        }
+    }
     
     func popPhotot() {
         let alertVc = TYAlertController(alert: albumView, preferredStyle: .alert)
@@ -220,7 +240,15 @@ extension PAAuthIDViewController: UIImagePickerControllerDelegate, UINavigationC
         } errorBlock: { error in
             ViewHud.hideLoadView()
         }
-        
+    }
+    
+    func sicchfashDali(completion: @escaping () -> Void) {
+        let dict = ["affairs": productID ?? "", "withmiss": "1", "inher": "2"]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/fashDali", method: .post) { baseModel in
+            completion()
+        } errorBlock: { error in
+            completion()
+        }
     }
     
 }
