@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to access your location information to provide more accurate products and services. Rest assured, we will not misuse your location data. If you have any questions, please feel free to contact us.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need to access your location information to provide more accurate products and services. Rest assured, we will not misuse your location data. If you have any questions, please feel free to contact us.</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>To provide you with more accurate product recommendations, we request your Advertising ID. We are committed to protecting your privacy and strictly adhere to all relevant laws and regulations. Your Advertising ID will be used solely to enhance our services.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -13,10 +17,6 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>LilitaRegular.ttf</string>

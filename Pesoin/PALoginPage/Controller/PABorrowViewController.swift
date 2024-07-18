@@ -27,6 +27,9 @@ class PABorrowViewController: PABaseViewController {
         borrowView.block = { [weak self] in
             self?.nextVc()
         }
+        PALocation.shared.startUpdatingLocation { locationModel in
+            
+        }
     }
 }
 

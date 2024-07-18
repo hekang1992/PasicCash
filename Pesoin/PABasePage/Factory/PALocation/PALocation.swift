@@ -9,6 +9,7 @@ import UIKit
 import CoreLocation
 
 typealias LocationModelBlock = (_ locationModel: LocationModel) -> Void
+
 class PALocation: NSObject {
 
     static let shared = PALocation()

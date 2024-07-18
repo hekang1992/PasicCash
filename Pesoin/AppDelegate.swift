@@ -41,8 +41,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func rootVcPush() {
-        NotificationCenter.default.addObserver(self, selector: #selector(setUpRootVc(_ :)), name: NSNotification.Name(ROOT_VC), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(huoquidfa(_ :)), name: NSNotification.Name(IDFA_PA), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setUpRootVc(_ :)), name: NSNotification.Name(ROOT_VC), object: nil)
     }
     
     @objc func setUpRootVc(_ notification: Notification) {
@@ -91,25 +91,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         }
         let dict = ["bitty": idfv, "themiddle": idfaStr, "sloshed": "1"]
         PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/jemAbout", method: .post) { baseModel in
-            let handsto = baseModel.handsto
-            if handsto == 0 || handsto == 00 {
-                
-            }
+
         } errorBlock: { error in
             
         }
-        
     }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        var strToken = ""
-        for byte in deviceToken {
-            strToken += String(format: "%02x", byte)
-        }
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        application.applicationIconBadgeNumber = 0
-    }
-    
 }

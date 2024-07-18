@@ -136,6 +136,7 @@ extension PALaunchViewController {
             make.width.equalTo(SCREEN_WIDTH)
             make.height.equalTo(SCREEN_HEIGHT)
         }
+        NotificationCenter.default.post(name: NSNotification.Name(IDFA_PA), object: nil, userInfo: nil)
     }
     
     @objc func imageTapped1() {
@@ -156,8 +157,8 @@ extension PALaunchViewController {
     func toRootVC() {
         let loginStatus = IS_LOGIN ? "1" : "0"
         let dict = ["login": loginStatus]
-        NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC), object: nil, userInfo: dict)
         NotificationCenter.default.post(name: NSNotification.Name(IDFA_PA), object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(ROOT_VC), object: nil, userInfo: dict)
     }
     
 }

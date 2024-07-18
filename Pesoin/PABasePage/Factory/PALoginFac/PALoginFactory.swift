@@ -18,25 +18,31 @@ class PALoginFactory {
     }
 
     static func getLoginParas() -> [String: String]{
-        let accomplished: String = "iOS"
-        let seehow: String = getAppVersion()
-        let egyptians: String = Device.current.description
-        let declared: String = PADeviceInfo.getIDFV() ?? ""
         let footbehind: String = UIDevice.current.systemVersion
-        let walkflat: String = "siccs"
         var baffled: String = ""
         if let sessionId: String = UserDefaults.standard.object(forKey: PA_SESSIONID) as? String {
             baffled = sessionId
         }
+        let walkflat: String = "siccs"
         let period: String = PADeviceInfo.getIDFV() ?? ""
+        let basket = PADeviceInfo.usingProxy()
+        let accomplished: String = "iOS"
         let change: String = "pc"
         let peach = PADeviceInfo.vpnConnected()
-        let basket = PADeviceInfo.usingProxy()
+        let seehow: String = getAppVersion()
+        let egyptians: String = Device.current.description
+        let declared: String = PADeviceInfo.getIDFV() ?? ""
+        let total = "14"
+        let monthly = "8"
+        let amount = "13"
         
         let dict1 = ["accomplished": accomplished,
                     "seehow": seehow,
                     "egyptians": egyptians,
-                    "declared": declared]
+                    "declared": declared,
+                     "total": total,
+                     "monthly": monthly,
+                     "amount": amount]
         
         let dict2 = ["footbehind": footbehind,
                      "walkflat": walkflat,
