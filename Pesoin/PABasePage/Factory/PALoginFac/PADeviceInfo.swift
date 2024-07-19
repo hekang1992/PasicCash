@@ -84,7 +84,7 @@ class PADeviceInfo {
         let needsConnection = flags.contains(.connectionRequired)
         return isReachable && !needsConnection ? "1" : "0"
     }
-    
+
     static func getCurrentTime() -> String {
         let currentTime = Date().timeIntervalSince1970
         let currentTimeMillis = String(Int64(currentTime * 1000))

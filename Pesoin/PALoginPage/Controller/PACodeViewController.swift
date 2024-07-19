@@ -18,6 +18,8 @@ class PACodeViewController: PABaseViewController {
     
     var countdownTimer: Timer!
     
+    var startTime: String?
+    
     lazy var codeView: PACodeView = {
         let codeView = PACodeView()
         return codeView
@@ -27,10 +29,10 @@ class PACodeViewController: PABaseViewController {
         let popNickView = PAPopNickView(frame: self.view.bounds)
         return popNickView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.addSubview(codeView)
         codeView.snp.makeConstraints { make in
@@ -46,8 +48,9 @@ class PACodeViewController: PABaseViewController {
             self?.navigationController?.popViewController(animated: true)
         }
         getCodeApi()
+        startTime = PADeviceInfo.getCurrentTime()
     }
-
+    
 }
 
 
@@ -121,6 +124,7 @@ extension PACodeViewController {
                     PALoginFactory.saveLoginInfo(model.ruined ?? "", model.baffled ?? "")
                 }
                 self?.popView()
+                self?.appmaidain(productID: "", type: "1", startTime: self?.startTime ?? "")
             }
             ViewHud.hideLoadView()
             MBProgressHUD.wj_showPlainText(jiffy, view: nil)
@@ -144,5 +148,4 @@ extension PACodeViewController {
             })
         }
     }
-    
 }

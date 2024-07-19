@@ -83,8 +83,10 @@ extension PAAuthIDViewController: UIImagePickerControllerDelegate, UINavigationC
                 if let model = JSONDeserializer<shepointedModel>.deserializeFrom(dict: baseModel.shepointed), let nickModel = model.overcoat {
                     let blueFine = nickModel.blueFine ?? ""
                     self?.picUrl = blueFine
-                    if !blueFine.isEmpty {
-                        self?.idView.icon3.kf.setImage(with: URL(string: nickModel.blueFine ?? ""))
+                    DispatchQueue.main.async {
+                        if !blueFine.isEmpty {
+                            self?.idView.icon3.kf.setImage(with: URL(string: nickModel.blueFine ?? ""))
+                        }
                     }
                 }
             }
@@ -234,6 +236,7 @@ extension PAAuthIDViewController: UIImagePickerControllerDelegate, UINavigationC
                 let faceVc = PAFaceViewController()
                 faceVc.productID = self?.productID
                 self?.navigationController?.pushViewController(faceVc, animated: true)
+                self?.appmaidain(productID: self?.productID ?? "", type: "3", startTime: self?.startime ?? "")
             }
             ViewHud.hideLoadView()
             MBProgressHUD.wj_showPlainText(jiffy, view: nil)

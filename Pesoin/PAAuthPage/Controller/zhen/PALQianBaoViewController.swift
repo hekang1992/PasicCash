@@ -116,6 +116,7 @@ extension PALQianBaoViewController {
                         self?.ordertVc(orderID: orderID, productID: productID)
                     }
                 }
+                self?.appmaidain(productID: self?.productID ?? "", type: "8", startTime: self?.startime ?? "")
             }
             ViewHud.hideLoadView()
             MBProgressHUD.wj_showPlainText(jiffy, view: nil)

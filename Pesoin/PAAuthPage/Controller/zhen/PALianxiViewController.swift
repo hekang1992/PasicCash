@@ -115,6 +115,7 @@ extension PALianxiViewController: CNContactPickerDelegate {
                         self?.detailPageInfo(productID: self?.productID ?? "", startTime: self?.startime ?? "", type: "") { model1, model2, productID in
                             self?.nextStep(type: model2.smoke ?? "", productID: productID)
                         }
+                        self?.appmaidain(productID: self?.productID ?? "", type: "7", startTime: self?.startime ?? "")
                     }
                     ViewHud.hideLoadView()
                     MBProgressHUD.wj_showPlainText(jiffy, view: nil)

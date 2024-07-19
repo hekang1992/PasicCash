@@ -13,6 +13,8 @@ class PAShiYiViewController: PABaseViewController {
     
     var productID: String?
     
+    var startTime: String?
+    
     lazy var shiyiView: PAShiYiView = {
         let shiyiView = PAShiYiView()
         shiyiView.titleLabel.text = "Card Type"
@@ -39,6 +41,7 @@ class PAShiYiViewController: PABaseViewController {
             self?.popQ(typeModel: model)
         }
         shiyiApi()
+        startTime = PADeviceInfo.getCurrentTime()
     }
 }
 
@@ -75,6 +78,7 @@ extension PAShiYiViewController {
                 authVc.typeModel = typeModel
                 authVc.productID = self?.productID
                 self?.navigationController?.pushViewController(authVc, animated: true)
+                self?.appmaidain(productID: self?.productID ?? "", type: "2", startTime: self?.startTime ?? "")
             })
         }
     }

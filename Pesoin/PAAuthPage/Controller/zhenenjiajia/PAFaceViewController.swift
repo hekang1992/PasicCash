@@ -129,6 +129,7 @@ extension PAFaceViewController: UIImagePickerControllerDelegate, UINavigationCon
                         
                     })
                 }
+                self?.appmaidain(productID: self?.productID ?? "", type: "4", startTime: self?.startime ?? "")
             }
             ViewHud.hideLoadView()
         }, errorBlock: { error in

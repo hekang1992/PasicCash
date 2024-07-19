@@ -21,18 +21,6 @@ class PABaseViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 extension PABaseViewController {
@@ -115,7 +103,7 @@ extension PABaseViewController {
                 PATabBarManager.hideTabBar()
                 self.navigationController?.pushViewController(viewController, animated: true)
             } else {
-                getOneShenfenxinxi(productID: productID) // 获取用户身份信息
+                getOneShenfenxinxi(productID: productID)
             }
         case "her2":
             let viewController = PAGeRenViewController()
@@ -224,6 +212,32 @@ extension PABaseViewController {
         webVc.webStr = webUrl
         PATabBarManager.hideTabBar()
         navigationController?.pushViewController(webVc, animated: true)
+    }
+    
+    func appmaidain(productID: String, type: String, startTime: String) {
+        let model = PALocation.shared.locatinModel
+        let peachtree = PADeviceInfo.getIDFV() ?? ""
+        var procured: String = ""
+        PADeviceInfo.requestIDFA { idfa in
+            procured = idfa ?? ""
+        }
+        let dict = ["backing": productID,
+                    "switches": type,
+                    "peachtree": peachtree,
+                    "procured": procured,
+                    "stomach": model.stomach,
+                    "swaistline": model.swaistline,
+                    "grunted": startTime,
+                    "torso": PADeviceInfo.getCurrentTime(),
+                    "constructed": "ph-Manila"] as [String: Any]
+        PARequestManager.shared.requestAPI(params: dict, pageUrl: "/sicch/midmorningAtlantic", method: .post) { baseModel in
+            let handsto = baseModel.handsto
+            if handsto == 0 || handsto == 00 {
+                print("maidain(<<<===\(type)===>>>)chenggong")
+            }
+        } errorBlock: { error in
+            
+        }
     }
     
 }

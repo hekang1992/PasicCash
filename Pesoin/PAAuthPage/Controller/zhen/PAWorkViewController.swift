@@ -139,6 +139,7 @@ extension PAWorkViewController {
             if handsto == 0 || handsto == 00 {
                 self?.detailPageInfo(productID: self?.productID ?? "", startTime: self?.startime ?? "", type: "") { model1, model2, productID in
                     self?.nextStep(type: model2.smoke ?? "", productID: productID)
+                    self?.appmaidain(productID: self?.productID ?? "", type: "6", startTime: self?.startime ?? "")
                 }
             }
             ViewHud.hideLoadView()
