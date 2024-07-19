@@ -97,6 +97,11 @@ extension PALocation: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("🔥Error>>>>>>>🔥\(error)")
+        //xianfabu
+        let observable = Observable.of("Hello", "World")
+        observable.subscribe { str in
+            
+        }.disposed(by: bag)
     }
     
 }
