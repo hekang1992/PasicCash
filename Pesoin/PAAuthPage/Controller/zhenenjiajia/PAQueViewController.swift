@@ -52,6 +52,9 @@ class PAQueViewController: PABaseViewController {
         queView.saveBlock = { [weak self] in
             self?.sureQueMoney()
         }
+        queView.block2 = { [weak self] in
+            self?.pushWeb(productID: "", webUrl: "https://pasigborongan.com/scaerdsaf")
+        }
         getLoanDetail()
     }
     

@@ -16,6 +16,8 @@ class PAQueRenView: PACommonView {
     
     var block1: ((String) -> Void)?
     
+    var block2: (() -> Void)?
+    
     var loanPurBlock: ((UIButton, [BRProvinceModel]) -> Void)?
     
     var loanPurBlock1: ((UIButton, [BRProvinceModel]) -> Void)?
@@ -212,7 +214,7 @@ extension PAQueRenView: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func userAgreementTapped() {
-        
+        self.block2?()
     }
     
     @objc func nextClick() {

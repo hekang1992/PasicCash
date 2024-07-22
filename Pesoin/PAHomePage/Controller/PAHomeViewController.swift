@@ -34,6 +34,9 @@ class PAHomeViewController: PABaseViewController {
                 self?.judguUrlSche(nightwas)
             }
         }
+        oneView.block1 = { [weak self] in
+            self?.pushWeb(productID: "", webUrl: "https://pasigborongan.com/scaerdsaf")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

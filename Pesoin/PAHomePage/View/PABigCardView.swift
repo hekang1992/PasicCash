@@ -27,6 +27,8 @@ class PABigCardView: UIView {
     
     var block: ((String) -> Void)?
     
+    var block1: (() -> Void)?
+    
     lazy var bgView: UIView = {
         let bgView = UIView()
         return bgView
@@ -152,6 +154,9 @@ extension PABigCardView: UITableViewDelegate, UITableViewDataSource {
                 cell.applyBlock = { [weak self] in
                     self?.block?(self?.bigModel?.danger?.formy ?? "")
                 }
+                cell.block = { [weak self] in
+                    self?.block1?()
+                }
                 return cell
             }
         case (2, 0):
@@ -242,6 +247,8 @@ class PABannerCell: UITableViewCell, GKCycleScrollViewDataSource, GKCycleScrollV
 class PABigCardCell: UITableViewCell {
     
     var applyBlock: (() -> Void)?
+    
+    var block: (() -> Void)?
     
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
@@ -404,7 +411,7 @@ class PABigCardCell: UITableViewCell {
     }
     
     @objc func userAgreementTapped() {
-        
+        self.block?()
     }
     
     @objc func applyClick() {
