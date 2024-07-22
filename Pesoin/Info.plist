@@ -9,9 +9,9 @@
 	<key>NSUserTrackingUsageDescription</key>
 	<string>To provide you with more accurate product recommendations, we request your Advertising ID. We are committed to protecting your privacy and strictly adhere to all relevant laws and regulations. Your Advertising ID will be used solely to enhance our services.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We will use your photo album permissions solely for uploading ID card images to ensure the accuracy of your ID information.</string>
+	<string>We will only use your photo album permissions to upload ID card images to ensure the accuracy of your identity information. Additionally, you can also upload your profile picture through the photo album if needed.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>We need to use your camera to take photos and recognize basic facial information to ensure the accuracy of your identity information.</string>
+	<string>We need to use your camera to take photos and recognize basic facial information to ensure the accuracy of your identity information. Additionally, if needed, you can also upload your profile picture through the camera.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
