@@ -44,8 +44,8 @@ class PAPopNameView: UIView {
         return bgView1
     }()
     
-    lazy var textFi1: UITextField = {
-        let textFi1 = UITextField()
+    lazy var textFi1: NoCopyPasteTextField = {
+        let textFi1 = NoCopyPasteTextField()
         textFi1.font = UIFont(name: LilitaOneFont, size: 20.ppaix())
         textFi1.textColor = UIColor.init(hex: "#719F60")
         textFi1.placeholder = "Enter your name"
@@ -85,8 +85,8 @@ class PAPopNameView: UIView {
         return bgView2
     }()
     
-    lazy var textFi2: UITextField = {
-        let textFi2 = UITextField()
+    lazy var textFi2: NoCopyPasteTextField = {
+        let textFi2 = NoCopyPasteTextField()
         textFi2.font = UIFont(name: LilitaOneFont, size: 20.ppaix())
         textFi2.textColor = UIColor.init(hex: "#719F60")
         textFi2.placeholder = "Enter your number"

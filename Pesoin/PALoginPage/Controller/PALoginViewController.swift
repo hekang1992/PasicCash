@@ -29,6 +29,9 @@ class PALoginViewController: PABaseViewController {
         loginView.block1 = {
             NotificationCenter.default.post(name: Notification.Name(ROOT_VC), object: nil, userInfo: ["login": "1"])
         }
+        loginView.block2 = { [weak self] in
+            self?.pushWeb(productID: "", webUrl: "https://pasigborongan.com/gbeighwif")
+        }
     }
     
     deinit {

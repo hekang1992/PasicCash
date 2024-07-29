@@ -13,6 +13,8 @@ class PALoginView: UIView {
     
     var block1: (() -> Void)?
     
+    var block2: (() -> Void)?
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
@@ -145,7 +147,7 @@ class PALoginView: UIView {
     private lazy var agreeLabel: UILabel = {
         let agreeLabel = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 12.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .left)
         let attributedText = NSMutableAttributedString(string: "By clicking 'Login', you agree to the ")
-        let userAgreement = NSMutableAttributedString(string: "USER AGREEMENT", attributes: [
+        let userAgreement = NSMutableAttributedString(string: "Privacy Policy", attributes: [
             .foregroundColor: UIColor.init(hex: "#C2EF44"),
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ])
@@ -274,7 +276,7 @@ extension PALoginView: UITextFieldDelegate {
     }
     
     @objc func userAgreementTapped() {
-        
+        self.block2?()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

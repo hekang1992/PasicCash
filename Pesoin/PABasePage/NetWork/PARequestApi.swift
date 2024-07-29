@@ -11,7 +11,7 @@ import BRPickerView
 
 let SCHEME_URL = "happy://are.you"
 
-let BASE_URL = "https://pasigborongan.com/"
+let BASE_URL = "https://pasigborongan.com"
 
 let GIT_URL = "https://raw.githubusercontent.com/dtsdark/sicass/main/wokrje"
 

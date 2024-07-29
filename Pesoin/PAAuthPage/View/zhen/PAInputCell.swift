@@ -42,8 +42,8 @@ class PAInputCell: UITableViewCell {
         return bgView
     }()
     
-    lazy var inputField: UITextField = {
-        let inputField = UITextField()
+    lazy var inputField: NoCopyPasteTextField = {
+        let inputField = NoCopyPasteTextField()
         inputField.font = UIFont(name: LilitaOneFont, size: 20.ppaix())
         inputField.textColor = UIColor.init(hex: "#719F60")
         let attributes: [NSAttributedString.Key: Any] = [
