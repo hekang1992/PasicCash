@@ -8,6 +8,8 @@
 import UIKit
 
 class PAPendingView: PACommonView {
+    
+    var block1: (() -> Void)?
 
     lazy var jinduImageView: UIImageView = {
         let jinduImageView = UIImageView()
@@ -180,7 +182,7 @@ class PAPendingView: PACommonView {
 extension PAPendingView {
     
     @objc func nextClick() {
-        self.block?()
+        self.block1?()
     }
     
 }

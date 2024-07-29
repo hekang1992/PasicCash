@@ -28,7 +28,10 @@ class PAPendingViewController: PABaseViewController {
             make.edges.equalToSuperview()
         }
         pendView.block = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.navigationController?.popToRootViewController(animated: true)
+        }
+        pendView.block1 = { [weak self] in
+            self?.navigationController?.popToRootViewController(animated: true)
         }
         pendApi()
     }

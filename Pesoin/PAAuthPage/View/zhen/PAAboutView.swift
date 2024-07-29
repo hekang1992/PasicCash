@@ -30,6 +30,37 @@ class PAAboutView: PACommonView {
         return whiteView
     }()
     
+    lazy var whiteView1: UIView = {
+        let whiteView1 = UIView()
+        whiteView1.layer.cornerRadius = 20.ppaix()
+        whiteView1.backgroundColor = UIColor.init(hex: "#FDFFF6")
+        return whiteView1
+    }()
+    
+    lazy var daikuanLabel1: UILabel = {
+        let nameLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
+        nameLabel1.text = "Loan Provider Information"
+        return nameLabel1
+    }()
+    
+    lazy var daikuanLabel2: UILabel = {
+        let nameLabel2 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#C7CABB"), textAlignment: .center)
+        nameLabel2.text = "LINK CREDIT LENDING INVESTORS INC."
+        return nameLabel2
+    }()
+    
+    lazy var daikuanLabel3: UILabel = {
+        let nameLabel3 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
+        nameLabel3.text = "C.A.No.3072"
+        return nameLabel3
+    }()
+    
+    lazy var daikuanLabel4: UILabel = {
+        let nameLabel4 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
+        nameLabel4.text = "SEC No.CS201914644"
+        return nameLabel4
+    }()
+    
     lazy var nameLabel1: UILabel = {
         let nameLabel1 = UILabel.buildLabel(font: UIFont(name: LilitaOneFont, size: 18.ppaix())!, textColor: UIColor.init(hex: "#1C200D"), textAlignment: .center)
         nameLabel1.text = "Company info"
@@ -85,6 +116,11 @@ class PAAboutView: PACommonView {
         super.init(frame: frame)
         scrollView.addSubview(iconImageView)
         scrollView.addSubview(nameLabel)
+        scrollView.addSubview(whiteView1)
+        whiteView1.addSubview(daikuanLabel1)
+        whiteView1.addSubview(daikuanLabel2)
+        whiteView1.addSubview(daikuanLabel3)
+        whiteView1.addSubview(daikuanLabel4)
         scrollView.addSubview(whiteView)
         whiteView.addSubview(nameLabel1)
         whiteView.addSubview(nameLabel2)
@@ -102,11 +138,40 @@ class PAAboutView: PACommonView {
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(iconImageView.snp.bottom).offset(15.ppaix())
-            make.size.equalTo(CGSize(width: 200.ppaix(), height: 21.ppaix()))
+            make.size.equalTo(CGSize(width: 180.ppaix(), height: 21.ppaix()))
+        }
+        whiteView1.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(nameLabel.snp.bottom).offset(30.ppaix())
+            make.left.equalToSuperview().offset(20.ppaix())
+            make.height.equalTo(200.ppaix())
+        }
+        daikuanLabel1.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(30.ppaix())
+            make.centerX.equalToSuperview()
+            make.size.equalTo(CGSize(width: 280.ppaix(), height: 20.ppaix()))
+        }
+        daikuanLabel2.snp.makeConstraints { make in
+            make.top.equalTo(daikuanLabel1.snp.bottom).offset(15.ppaix())
+            make.centerX.equalToSuperview()
+            make.left.equalToSuperview()
+            make.height.equalTo(20.ppaix())
+        }
+        daikuanLabel3.snp.makeConstraints { make in
+            make.top.equalTo(daikuanLabel2.snp.bottom).offset(20.ppaix())
+            make.centerX.equalToSuperview()
+            make.left.equalToSuperview()
+            make.height.equalTo(20.ppaix())
+        }
+        daikuanLabel4.snp.makeConstraints { make in
+            make.top.equalTo(daikuanLabel3.snp.bottom).offset(15.ppaix())
+            make.centerX.equalToSuperview()
+            make.left.equalToSuperview()
+            make.height.equalTo(20.ppaix())
         }
         whiteView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(nameLabel.snp.bottom).offset(30.ppaix())
+            make.top.equalTo(whiteView1.snp.bottom).offset(30.ppaix())
             make.left.equalToSuperview().offset(20.ppaix())
             make.height.equalTo(346.ppaix())
             make.bottom.equalToSuperview().offset(-50.ppaix())

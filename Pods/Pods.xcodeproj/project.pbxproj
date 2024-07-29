@@ -1346,7 +1346,7 @@
 		71EDBABFFCE9613220D441E1851A5D42 /* AnyEquatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyEquatable.swift; path = Sources/Private/Utility/Helpers/AnyEquatable.swift; sourceTree = "<group>"; };
 		73B287906E1742F6A8B4F88355F783F0 /* LockOwnerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LockOwnerType.swift; path = RxSwift/Concurrency/LockOwnerType.swift; sourceTree = "<group>"; };
 		7439B910EBA9DA38017D57CB36E79CF4 /* Maybe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Maybe.swift; path = RxSwift/Traits/PrimitiveSequence/Maybe.swift; sourceTree = "<group>"; };
-		7490142499B413BA1A0560989B53890B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Source/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		7490142499B413BA1A0560989B53890B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Source/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		75C4E20784C31FE1C7C491537268F0E4 /* IQBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQBarButtonItem.swift; path = IQKeyboardManagerSwift/IQToolbar/IQBarButtonItem.swift; sourceTree = "<group>"; };
 		766D77671FD3821B3F102FF3F7B08CC8 /* AnimatedProviding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedProviding.swift; path = Sources/Private/EmbeddedLibraries/EpoxyCore/Model/Providers/AnimatedProviding.swift; sourceTree = "<group>"; };
 		7670A3F23B9A401B9CE7690CAC0294FD /* NSBundle+BRPickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+BRPickerView.h"; path = "BRPickerView/Base/NSBundle+BRPickerView.h"; sourceTree = "<group>"; };
@@ -1402,7 +1402,7 @@
 		8508D28259B99C695599B5B6C5EEFC23 /* PrecompAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PrecompAsset.swift; path = Sources/Private/Model/Assets/PrecompAsset.swift; sourceTree = "<group>"; };
 		85702595850B09A72A898ABBC8D61BED /* TYAlertScaleFadeAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TYAlertScaleFadeAnimation.m; path = TYAlertControllerDemo/TYAlertController/TYAlertScaleFadeAnimation.m; sourceTree = "<group>"; };
 		85A77391280B3F131FCB82D5DC543166 /* BRPickerView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BRPickerView.modulemap; sourceTree = "<group>"; };
-		85C7F05339DF12CFCD3CE16EDFA0BF90 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = IQKeyboardManagerSwift/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		85C7F05339DF12CFCD3CE16EDFA0BF90 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = IQKeyboardManagerSwift/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		85FF739738183D54B8155C6D82800391 /* RxSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RxSwift-prefix.pch"; sourceTree = "<group>"; };
 		865C6576F8BA604D63A3181B94BC1B2C /* Rectangle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Rectangle.swift; path = Sources/Private/Model/ShapeItems/Rectangle.swift; sourceTree = "<group>"; };
 		86CF6991C5CC1DD6EA3E7461982683BB /* WJColouredRibbonAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WJColouredRibbonAnimation.m; path = "MBProgressHUD+WJExtension/WJColouredRibbonAnimation.m"; sourceTree = "<group>"; };
@@ -1496,7 +1496,7 @@
 		9C6BE65FE72BC7252D12ECB8B6827592 /* Asset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Asset.swift; path = Sources/Private/Model/Assets/Asset.swift; sourceTree = "<group>"; };
 		9D32D137C23431257177919C8BBBE977 /* MainScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MainScheduler.swift; path = RxSwift/Schedulers/MainScheduler.swift; sourceTree = "<group>"; };
 		9D75A333581050B53F8245AEABEAB968 /* URLTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLTransform.swift; path = Source/URLTransform.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E49E563E1DC571D0839E01D900649D0 /* RxSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RxSwift.modulemap; sourceTree = "<group>"; };
 		9E9902F8CA82E845108977D2F210BB95 /* SwiftUIMeasurementContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftUIMeasurementContainer.swift; path = Sources/Private/EmbeddedLibraries/EpoxyCore/SwiftUI/LayoutUtilities/SwiftUIMeasurementContainer.swift; sourceTree = "<group>"; };
 		9EF0BE06AF988C4A62BFD182F20455DB /* TakeLast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TakeLast.swift; path = RxSwift/Observables/TakeLast.swift; sourceTree = "<group>"; };
@@ -1517,7 +1517,7 @@
 		A58358F7B5903A39291D3630F82963E4 /* DropShadowAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropShadowAnimation.swift; path = Sources/Private/CoreAnimation/Animations/DropShadowAnimation.swift; sourceTree = "<group>"; };
 		A5B616F32A1CBF3D2B41F2430B68D4AE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		A5E6BBFF7215BCCD75AF761B3CE560C3 /* LottieView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LottieView.swift; path = Sources/Public/Animation/LottieView.swift; sourceTree = "<group>"; };
-		A61255A20DE872A19CE89914A0D6303F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A61255A20DE872A19CE89914A0D6303F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		A64A303D025C6CB223C03A916C9EFD60 /* MJRefreshBackNormalFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackNormalFooter.h; path = MJRefresh/Custom/Footer/Back/MJRefreshBackNormalFooter.h; sourceTree = "<group>"; };
 		A67822DAE6DB027AB89B052ADF03F8BB /* DefaultAnimationCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultAnimationCache.swift; path = Sources/Public/AnimationCache/DefaultAnimationCache.swift; sourceTree = "<group>"; };
 		A68B00EDC00E315250D6F5863786132D /* ObservableType+PrimitiveSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ObservableType+PrimitiveSequence.swift"; path = "RxSwift/Traits/PrimitiveSequence/ObservableType+PrimitiveSequence.swift"; sourceTree = "<group>"; };
@@ -1658,7 +1658,7 @@
 		C8C44CB733BF4A573F3241883CC965CA /* Amb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Amb.swift; path = RxSwift/Observables/Amb.swift; sourceTree = "<group>"; };
 		C93BCCB866E1C81452C65B5667D7CE20 /* Catch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Catch.swift; path = RxSwift/Observables/Catch.swift; sourceTree = "<group>"; };
 		C97BBAD980DE80CB4C727F03044BA28A /* SwitchIfEmpty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchIfEmpty.swift; path = RxSwift/Observables/SwitchIfEmpty.swift; sourceTree = "<group>"; };
-		C98C1A8494E41E2D1CBEF40EBFAB0D37 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		C98C1A8494E41E2D1CBEF40EBFAB0D37 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		CA041DA674EB89281DEE4BA357A36E19 /* RequestTaskMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestTaskMap.swift; path = Source/RequestTaskMap.swift; sourceTree = "<group>"; };
 		CA1E83B9B15E62A14CF8FC93CE6478EB /* ConstraintMakerRelatable+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintMakerRelatable+Extensions.swift"; path = "Sources/ConstraintMakerRelatable+Extensions.swift"; sourceTree = "<group>"; };
 		CA896DEEA83CE3B00BE67D85A916B770 /* MBProgressHUD+WJExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+WJExtension-prefix.pch"; sourceTree = "<group>"; };
@@ -1670,7 +1670,7 @@
 		CB6E982D78F3EA51CA4B702909F1AA4A /* BRBaseView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRBaseView.h; path = BRPickerView/Base/BRBaseView.h; sourceTree = "<group>"; };
 		CBEFD953588FE5A4C78AE7354BF660C6 /* Zip+arity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Zip+arity.swift"; path = "RxSwift/Observables/Zip+arity.swift"; sourceTree = "<group>"; };
 		CD3140D04C881976E064014600C0428D /* IQKeyboardManager+UIKeyboardNotification.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQKeyboardManager+UIKeyboardNotification.swift"; path = "IQKeyboardManagerSwift/IQKeyboardManager+UIKeyboardNotification.swift"; sourceTree = "<group>"; };
-		CD54121DDA84872534168702B5F92950 /* HandyJSON */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HandyJSON; path = HandyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD54121DDA84872534168702B5F92950 /* HandyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HandyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD84967E5E13A61D806CC0C0F2F958C8 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePrefetcher.swift; path = Sources/Networking/ImagePrefetcher.swift; sourceTree = "<group>"; };
 		CDE0CCC48911405CD03F76D4CAD3B7CC /* KeyframeData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyframeData.swift; path = Sources/Private/Model/Keyframes/KeyframeData.swift; sourceTree = "<group>"; };
 		CE00E0ADC05075DDA0C07402724C33F0 /* IQKeyboardManagerSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManagerSwift-umbrella.h"; sourceTree = "<group>"; };
@@ -2110,7 +2110,6 @@
 				1672ADB081DA58537E937A495BD5F584 /* WJSuccessView.m */,
 				23CE2B545F68564556EEE6BF839426F7 /* Support Files */,
 			);
-			name = "MBProgressHUD+WJExtension";
 			path = "MBProgressHUD+WJExtension";
 			sourceTree = "<group>";
 		};
@@ -2139,7 +2138,6 @@
 				6900963B17371CD76202A0F574752449 /* Resources */,
 				7EBA2CF7FDC8D4A1CBC3ED1D5FC67ACA /* Support Files */,
 			);
-			name = SAMKeychain;
 			path = SAMKeychain;
 			sourceTree = "<group>";
 		};
@@ -2235,7 +2233,6 @@
 				46C116700D9DB9EE4D4B763D16A354E1 /* Resources */,
 				43EE3F328ABD3F98C43FB4AF164EAE59 /* Support Files */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -2569,7 +2566,6 @@
 				AFA45B26E07D14AC812497BDBD91119C /* WillDisplayProviding.swift */,
 				18D0D0B4CB0ABC450AD53192646D065B /* Support Files */,
 			);
-			name = "lottie-ios";
 			path = "lottie-ios";
 			sourceTree = "<group>";
 		};
@@ -2584,7 +2580,6 @@
 				989CD7DED6B3FC2AAB32E3CBDEC01AD8 /* GKPageControl.m */,
 				AFFADEA6E9725B2C684F497A15C99DAB /* Support Files */,
 			);
-			name = GKCycleScrollView;
 			path = GKCycleScrollView;
 			sourceTree = "<group>";
 		};
@@ -2643,7 +2638,6 @@
 				7D5C1C951C77BFE6E45CC1D712E90932 /* Resources */,
 				6EC26C24DAAE06E542DF8710E3144C5D /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -2677,7 +2671,7 @@
 				5BA6046B4C2674409C0D5625F45F8769 /* BRPickerView */,
 				190D7383CCEFD8AB3F8CB93098A3F214 /* DeviceKit */,
 				F9402EBB8621A87909C103FDE22363B9 /* GKCycleScrollView */,
-				CD54121DDA84872534168702B5F92950 /* HandyJSON */,
+				CD54121DDA84872534168702B5F92950 /* HandyJSON.framework */,
 				A8E950A16D00F649C54FFB30F81D7842 /* IQKeyboardManagerSwift */,
 				C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher */,
 				C298ABB78D9B05529B89D8322DB2E7B0 /* Kingfisher-Kingfisher */,
@@ -2705,7 +2699,6 @@
 				0D001D6C35C4918977A0F28A1FFF23B0 /* StringPickerView */,
 				59E019DD611F38B224D47BEEE48612AE /* Support Files */,
 			);
-			name = BRPickerView;
 			path = BRPickerView;
 			sourceTree = "<group>";
 		};
@@ -2748,7 +2741,6 @@
 				D7C12A0FD7F94929D113F5BA2DC32183 /* UIView+TYAutoLayout.m */,
 				1F58EDDEC8B62BE4516D1EF1F0191013 /* Support Files */,
 			);
-			name = TYAlertController;
 			path = TYAlertController;
 			sourceTree = "<group>";
 		};
@@ -2919,7 +2911,6 @@
 				7F0783D7FB89EE2995B7B68780B9158C /* Zip+Collection.swift */,
 				68481DAE82479361991E1305B5B0E9E7 /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -2968,7 +2959,6 @@
 				58F4EB12D1AC3E70748408BC8B2D13B9 /* Reachability.swift */,
 				0A555A35521485AA19BB4655CAD0501C /* Support Files */,
 			);
-			name = ReachabilitySwift;
 			path = ReachabilitySwift;
 			sourceTree = "<group>";
 		};
@@ -3048,7 +3038,6 @@
 				C0ACC8AFF51D68AD152D2A78E94B4064 /* Resources */,
 				F0C4AC3A96A830F1318324AFFD542EAA /* Support Files */,
 			);
-			name = IQKeyboardManagerSwift;
 			path = IQKeyboardManagerSwift;
 			sourceTree = "<group>";
 		};
@@ -3094,7 +3083,6 @@
 				B2C36EA1FFA4F242D1FAA375A43AEA31 /* Validation.swift */,
 				15E671F705A26E871017B97620AEFE0F /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -3128,7 +3116,6 @@
 				CA2668B3142BF70FDDFD3ADE012DFFCD /* Resources */,
 				D13645A58347D3B6EE9ED4AD1D08347E /* Support Files */,
 			);
-			name = DeviceKit;
 			path = DeviceKit;
 			sourceTree = "<group>";
 		};
@@ -3245,7 +3232,6 @@
 				9D75A333581050B53F8245AEABEAB968 /* URLTransform.swift */,
 				ADA09F53F7AAA77AE94D5744B9B6760F /* Support Files */,
 			);
-			name = HandyJSON;
 			path = HandyJSON;
 			sourceTree = "<group>";
 		};
@@ -3320,7 +3306,6 @@
 				55F61FB4971EF6EC4B197794E646159A /* Resources */,
 				E54B2D5E80273DD8C211739D5A1C12B3 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -3565,7 +3550,7 @@
 			);
 			name = HandyJSON;
 			productName = HandyJSON;
-			productReference = CD54121DDA84872534168702B5F92950 /* HandyJSON */;
+			productReference = CD54121DDA84872534168702B5F92950 /* HandyJSON.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */ = {
@@ -5555,6 +5540,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = singlefile;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
