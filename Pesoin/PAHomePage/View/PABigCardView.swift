@@ -594,7 +594,7 @@ class PASecCell: UITableViewCell {
         }
         iconImageView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.equalTo(nameLabel.snp.bottom).offset(20.ppaix())
+            make.top.equalTo(nameLabel.snp.bottom).offset(2.ppaix())
             make.height.equalTo(147.ppaix())
             make.bottom.equalToSuperview()
         }
